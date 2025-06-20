@@ -1,0 +1,55 @@
+<div class="ma_page_content">
+	<div class="ma_pc_inner">
+		<div class="page_padding">
+			<div class="text-center content ds_radio_main">
+				<div class="ss_image_prnt">
+					<div class="ss_image" style="background-image: url({{t_thumbnail}})"></div>
+					<div class="ss_track_play_pause">
+						<div class="play_btn" id="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#fff" d="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg></div>
+						<div class="pause_btn" id="pause_btn"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#fff" d="M15,16H13V8H15M11,16H9V8H11M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg></div>
+					</div>
+				</div>
+				<h2>{{t_title}}</h2>
+				<div class="ss_auth_info">
+					<span class="aut_nam"><a class="ss_short_info" href="{{USER url}}" data-load="{{USER username}}"><img src="{{USER avatar}}" alt="User Avatar" width="20" height="20"> {{USER name}}</a></span>
+					<span class="middot">·</span>
+					<span class="published">{{t_time}}</span>
+					<span class="middot">·</span>
+					<span>{{genre}}</span>
+				</div>
+				<div class="spectrograph_prnt">
+					<svg xmlns="http://www.w3.org/2000/svg" class="equilizer" viewBox="0 0 360 230"> <g> <rect class="bar" transform="translate(0,0)" y="15"></rect> <rect class="bar" transform="translate(25,0)" y="15"></rect> <rect class="bar" transform="translate(50,0)" y="15"></rect> <rect class="bar" transform="translate(75,0)" y="15"></rect> <rect class="bar" transform="translate(100,0)" y="15"></rect> <rect class="bar" transform="translate(125,0)" y="15"></rect> <rect class="bar" transform="translate(150,0)" y="15"></rect> <rect class="bar" transform="translate(175,0)" y="15"></rect> <rect class="bar" transform="translate(200,0)" y="15"></rect> <rect class="bar" transform="translate(225,0)" y="15"></rect> <rect class="bar" transform="translate(250,0)" y="15"></rect> <rect class="bar" transform="translate(275,0)" y="15"></rect> <rect class="bar" transform="translate(300,0)" y="15"></rect> <rect class="bar" transform="translate(325,0)" y="15"></rect> <rect class="bar" transform="translate(350,0)" y="15"></rect> <rect class="bar" transform="translate(375,0)" y="15"></rect> <rect class="bar" transform="translate(400,0)" y="15"></rect> <rect class="bar" transform="translate(425,0)" y="15"></rect> <rect class="bar" transform="translate(450,0)" y="15"></rect> <rect class="bar" transform="translate(475,0)" y="15"></rect> <rect class="bar" transform="translate(500,0)" y="15"></rect> <rect class="bar" transform="translate(525,0)" y="15"></rect> <rect class="bar" transform="translate(550,0)" y="15"></rect> <rect class="bar" transform="translate(575,0)" y="15"></rect> <rect class="bar" transform="translate(600,0)" y="15"></rect> <rect class="bar" transform="translate(625,0)" y="15"></rect> <rect class="bar" transform="translate(650,0)" y="15"></rect> <rect class="bar" transform="translate(675,0)" y="15"></rect> <rect class="bar" transform="translate(700,0)" y="15"></rect> <rect class="bar" transform="translate(725,0)" y="15"></rect> <rect class="bar" transform="translate(750,0)" y="15"></rect> <rect class="bar" transform="translate(775,0)" y="15"></rect> <rect class="bar" transform="translate(800,0)" y="15"></rect> </g> </svg>
+				</div>
+			</div>
+			<input type="hidden" id="current-track" value="{{t_audio_id}}">
+		</div>
+	</div>
+</div>
+<img src="" alt="" id="de-image">
+
+<script>
+    window.run_station = new Audio('{{t_song}}');
+    //var audio = new Audio('{{t_song}}');
+    	//audio.muted = true;
+    var play = document.getElementById('play_btn');
+    play.addEventListener('click', function(){
+        $('body').addClass('player_running');
+        $('.equalizer').show();
+        window.run_station.play();
+    }, false);
+
+    // Get the pause button and append an audio pause method to onclick
+    var pause = document.getElementById('pause_btn');
+    pause.addEventListener('click', function(){
+        $('body').removeClass('player_running');
+        $('.equalizer').hide();
+        window.run_station.pause();
+    }, false);
+
+    var evt = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+    });
+    var canceled = !play.dispatchEvent(evt);
+</script>

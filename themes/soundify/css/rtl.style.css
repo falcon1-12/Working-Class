@@ -1,0 +1,346 @@
+*:not(#waveform) {direction: rtl;}
+body {text-align: right;}
+.images img {transform: rotate(180deg);}
+.short_list_cont .s_lsongs_child .first {margin-right: 0px;margin-left: 20px;}
+.short_list_cont .s_lsongs_child .fav_song {margin-right: 23px;margin-left: 0px;}
+.short_list_cont .album_play_song_lists .s_lsongs_child .second {padding-right: 0;padding-left: 15px;}
+.short_list_cont .s_lsongs_child .duration {margin-right: 0px;margin-left: 35px;}
+.dropdown-menu-right {right: auto;left: 0;}
+.list-unstyled {padding-right: 0;}
+.add_to_plist .modal-title > a {margin-left: 0;margin-right: auto;}
+.add-select-playlists {padding-right: 0;}
+.mat_box .modal-content .modal-footer .btn-default {margin-right: 0;margin-left: 8px;}
+.modal-footer>:not(:first-child) {margin-left: 0;margin-right: .25rem;}
+.nav {padding-right: 0;}
+.ma_tabs ul li:first-child, .nav-tabs .nav-item:first-child {margin-left: 0;margin-right: auto;}
+.ma_tabs ul li:last-child, .nav-tabs .nav-item:last-child {margin-left: auto;margin-right: 0;}
+.music_share_box .thmb_title, .music_share_box .thmb_albm, .music_share_box .thmb_slinks {text-align: right;}
+.copy_embed .colorpickerf {margin-left: 0;margin-right: 8px;}
+.input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {border-top-right-radius: .25rem;border-bottom-right-radius: .25rem;border-top-left-radius: 0;border-bottom-left-radius: 0;}
+.copy_embed .colorpickerf span i {border-radius: 3px 0 0 3px;}
+.pull-right {float: left;}
+.pull-left {float: right;}
+.auth_box .left_combo h2, .auth_box .left_combo p {text-align: end;}
+.auth_box .right_combo .forgot_password {text-align: left;}
+.btn_social {padding: 0px 0 0px 10px;}
+.btn_social > span {margin-right: 0px;margin-left: 10px;}
+.become_author .bauthor_form label.col-md-12 svg {margin-right: 0;margin-left: 4px;}
+.small_stat svg {right: auto;left: -40px;}
+.home_widget_title > span, .sidebar_widget .s_widget_head > span, .store_filters .store_widget .s_widget_head > span, .single_song .ss_related .s_widget_head > span {margin-right: 0;margin-left: 8px;}
+.home_widget_title .slide_btns {margin-left: 0;margin-right: auto;}
+.home_widget_title .slide_btns button.owl-prev {margin-right: 0;margin-left: 5px;}
+.home_widget_title .slide_btns a {margin-right: 0;margin-left: 15px;}
+.short_list_cont .s_lsongs_child .art_song {float: right;margin-right: 0px; margin-left: 15px;}
+.album_songs .play_btn > div {text-align: center;}
+.custom-control {padding-left: 15px;padding-right: 1.5rem;}
+.custom-control-label::before, .custom-control-label::after {left: auto;right: -1.5rem;}
+.uploaded_albm_slist .no-padding-form.submitted > span {margin-left: 0;margin-right: auto;}
+ul.tagit li {float: right;margin-left: 5px;margin-right: 0;}
+.mf_list .avatar_cont {margin-right: 0;margin-left: 9px;float: right;}
+.feed_post .fp_head .user_info {margin-right: 0px;margin-left: 10px;}
+.feed_post .fp_head .opts_feed {margin-left: 0;margin-right: auto;}
+.feed_song {padding: 15px 135px 0 0;}
+.feed_song .first .cover {margin-right: 0;margin-left: 15px;}
+.ssong_comments .write_comment .u_avatar_small {left: auto;right: 8px;}
+.ssong_comments .write_comment .comment_input .emojionearea-editor, .ssong_comments .write_comment .blog_comment_input .emojionearea-editor {padding: 16px 55px 16px 16px;padding-left: 25px;}
+.small-waves .write_comment .comment_input .emojionearea-editor {padding: 9px 45px 5px 5px;padding-left: 25px;}
+.emojionearea .emojionearea-button {right: auto;left: 3px;}
+.emojionearea .emojionearea-picker.emojionearea-picker-position-top {right: auto;left: -14px;}
+.comment-on-wave-data > div:before {left: auto;right: 6px;}
+.ssong_comments .comment_list .comment_item .comm_innr {padding: 10px 0 10px 10px;}
+.ssong_comments .comment_list .comment_item .comm_innr .comment_avatar {margin-right: 0;margin-left: 10px;}
+.ssong_comments .comment_list .comment_item .comment_content {margin-right: 0;margin-left: 10px;}
+.float-left {float: right !important;}
+.float-right {float: left !important;}
+.ss_action_item svg {margin-right: 0;margin-left: 6px;}
+.store_songs .song_list .avatar {float: right;margin-right: 0px;margin-left: 10px;}
+.store_songs .song_list .song_right_part {margin-left: 0px;margin-right: 100px;}
+.single_song .ss_related .store_songs .song_list .song_right_part, .feed_sidebar_song .song_list .song_right_part {margin-left: 0px;margin-right: 60px;}
+.top_m_filters .filter_list {float: right;}
+.short_list_cont .s_lsongs_child .numbers:empty + .fav_song {opacity: 1;visibility: visible;}
+.pro_features .p_feat_innr svg {margin-right: 0;margin-left: 7px;}
+header {margin-left: 0;margin-right: 280px;}
+header .head_menu {margin-left: 15px;margin-right: -5px;}
+header .head_logo {margin-right: 0;margin-left: 70px;}
+header .head_search .head_search_cont input {padding: 0 55px 0 40px;}
+header .head_search .head_search_cont .head_search_mobi_close {right: auto;left: 3px;}
+header .head_search .head_search_cont > svg {left: auto;right: 17px;}
+header .head_search .search_dropdown .trend_head svg {margin-right: 0;margin-left: 6px;}
+header .head_user, .toggle-mode .slider {margin-left: 0;margin-right: auto;}
+.ma_sidebar {left: auto;right: 0;}
+.ma_page_content {margin-left: 0;margin-right: 280px;}
+header .head_user .btn.login {margin-right: 0;margin-left: 5px;}
+header .head_user .opts_account {margin-left: 0;margin-right: 15px;}
+.navbar-brand {margin-right: 0;margin-left: 1rem;}
+.ma_home_nav nav .btn.btn-light {margin-left: 5px;margin-right: 0;}
+.final_step_info h1, .empty_state *, .pub_playlists .track .track_info * {text-align: center;}
+.artist_list {float: right;}
+.sidebar .sidebar_innr .sections li a svg {margin: 3px 0 5px 20px;}
+.ma_footer .ma_footer_cright .dropup {margin-left: 0;margin-right: auto;}
+.dropdown-toggle::after, .dropup .dropdown-toggle::after {margin-left: 0;margin-right: .255em;}
+.ma_home_head .container .link_holder .btn svg {margin-left: 0px;margin-right: 10px;}
+.messages-sidebar .search-box input {padding: 3px 12px;padding-right: 50px;}
+.list-group {padding-right: 0;}
+.messages-sidebar ul li .list-innr .user-avatar {float: right;margin: 0px 5px 0px 15px;}
+.countunseen {float: left;}
+.announcement-renderer {margin-left: 0;margin-right: 240px;}
+span#new-messages {margin: -6px -16px 0px 5px;}
+.user-messages .messages .message .user-avatar {float: right;}
+.user-messages .messages .message .user-message {margin-left: 0;margin-right: 7px;}
+.ma_player_playlist.dropdown-menu:before {right: auto;left: 12px;}
+.ma_player_playlist .queue_head span {margin-left: 0;margin-right: auto;}
+.ma_player_playlist .song .song_icon_container {float: right;margin-right: 0;margin-left: 10px;}
+.ma_player_playlist .song .song_duration {right: auto;left: 10px;}
+.ma_player_playlist .song .song_meta_data {margin-right: 0;margin-left: 50px;}
+.ma_playlists .sec_head .btn {margin-left: 0;margin-right: auto;}
+.create_playlist_innr .play_avatar {margin-right: 0;margin-left: 15px;}
+.create_playlist_innr .custom-control {text-align: right;}
+.mp_list .avatar {margin-right: 0;margin-left: 9px;float: right;border-radius: 0 5px 5px 0;}
+.mp_list .opts_plist {float: left;}
+.mp_list .sec_link {margin-right: 0;margin-left: 40px;}
+.pub_playlists .track .upr_head .user_info {margin-right: 0;margin-left: 30px;}
+.pub_playlists .track .upr_head .user_info .user_ava {float: right;margin-right: 0;margin-left: 5px;}
+.pub_playlists .track .track_info .plist_info p svg {margin-right: 0;margin-left: 2px;}
+.short_list_cont .purchased_songs .s_lsongs_child .second_a {margin-right: 0;margin-left: 80px;}
+.short_list_cont .purchased_songs .s_lsongs_child .second_b {margin-right: 0;margin-left: 60px;}
+.check_box input+label {padding-left: 0;padding-right: 25px;}
+.check_box input+label:after, .check_box input+label:before {left: auto;right: 0;}
+.check_box input+label:after {left: auto;right: 4px;}
+.artist_s_list .wide_page_songs .s_lsongs_child .first, .artist_s_list .wide_page_songs .s_lsongs_child .second, .artist_s_list .wide_page_songs .s_lsongs_child .second_a, .artist_s_list .wide_page_songs .s_lsongs_child .third {float: right;}
+.artist_s_list .wide_page_songs .s_lsongs_child .first {margin: 0;padding-left: 0;padding-right: 1.5%;}
+.search_songs .artist_s_list .wide_page_songs .s_lsongs_child .first .numbers {margin-left: 0;margin-right: -8px;}
+.artist_s_list .wide_page_songs .s_lsongs_child .opts_song {right: auto;left: 0;}
+header .head_user .notis .ma_notifs .avatar {margin: 0 0 0 12px;}
+header .head_user .notis .unread_count, header .head_user .notis .unread_R_count {right: auto;left: 3px;}
+.store_songs .song_upper .song_price_info {margin-left: 0;margin-right: auto;}
+.store_songs .song_upper .song_price_info .btn {margin-left: 0;margin-right: 7px;}
+.serial_counter .track_list .cover_art:after {left: auto;right: -10px;}
+.ss_toolkit {margin-left: 0;margin-right: auto;}
+.ssong_comments .write_comment .u_avatar {left: auto;right: 10px;}
+.artist_header .artist_cover .edit_cover, .artist_user_info .avatar_container .edit_cover, .user_header .user_cover .edit_cover {right: auto;left: 15px;}
+.user_info_cont .user_avatar .edit_avatar {right: auto;left: -6px;}
+.user_side_info_list li svg {margin: -3px 2px 0 6px;}
+.artist_user_info .avatar_container {margin-right: 0px;margin-left: 20px;}
+.artist_user_info .ap_options .btn {margin-right: 0;margin-left: 11px;}
+
+.song_lyrics a.hash svg {margin: 0 -5px 0 5px;}
+.sptlight_head, .ds_import_sc, .sett_page .st_content .toggle-on, .sett_page .st_content .toggle-off, .sett_page .st_sidebar li a, .btn, .ds_radio_main h2, .ds_radio_main .ss_auth_info {text-align: center !important;}
+.sptlight_head svg {margin-right: 0px;margin-left: 10px;}
+.ds_read_blog_thumb .share_btn {right: auto;left: 10px;}
+.ds_read_blog > blockquote {border-left: 0;border-right: 2.5px solid;padding-left: 0px;padding-right: 10px;}
+div.dataTables_wrapper div.dataTables_filter {text-align: left !important;}
+.ds_media_file .btn-file span {margin-right: 0;margin-left: 9px;}
+.ds_track_reviews_list .avatar {margin-right: 0px;margin-left: 10px;}
+.rat_avg_strs, .ds_usr_profile_stat_btn {margin-left: 0;margin-right: auto;}
+.sett_page .st_content .toggle {margin-right: 0;margin-left: 12px;}
+.ds_radio_stat_list .track .cover_art {margin-right: 0;margin-left: 12px;}
+.ds_radio_stat_list .track .cover_art .btn {left: auto;right: 10px;}
+.ds_add_radio_usr > div .btn {margin-left: 0;margin-right: 15px;}
+.artist_header .artist_cover img {width: 100%;height: 100%;position: absolute;top: 50%;right: -50%;bottom: 0;left: 0;display: block;transform: translate(-50%,-50%);object-fit: cover;}
+.sfy_links_header ul li {margin-right: 0;margin-left: 3px;}
+.btn-mat svg {margin: -2px 0 0 3px;}
+.swal2-modal .swal2-buttonswrapper {text-align: left;}
+.swal2-modal .swal2-close {right: auto !important;left: 8px;}
+.sfy_pg_title .ptitle div {margin-right: 0;margin-left: 8px;}
+.sq_music_tracks .track .cover_art.sfy_albm_art a b {right: auto;left: 6px;}
+.cover_art.sfy_albm_art+.track_info span.price_info {right: auto;left: 0;box-shadow: 10px 0px 10px 0px #171719;}
+.see_all a span {margin-right: 0;margin-left: 7px;}
+.auth_box {right: auto;left: 0;}
+.auth_box .modal-content {padding: 30px 40px 20px 90px;}
+.sfy_forms_sbm_btn .btn svg {margin-right: 0;margin-left: 4px;}
+.sfy_mat_input label {left: auto;right: 10px;}
+.sfy_mat_input > input:placeholder-shown:not(:focus) + label, .sfy_mat_input > textarea:placeholder-shown:not(:focus) + label {left: auto;right: 15px;}
+.sfy_main_blogs_info > .sfy_blog_mini_foot .btn svg {margin: 0px 0 0 -7px;}
+.sfy_media_file .btn-file span {margin-right: 0;margin-left: 9px;}
+.short_track_stats .stat_item .title {margin-left: 0;margin-right: 5px;}
+.short_track_stats .stat_item .result {margin-left: 0;margin-right: auto;}
+.home_top_slider .item .bg_text .btn svg {margin: -2px 0 0 4px;}
+.sq_track_slider .owl-nav > button.owl-next {right: auto;left: 0;background: linear-gradient(to left,rgba(23, 23, 25, 0),rgba(23, 23, 25, 0.7) 50%,#171719 100%);}
+.sq_track_slider .owl-nav > button.owl-next:hover {background: linear-gradient(to left,rgba(23, 23, 25, 0),rgba(23, 23, 25, 0.85) 50%,#171719 100%);}
+.sq_track_slider .owl-nav > button.owl-prev {left: auto;right: 0;background: linear-gradient(to right,rgba(23, 23, 25, 0),rgba(23, 23, 25, 0.7) 50%,#171719 100%);}
+.sq_track_slider .owl-nav > button.owl-prev:hover {background: linear-gradient(to right,rgba(23, 23, 25, 0),rgba(23, 23, 25, 0.85) 50%,#171719 100%);}
+.sq_track_slider .owl-nav > button.owl-prev svg, .sq_track_slider .owl-nav > button.owl-next svg {transform: rotate(180deg);}
+.sq_track_slider .owl-nav > button.owl-prev svg {transform: rotateY(0deg);}
+.top_dic_son_listz.short_list_cont .s_lsongs_child .second {padding-right: 0;padding-left: 15px;}
+.short_list_cont .s_lsongs_child .second .second_aa {padding-right: 0px;padding-left: 10px;}
+.upload_block_album .upload_innr .btn.btn-primary {right: auto;left: 0;}
+.upload_block_album .sfy_up_mus_ico {margin: 0 0 0 25px;}
+.sfy_mat_input > select, .sfy_mat_input > select:hover, .sfy_mat_input > select:focus, .sfy_mat_input > select:active {background-position: left center;}
+.feed_post .fp_head {padding-left: 0px;padding-right: 180px;}
+.feed_post .fp_body .cover {left: auto;right: 15px;}
+.feed_post .fp_body .play_btn {left: auto;right: 150px;}
+.feed_song .art-info {padding: 0 0 0 15px;}
+.feed_song .art-info:after {right: auto;left: 4px;}
+.dropdown-menu {transform-origin: right top;}
+.dropdown-menu.dropdown-menu-right {transform-origin: left top;}
+#light-wave {border-right: 0 !important;border-left: 1px solid rgb(71, 71, 71) !important;}
+.feed_sidebar_song .song_upper > .btn {margin-left: 0;margin-right: auto;}
+.price_plans p svg {margin: -2px 0 0 5px;}
+header .opts_head_acc {margin-right: 0;margin-left: 15px;}
+header .head_user .opts_account > .dropdown-menu a svg {margin: -2px 0 0px 10px;}
+.dropdown-menu {text-align: right;}
+.ma_home_head:after {transform: rotate(2.7deg);}
+.sfy_home_grid {margin-left: 0;margin-right: auto;}
+.pr-0, .px-0 {padding-right: 15px!important;padding-left: 0!important;}
+.pl-0, .px-0 {padding-left: 15px!important;padding-right: 0!important;}
+.pt_msg_header h3 a img {margin: -1px 0 0 6px;}
+.user-messages .messages .message.pull-left:before, .user-messages .messages .message.pull-right:before {display: none;}
+.pay_method .btn svg, .pay_method .btn img {margin-right: 0;margin-left: 15px;}
+.ma_player {left: 0;right: 280px;}
+.player .song_details .song_details_inner .song_art {float: right;margin-left: 15px;margin-right: -15px;}
+.player .song_details .song_title {margin-left: 0;margin-right: 65px;}
+.player .song_details .song_time {margin-left: 0;margin-right: 8px;}
+.player .song_progress .song_controls .amplitude-shuffle {margin-right: 0px;margin-left: 20px;}
+.player .song_progress .song_controls .amplitude-repeat {margin-left: 0px;margin-right: 20px;}
+.player .song_progress_right .song_queue, .player .song_progress_right > .btn {margin-left: 0;margin-right: 15px;}
+.ma_player_playlist.dropdown-menu {transform-origin: left bottom;}
+.sfy_plist_art {margin-right: 0;margin-left: 20px;}
+.sfy_plylist_hdr .play_btn {right: auto;left: 0;}
+.pub_playlists .track_list .track .plist_info_bg img {margin-right: 0px;margin-left: 10px;}
+.pub_playlists .track_list .track .sng_cnt {left: auto;right: 6px;}
+.pub_playlists .track_list .track .dropdown {right: auto;left: 6px;}
+.purchased_songs .s_lsongs_child .third .btn {margin-right: 0px;margin-left: 20px;}
+.search_tabs li a svg {margin-right: 0;margin-left: 15px;}
+.sfy_custm_rdo label {padding: 10px 40px 10px 5px;}
+.sfy_custm_rdo label:after, .sfy_custm_rdo label:before {left: auto;right: 12px;}
+.search_result_count {left: auto;right: 30px;}
+header .head_user .opts_account > .btn img {margin: -2px 0 0 3px;}
+.sett_page .st_sidebar li a span {margin: 0px 0 0px 20px;}
+.sett_page .st_sidebar li.active a {box-shadow: inset -2.5px 0px var(--main);}
+.sfy_home_tabs li:not(:last-child) {margin-right: 0px;margin-left: 50px;}
+.store_songs .song_list .fp_body > .btn:not(.main) {right: auto;left: 15px;}
+.store_songs .song_list .feed_song {padding: 15px 135px 0 120px;}
+.sfy_song_hdr .sfy_plist_art {margin-right: 0px;margin-left: 30px;}
+.ss_track_play_pause {margin-right: 0px;margin-left: 30px;}
+.remove-album-song {margin-left: 0;margin-right: 15px;}
+.user_info_cont .user_avatar {margin: 0 0 0 15px;}
+.artist_tabs .nav-tabs .nav-item {margin: 0px;}
+.artist_user_info .avatar_container .edit_cover {left: -2px;}
+
+.ds_aff_usr_head > img {right: auto;left: 40px;}
+
+.ds_comm_reply_cont {margin-left: 0;margin-right: 50px;}
+.small-waves .comment_list .ds_comm_reply_cont {margin-left: 0;margin-right: 35px;}
+.ds_point_sys {padding: 0 120px 0 0;}
+.ds_point_sys > img {left: auto;right: 0;}
+.ds_point_sys_innr.wallet {margin-left: 0;margin-right: 15px;}
+.ps_points > span {right: auto;left: -12px;}
+
+.group_chat_mbr_part .avatar {
+    margin-right: 0;margin-left: 10px;
+}
+.ds_hall_art .cover_art {margin-right: 0;margin-left: 10px;}
+
+.select_radio_btn.small_rbtn .sr_btn_img {margin: 0 0 0 15px;}
+
+.char_left {left: auto;right: 10px;}
+
+.lang_select_modal .language_info svg {
+    right: auto;
+    left: 10px;
+}
+
+
+
+
+
+@media (min-width: 1800px) {
+.expand_plr .ma_container {padding-right: 0;padding-left: 280px;}
+.expand_plr .ma_player {left: 0;right: auto;}
+.expand_plr .ma_player_playlist.dropdown-menu {left: 0;right: auto;}
+}
+
+@media (max-width: 1220px){
+header, .ma_page_content {margin-left: 0;margin-right: 230px;}
+.ma_player {left: auto;right: 230px;}
+}
+
+@media (max-width: 1140px){
+header .head_logo {margin-right: 0;margin-left: 40px;}
+header, .ma_page_content {margin: 0;}
+.ma_sidebar {-webkit-transform: translateX(105%);transform: translateX(105%);}
+.ma_player {left: 0;right: 0;}
+}
+
+@media (max-width: 1024px) {
+.short_list_cont .s_lsongs_child .second .second_bb {left: auto;right: 55px;}
+}
+
+@media (max-width: 992px){
+.search_result_count {left: auto;right: 15px;}
+}
+
+@media (max-width: 900px){
+header .head_logo {margin-right: 0;margin-left: 22px;}
+.user_info_cont .links_btns .opts_btn {margin: 0 auto 25px;}
+.player .song_progress_right {padding-right: 0;padding-left: 0;}
+}
+
+@media (max-width: 800px){
+header .head_search .head_search_cont {margin: 0 10px;}
+header .head_search .head_search_cont input {padding: 0 50px 0 40px;}
+}
+
+@media (max-width: 768px){
+.artist_user_info .ap_user_ava {flex-direction: column;text-align: center;}
+.artist_songs .head_title li.hash, .artist_s_list .wide_page_songs .s_lsongs_child .first {padding-left: 0;padding-right: .5%;}
+.ma_home_features .feature_list .feature_info {text-align: center;}
+.single_song .ssong_footer .ss_actions .ss_toolkit {margin: auto;margin-top: 13px;}
+}
+
+@media (max-width: 700px){
+.upload_music .upload_form {padding: 30px 15px 0px;}
+.upload_music .upload_form .song_thumb, .upload_music .upload_form .song_price {position: relative;top: auto;left: auto;}
+.player .song_progress .song_time {padding-left: 0;padding-right: 0;}
+}
+
+@media (max-width: 600px){
+.store_songs .song_list .song_right_part {margin-left: 0;margin-right: 80px;}
+.store_songs .song_lower {margin-left: 0px;margin-right: -80px;}
+}
+
+@media (max-width: 565px){
+.short_list_cont .album_play_song_lists .s_lsongs_child .first {margin-right: 0;margin-left: 15px;}
+.feed_post .fp_head {padding-left: 0;padding-right: 45px;}
+.feed_post .fp_body .play_btn {left: auto;right: 15px;}
+.feed_post .fp_body .cover {left: auto;right: auto;top: auto;}
+.feed_song, .store_songs .song_list .feed_song {padding: 0;}
+}
+
+@media (max-width: 520px){
+.artist_s_list .wide_page_songs .s_lsongs_child .opts_song {position: relative;margin-left: 0;margin-right: auto;}
+.ma_dashboard .content {margin: 20px auto;}
+.ma_home_nav .navbar {padding-left: 0;padding-right: 0;}
+}
+
+@media (max-width: 485px){
+header .head_logo, header .opts_head_acc, header .head_user .notis, header .chaticon, header .head_user .opts_account {margin: 0;}
+.player .song_details .song_details_inner .song_art {margin-left: 12px;}
+.player .song_details .song_title {margin-right: 57px;}
+header .head_menu, header .head_logo a, header .head_user.not_loggd_hdrr .dropdown > svg {margin: 0px 12px;}
+}
+
+@media (max-width: 470px){
+.store_songs .song_list .song_right_part {margin-left: 0;margin-right: 70px;}
+.store_songs .song_lower { margin-left: 0px;margin-right: -70px;}
+}
+
+@media (max-width: 435px){
+.reset-page {padding: 35px 20px;}
+.home_widget_title .slide_btns a {font-size: 12px;margin-right: 0;margin-left: 10px;}
+.ma_home_search {padding: 50px 10px 20px;}
+.ma_home_nav nav .btn {padding: 1px 11px;}
+.ma_home_nav nav .btn.btn-light {margin-left: 0px;margin-right: 0px;}
+header .head_user .notis .unread_count {left: 78px;}
+header .head_user .notis > .dropdown-menu {left: 0;right: 0;min-width: auto;width: 100%;top: 60px;}
+.single_song .ssong_comments .comment_list .comment_item .comment_meta .comment_controls .btn {padding: 2px 5px;}
+}
+
+@media (max-width: 400px){
+.ma_home_head .container .btn {height: 46px;font-size: 14px;padding: 0 24px;margin-left: 0;margin-right: 0;}
+header .head_user .opts_account {margin-left: 0;margin-right: 7px;}
+.create_playlist_innr .play_avatar {margin-right: 0;margin-left: 0;margin-bottom: 15px;}
+header .head_menu, header .loggd_hd_logo a {margin: 0 5px;}
+.short_list_cont .s_lsongs_child .first {right: auto;left: 2px;margin: 0;}
+.sfy_home_grid {margin: -220px auto 50px;}
+}

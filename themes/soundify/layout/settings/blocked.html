@@ -1,0 +1,20 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="container sfy_no_mobi_padd">
+			<div class="row sett_page">
+				<div class="col-md-4">
+					<?php echo loadPage("settings/sidebar"); ?>
+				</div>
+				<div class="col-md-8">
+					<div class="content st_content">
+						<h2 class="user_sttng_panel_hd">{{LANG Blocked Users}}</h2>
+						<div class="row">
+							{{blocked_list}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

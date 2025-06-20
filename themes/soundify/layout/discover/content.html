@@ -1,0 +1,118 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<center><?php echo GetAd('header');?></center>
+		<?php if ( $music->announcement !== '' ) {?>
+			<div class="announcement-renderer">
+				{{ANNOUNCEMENT}}
+			</div>
+			<br>
+		<?php } ?>
+		<div class="ma_discover_page">
+			<h2 class="home_widget_title">{{LANG featured}}</h2>
+			<div class="owl-carousel home_top_slider owl-theme">
+				{{TOP_SLIDER_CONTENT}}
+			</div>
+			<div class="sq_music_tracks mb-60">
+				<h2 class="valign home_widget_title">{{LANG New Releases}} <a href="{{LINK new_music}}" class="slide_btns" data-load="new_music">{{LANG Show All}}</a></h2>
+				<div class="owl-carousel sq_track_slider owl-theme nm_slider">{{NEW_RELEASES}}</div>
+			</div>
+			
+			<div class="mb-60">
+				<h2 class="home_widget_title">{{LANG top_playlists}}</h2>
+				<div class="serial_counter top_playlists">
+					{{OTHER_PLAYLISTS}}
+				</div>
+			</div>
+			
+			<div class="mb-60">
+				<h2 class="home_widget_title">{{LANG Genres}}</h2>
+				<div class="sfy_genre_list">
+					<?php foreach ($music->categories as $key => $category) {?>
+						<a href="{{LINK explore-genres/<?php echo $key?>}}" data-load="explore-genres/<?php echo $key?>" class="name"><?php echo $category?></a>
+					<?php } ?>
+				</div>
+			</div>
+			<div class="short_list_cont top_dic_son_listz mb-60">
+				<div class="short_list_card">
+					<h2 class="home_widget_title">{{LANG Most Popular This Week}}</h2>
+					<ul class="s_list_songs">
+						{{MOST_THIS_WEEK}}
+					</ul>
+				</div>
+			</div>
+			<?php if (IS_LOGGED) { ?>
+				<div class="sq_music_tracks mb-60">
+					<h2 class="valign home_widget_title">{{LANG Recently Played}} <a href="{{LINK recently_played}}" class="slide_btns" data-load="recently_played">{{LANG Show All}}</a></h2>
+					<div class="owl-carousel sq_track_slider owl-theme rp_slider">{{RECENT_PLAYS}}</div>
+				</div>
+			<?php } ?>
+			<div class="short_list_cont top_dic_son_listz mb-60">
+				<div class="short_list_card">
+					<h2 class="home_widget_title">{{LANG Recommended}}</h2>
+					<ul class="s_list_songs">
+						{{MOST_RECOMMENDED}}
+					</ul>
+				</div>
+			</div>
+			
+			<!-- Top This Week  -->
+			<?php if ($music->is_best) { ?>
+				<div class="short_list_card">
+					<h2 class="home_widget_title"><?php echo($music->config->store_system == 'on' ? '{{LANG Best Selling Songs & Products This Week}}' : '{{LANG Best Selling Songs & Albums This Week}}'); ?></h2>
+					<div class="row best_prods_seller_week">
+						{{BEST_THIS_WEEK}}
+					</div>
+				</div>
+			<?php } ?>
+			<!-- End Popular This Week  -->
+		</div>
+	</div>
+</div>
+
+<script>
+$(function () {
+	$(".home_top_slider").owlCarousel({
+		<?php if ($music->language_type == 'rtl'){?>rtl:true,<?php }?>
+		items: 2,
+		margin: 20,
+		responsive:{
+			0:{
+				items:1
+			},
+			1220:{
+				items:2
+			}
+		}
+	});
+	$(".rp_slider, .nm_slider").owlCarousel({
+		<?php if ($music->language_type == 'rtl'){?>rtl:true,<?php }?>
+		margin:20,
+		nav: true,
+		navText: ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" d="M28.8989 24L19.1161 14.2172L20.8839 12.4494L32.4344 24L20.8839 35.5505L19.1161 33.7827L28.8989 24Z" clip-rule="evenodd"></path></svg>','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" d="M28.8989 24L19.1161 14.2172L20.8839 12.4494L32.4344 24L20.8839 35.5505L19.1161 33.7827L28.8989 24Z" clip-rule="evenodd"></path></svg>'],
+		dots: false,
+		slideBy: 2,
+		items:7,
+		responsive:{
+			0:{
+				items:1
+			},
+			260:{
+				items:2
+			},
+			380:{
+				items:3
+			},
+			768:{
+				items:5
+			},
+			992:{
+				items:6
+			},
+			1300:{
+				items:7
+			}
+		}
+	});
+})
+</script>

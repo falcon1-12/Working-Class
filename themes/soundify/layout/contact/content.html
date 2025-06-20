@@ -1,0 +1,58 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="content contact_page">
+					<h2 class="user_sttng_panel_hd">{{LANG Contact Us}}</h2>
+					<p class="text-center">{{LANG Let us help you.}}</p>
+					<form action="" method="POST" id="contact-form">
+						<div class="alert alert-danger alert-empty" id="output-errors-contact"></div>
+						<div class="sfy_mat_input">
+							<input type="text" name="name" id="name" placeholder="{{LANG Full Name}}" required autofocus>
+							<label for="name">{{LANG Full Name}}</label>
+						</div>
+						<div class="sfy_mat_input">
+							<input type="email" name="email" id="email" placeholder="{{LANG Email address}}" required>
+							<label for="email">{{LANG Email address}}</label>
+						</div>
+						<div class="sfy_mat_input">
+							<textarea rows="5" placeholder="{{LANG Write here your message}}" name="message" id="message" required></textarea>
+							<label for="message">{{LANG Write here your message}}</label>
+						</div>
+						<div class="sfy_forms_sbm_btn text-center">
+							<button type="submit" class="btn btn-primary btn-mat btn-mat-raised" id="btn-submit-contact"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z"></path></svg> {{LANG Send}}</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() { 
+    var options = { 
+    	url: "{{CONFIG ajax_url}}/contact?hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#output-errors-contact').removeClass("alert-success").addClass('alert-danger');
+        	$('#output-errors-contact').empty();
+        	$("#btn-submit-contact").text("{{LANG Please wait..}}");
+        }, 
+        success: function (data) {
+        	$("#btn-submit-contact").text("{{LANG Send}}");
+        	if (data.status == 200) {
+        		$('#output-errors-contact').removeClass("alert-danger").addClass('alert-success');
+        		$('#output-errors-contact').html(data.message);
+        	} else if (data.status == 400) {
+        		var errros = data.errors.join("<br>");
+        		$('#output-errors-contact').html(errros);
+        	}
+        }
+    }; 
+
+    $('#contact-form').ajaxForm(options); 
+}); 
+</script>

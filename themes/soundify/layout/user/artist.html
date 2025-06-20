@@ -1,0 +1,217 @@
+<style>
+header .opts_head_acc > .btn, header .head_user .opts_account > .btn, header .head_user .notis > .btn, header .chaticon > .btn {background-color: #080808;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
+</style>
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<button class="btn btn-mat btn-go-back" onclick="window.history.back();"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></button>
+		<div class="artist_profile">
+			<div class="artist_header">
+				<div class="artist_cover">
+					<?php if ($music->userData->owner == true) {?>
+						<div class="edit_cover">
+							<form action="" method="POST" id="user-change-cover-form">
+								<span class="valign btn-file" id="change-cover-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"></path></svg>
+									<input type="file" name="cover" id="user-cover" accept="image/x-png, image/jpeg">
+								</span>
+								<?php if ($music->config->channel_trailer == 'on' && $music->config->can_use_channel_trailer) { ?>
+									<span class="valign btn-file mt-2 change-cover-icon">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M450.6 153.6c-3.3 0-6.5.9-9.3 2.7l-86.5 54.6c-2.5 1.6-4 4.3-4 7.2v76c0 2.9 1.5 5.6 4 7.2l86.5 54.6c2.8 1.7 6 2.7 9.3 2.7h20.8c4.8 0 8.6-3.8 8.6-8.5v-188c0-4.7-3.9-8.5-8.6-8.5h-20.8zM273.5 384h-190C55.2 384 32 360.8 32 332.6V179.4c0-28.3 23.2-51.4 51.4-51.4h190c28.3 0 51.4 23.2 51.4 51.4v153.1c.1 28.3-23 51.5-51.3 51.5z"></path></svg>
+										<input type="file" name="video" id="user-video" accept="video/*">
+									</span>
+								<?php } ?>
+						    </form>
+						</div>
+					<?php } ?>
+					<div class="profileBox_gradient"></div>
+					<div class="artist_profile_cover">
+						<?php if (!empty($music->userData->cover) && strpos($music->userData->cover, 'upload/videos')) { ?>
+							<video autoplay muted loop id="myVideo">
+							  <source src="{{USER cover}}" type="video/mp4">
+							  Your browser does not support HTML5 video.
+							</video>
+						<?php }else{ ?>
+							<img src="{{USER cover}}" alt="User Cover" id="cover">
+						<?php } ?>
+					</div>
+				</div>
+				<div class="artist_user_info">
+					<div class="valign ap_user_ava">
+						<div class="avatar_container">
+							<?php if ($music->userData->owner == true) {?>
+								<div class="edit_cover">
+									<form action="" method="POST" id="user-change-avatar-form">
+										<span class="valign btn-file" id="change-avatar-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"></path></svg>
+											<input type="file" name="avatar" id="user-avatar" accept="image/x-png, image/jpeg">
+										</span>
+									</form>
+								</div>
+							<?php } ?>
+							<a href="{{USER url}}" data-load="{{USER username}}">
+								<img src="{{USER avatar}}" alt="User Avatar" id="avatar">
+							</a>
+						</div>
+						<div class="info_container">
+							<p class="sfy_artst_artst"><?php if ($music->userData->verified == 1) {?>{{LANG verified}} <?php }?>{{LANG artist}}<?php if ($music->userData->verified == 1) {?> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" class="sfy_artst_verf"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"/><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fff"/></svg><?php }?></p>
+							<h4>{{USER name}}
+								<?php if ($music->config->go_pro == 'on') { ?>
+								<?php if ($music->userData->is_pro == 1) { ?>
+									<span title="{{LANG PRO Memeber}}">PRO</span>
+								<?php } ?>
+								<?php } ?>
+							</h4>
+							<!--<p>@{{USER username}}</p>-->
+						</div>
+					</div>
+					<div class="valign ap_options">
+						<?php if ($music->userData->owner == false && IS_LOGGED) {?>
+							<?php if (!isFollowing($music->userData->id)) { ?>
+							<button class="btn btn-primary btn-mat btn-mat-raised" id="follow-user" data-user-id="{{USER id}}">{{LANG Follow}}</button>
+							<?php } else { ?>
+							<button class="btn btn-danger btn-mat btn-mat-raised" id="unfollow-user" data-user-id="{{USER id}}">{{LANG Following}}</button>
+							<?php } ?>
+						<?php } ?>
+						<?php if ($music->userData->owner == true || isAdmin()) {?>
+							<button class="btn btn_edt_prof btn-mat btn-mat-raised" onclick="goToAjaxLink('settings/{{USER username}}/general');">{{LANG Edit Profile}}</button>
+							<?php if ($music->userData->is_pro == 1 && $music->userData->owner == true) { ?>
+								<button class="btn btn_edt_prof btn-mat btn-mat-raised" onclick="goToAjaxLink('{{USER username}}/spotlight');">{{LANG Edit Spotlight}}</button>
+							<?php } ?>
+						<?php } ?>
+						<?php
+							$isBlocked = isBlocked($music->userData->id);
+							if ($music->userData->owner == false && IS_LOGGED == true && !$isBlocked) { ?>
+							{{MESSAGE_BUTTON}}
+						<?php } ?>
+						<?php if ($music->userData->owner == false && $music->userData->admin == 0 && IS_LOGGED == true && !$isBlocked) { ?>
+							<a class="btn btn_blc_unblck btn-mat btn-mat-raised" onclick="blockUser('{{USER id}}', '{{USER username}}', 'block')" title="{{LANG Block}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12C4,13.85 4.63,15.55 5.68,16.91L16.91,5.68C15.55,4.63 13.85,4 12,4M12,20A8,8 0 0,0 20,12C20,10.15 19.37,8.45 18.32,7.09L7.09,18.32C8.45,19.37 10.15,20 12,20Z" /></svg></a>
+						<?php } ?>
+						<?php if ($isBlocked) {?>
+							<a class="btn btn_blc_unblck btn-mat btn-mat-raised" onclick="blockUser('{{USER id}}', '{{USER username}}', 'unblock')" title="{{LANG Unblock}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M1,10V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z" /></svg></a>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+			<div class="p_rel_cont">
+				<div class="artist_tabs">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link <?php echo (empty($music->third_url) || $music->third_url == 'activities') ? 'active' : ''?>" href="{{LINK {{USER username}}}}/activities" data-load="{{USER username}}/activities">{{LANG Activities}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php echo ($music->third_url == 'songs') ? 'active' : ''?>"  href="{{LINK {{USER username}}/songs}}" data-load="{{USER username}}/songs">{{LANG Latest Songs}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php echo ($music->third_url == 'top-songs') ? 'active' : ''?>" href="{{LINK {{USER username}}/top-songs}}" data-load="{{USER username}}/top-songs">{{LANG Top Songs}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php echo ($music->third_url == 'albums') ? 'active' : ''?>" href="{{LINK {{USER username}}/albums}}" data-load="{{USER username}}/albums">{{LANG Albums}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php echo ($music->third_url == 'playlists') ? 'active' : ''?>" href="{{LINK {{USER username}}/playlists}}" data-load="{{USER username}}/playlists">{{LANG Playlists}}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php echo ($music->third_url == 'liked') ? 'active' : ''?>" href="{{LINK {{USER username}}/liked}}" data-load="{{USER username}}/liked">{{LANG Liked}}</a>
+						</li>
+						<?php if($music->config->artist_sell == 'on'){ ?>
+							<li class="nav-item">
+								<a class="nav-link <?php echo ($music->third_url == 'store') ? 'active' : ''?>" href="{{LINK {{USER username}}/store}}" data-load="{{USER username}}/store">{{LANG Store}}</a>
+							</li>
+						<?php } ?>
+						<?php if($music->config->event_system == 1){ ?>
+							<li class="nav-item">
+								<a class="nav-link <?php echo ($music->third_url == 'events') ? 'active' : ''?>" href="{{LINK {{USER username}}/events}}" data-load="{{USER username}}/events">{{LANG Events}}</a>
+							</li>
+							<?php } ?>
+						<?php if($music->config->radio_station_import == 'on'){?>
+							<li class="nav-item <?php echo ($music->third_url == 'stations') ? 'active' : ''?>">
+								<a class="nav-link <?php echo ($music->third_url == 'stations') ? 'active' : ''?>" href="{{USER url}}/stations" data-load="{{USER username}}/stations">{{LANG Stations}}</a>
+							</li>
+						<?php } ?>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="feed_post_block">
+							{{PROFILE_CONTENT}}
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<?php echo loadPage("user/sidebar"); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="user-id" name="user-id" value="{{USER id}}">
+</div>
+
+<script>
+var loading_icon = '<svg width="24px"  height="24px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-dual-ring" style="background: none;"><circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="8" stroke="#28292f" stroke-dasharray="62.83185307179586 62.83185307179586" transform="rotate(308.458 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.7s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>';
+var camera_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"></path></svg>';
+var video_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M450.6 153.6c-3.3 0-6.5.9-9.3 2.7l-86.5 54.6c-2.5 1.6-4 4.3-4 7.2v76c0 2.9 1.5 5.6 4 7.2l86.5 54.6c2.8 1.7 6 2.7 9.3 2.7h20.8c4.8 0 8.6-3.8 8.6-8.5v-188c0-4.7-3.9-8.5-8.6-8.5h-20.8zM273.5 384h-190C55.2 384 32 360.8 32 332.6V179.4c0-28.3 23.2-51.4 51.4-51.4h190c28.3 0 51.4 23.2 51.4 51.4v153.1c.1 28.3-23 51.5-51.3 51.5z"></path></svg>';
+
+$(document).ready(function() { 
+    $('#user-change-avatar-form').ajaxForm({ 
+    	url: "{{CONFIG ajax_url}}/user/update-profile-picture?type=artist&hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#change-avatar-icon .icon').html(loading_icon);
+        }, 
+        success: function (data) {
+        	if (data.status == 200) {
+        		$('#avatar').attr('src', data.img);
+        	}
+        	$('#change-avatar-icon .icon').html(camera_icon);
+        }
+    }); 
+	
+	$('#user-change-cover-form').ajaxForm({ 
+    	url: "{{CONFIG ajax_url}}/user/update-profile-cover?type=artist&hash_id=" + getHashID(),
+        beforeSubmit:  function (arr, form, options) {
+        	if (arr[0].value != '') {
+        		$('#change-cover-icon .icon').html(loading_icon);
+        	}
+        	else{
+        		$('.change-cover-icon .videoicon').html(loading_icon);
+        	}
+        }, 
+        success: function (data) {
+        	if (data.status == 200) {
+        		if (data.img) {
+        			$('.artist_profile_cover').html('<img src="'+data.img+'" alt="User Cover" id="cover">');
+        		}
+        		else{
+        			$('.artist_profile_cover').html('<video autoplay muted loop id="myVideo"><source src="'+data.video+'" type="video/mp4">Your browser does not support HTML5 video.</video>');
+        		}
+        	}
+        	else{
+        		$('#ShowAlert').find('.ShowAlertText').html('<div class="alert alert-danger">'+data.message+'</div>');
+        		$('#ShowAlert').modal('show');
+        	}
+        	$('.change-cover-icon .icon').html(camera_icon);
+        	$('.change-cover-icon .videoicon').html(video_icon);
+        }
+    }); 
+}); 
+
+$(document).on('change', '#user-avatar', function(event) {
+	$("#user-change-avatar-form").submit();
+});
+$(document).on('change', '#user-cover', function(event) {
+	$("#user-change-cover-form").submit();
+});
+
+$(document).on('change', '#user-video', function(event) {
+	$("#user-change-cover-form").submit();
+});
+$(document).on('click', '.profileBox_gradient', function(event) {
+	var video = document.getElementById("myVideo");
+	if (video.paused) {
+	    video.play();
+	    btn.innerHTML = "Pause";
+	  } else {
+	    video.pause();
+	    btn.innerHTML = "Play";
+	  }
+});
+</script>

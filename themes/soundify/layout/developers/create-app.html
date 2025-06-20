@@ -1,0 +1,130 @@
+<div class="ma_page_content sfy_pc_padd" id="container_blog">
+    <div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		
+        <div class="page_padding">
+            <div class="content upload_music no-flex ds_create_edit_ads_cont pt-4">
+				<h2 class="user_sttng_panel_hd">{{LANG create_app}}</h2>
+				<form class="user-app-form ds_create_edit_prods" method="POST">
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2">
+							<div class="user-app-alert"></div>
+							<div class="alert alert-success ads-settings-alert hidden"></div>
+							<div class="progress hidden">
+								<div class="upload-progress-bar bar progress-bar progress-bar-striped active"></div>
+								<div class="percent">0%</div>
+							</div>
+							
+							<div class="sfy_mat_input">
+								<input type="text" name="app_name" id="name" placeholder=" ">
+								<label for="name">{{LANG name}}</label>
+							</div>
+							
+							<div class="sfy_mat_input">
+								<input type="text" name="app_website_url" id="domain" placeholder=" ">
+								<label for="domain">{{LANG domain}}</label>
+							</div>
+							
+							<div class="sfy_mat_input">
+								<input type="text" name="app_callback_url" id="redirect_uri" placeholder=" ">
+								<label for="redirect_uri">{{LANG redirect_uri}}</label>
+							</div>
+							
+							<div class="sfy_mat_input">
+								<textarea name="app_description" id="desc" rows="5" placeholder=" "></textarea>
+								<label for="desc">{{LANG description}}</label>
+							</div>
+							
+							<div class="sfy_media_file image_file">
+								<span class="btn btn-file valign" id="app-media-holder" onclick="$('#app-media').trigger('click'); return false;">
+									<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7,15L11.5,9L15,13.5L17.5,10.5L21,15M22,4H14L12,2H6A2,2 0 0,0 4,4V16A2,2 0 0,0 6,18H22A2,2 0 0,0 24,16V6A2,2 0 0,0 22,4M2,6H0V11H0V20A2,2 0 0,0 2,22H20V20H2V6Z"></path></svg></span> <b>{{LANG image}}</b>
+								</span>
+								<input type="file" class="media" id="app-media" name="app_avatar" accept="image/*">
+							</div>
+						</div>
+					</div>
+					<div class="last-sett-btn modal-footer">
+						<button type="submit" class="btn btn-primary btn-mat" id="submit-btn">{{LANG Publish}}</button>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var _Delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+
+    function scrollToTop() {
+        verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        element = $('html');
+        offset = element.offset();
+        offsetTop = offset.top;
+        $('html, body').animate({
+            scrollTop: offsetTop
+        }, 300, 'linear');
+    }
+
+  var bar         = $('.bar');
+  var percent     = $('.percent');
+
+	jQuery(document).ready(function($) {
+		$("#app-media").on('change', function() {
+			var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+			$("#app-media-holder").find('b').text(filename);
+		});
+
+    $('.user-app-form').ajaxForm({
+      url: '{{CONFIG ajax_url}}/developers/create?hash_id=' + getHashID(),
+      dataType:"json",
+      beforeSend: function() {
+        if ($("#app-media").val()) {
+          $(".user-app-alert").html($('.progress').clone(true).addClass('progress-clone').removeClass('hidden'));
+          bar     = $('.progress-clone').find('.bar');
+          percent = $('.progress-clone').find('.percent');
+        }
+
+        $('#submit-btn').attr('disabled', true).text("{{LANG Please wait..}}");
+        
+      },
+      uploadProgress: function(event, position, total, percentComplete) {
+          if(percentComplete > 50) {
+            percent.addClass('white');
+          }
+          var percentVal = percentComplete + '%';
+          bar.width(percentVal);
+          percent.html(percentVal);
+
+          if (percentComplete == 100) {
+            $(".user-app-alert").empty();
+          }
+      },
+      success: function(data) {
+        scrollToTop();
+        $('#submit-btn').removeAttr('disabled').text('{{LANG Publish}}');
+        if (data.status == 200){
+          $(".user-app-alert").html('<div class="alert alert-success"><i class="fa fa-check"></i> '+
+            data.message
+            +'</div>');
+            _Delay(function(){
+            /*window.location.href = data.url;*/
+            goToAjaxLink("my_apps");
+          },2000);
+          
+        }
+        else {
+          $('#submit-btn').removeAttr('disabled').text('{{LANG Publish}}');
+          $(".user-app-alert").html('<div class="alert alert-danger"><i class="fa fa-info-circle"></i> '+
+            data.message
+            +'</div>');
+        }
+      }
+    });
+	});
+</script>

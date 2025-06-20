@@ -1,0 +1,38 @@
+<div class="track_list" data-id="{{id}}">
+    <div class="track">
+		<style>.sfy_albm_art{{id}}:before, .sfy_albm_art{{id}}:after {background-image: url({{thumbnail}});}</style>
+        <div class="cover_art sfy_albm_art sfy_albm_art{{id}}">
+            <a href="{{LINK album/}}{{album_id}}" data-load="album/{{album_id}}">
+                <img src="{{thumbnail}}" />
+				<?php if( $music->config->artist_sell == 'on' ) { ?>
+				<?php if($data['price'] > 0){?>
+					<b>{{CONFIG currency_symbol}}{{price}}</b>
+                <?php }?>
+				<?php } ?>
+				<div class="valign play_btn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="currentColor" d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"></path></svg>
+				</div>
+            </a>
+			<?php if(IS_LOGGED === true){ ?>
+                <?php if ($data['user_id'] !== $music->user->id && isUserBuyAlbum($data['id']) === false && $data['price'] > 0) { ?>
+                    <div class="play_btn play_btn_buy">
+                        <button class="btn btn-primary btn-mat" onclick="purchaseTrack('{{album_id}}', $(this),'buy_album','<?php echo($data['price']) ?>')" data_price="<?php echo($data['price']) ?>">{{LANG Buy}}</button>
+                    </div>
+                <?php } ?>
+            <?php }else{ ?>
+                <?php if ($data['price'] > 0) { ?>
+                    <div class="play_btn play_btn_buy">
+                        <button class="btn btn-primary btn-mat" onclick="purchaseTrack('{{album_id}}', $(this),'buy_album','<?php echo($data['price']) ?>')" data_price="<?php echo($data['price']) ?>">{{LANG Buy}}</button>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+        <div class="track_info">
+            <a href="{{LINK album/}}{{album_id}}" data-load="album/{{album_id}}"><span class="title">{{title}}</span></a>
+            <a href="{{LINK }}{{artist}}" data-load="{{artist}}"><span class="artist">{{artist_name}}</span></a>
+            <span class="price_info">
+                <small title="{{LANG Songs}}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 13.535V3h8v3h-6v11a4 4 0 1 1-2-3.465z"></path></svg> {{songs}}</small>
+            </span>
+        </div>
+    </div>
+</div>

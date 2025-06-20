@@ -1,0 +1,72 @@
+<div class="modal fade" id="create_playlist_box" tabindex="-1" role="dialog" aria-labelledby="create_playlist_box" aria-hidden="true">
+	<div class="modal-dialog mat_box create_playlist" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">{{LANG Create Playlist}}</h5>
+			</div>
+			<form method="post" action="" id="playlist-form">
+				<div class="modal-body">
+					<div class="alert alert-danger alert-empty" id="output-playlist-errors"></div>
+					<div class="create_playlist_innr">
+						<div class="play_avatar">
+							<span class="btn-file">
+								<span id="playlist-create-image">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z"></path></svg>
+								</span>
+								<input type="file" name="avatar" accept="image/x-png, image/jpeg" id="playlist-avatar">
+							</span>
+						</div>
+						<div class="play_info">
+							<div class="sfy_mat_input">
+								<input type="text" name="name" id="pname" placeholder="{{LANG Playlist name}}" required="">
+								<label for="pname">{{LANG Playlist name}}</label>
+							</div>
+							<div class="sfy_custm_rdo">
+								<input type="radio" id="public" name="privacy" checked value="0">
+								<label for="public">{{LANG Public}}</label>
+							</div>
+							<div class="sfy_custm_rdo">
+								<input type="radio" id="private" name="privacy" value="1">
+								<label for="private">{{LANG Private}}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-mat btn-default" data-dismiss="modal">{{LANG Cancel}}</button>
+					<button type="submit" class="btn btn-primary btn-mat" id="btn-playlist-submit">{{LANG Create}}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() { 
+	$("#playlist-avatar").change(function() {
+	  	readURL(this, "playlist-create-image");
+	});
+    var options = { 
+    	url: "{{CONFIG ajax_url}}/playlist/create?hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#output-playlist-errors').empty();
+        	$("#btn-playlist-submit").text("{{LANG Please wait..}}");
+        }, 
+        success: function (data) {
+        	$("#btn-playlist-submit").text("{{LANG Create}}");
+        	if (data.status == 200) {
+        		$('#playlist-create-image').html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z"></path></svg>');
+        		$('#playlist-form')[0].reset();
+        		$('#create_playlist_box').modal('hide');
+        		closeModal();
+				goToAjaxLink('my_playlists');
+        	} else if (data.status == 400) {
+        		var errros = data.errors.join("<br>");
+        		$('#output-playlist-errors').html(errros);
+        	}
+        }
+    }; 
+
+    $('#playlist-form').ajaxForm(options); 
+}); 
+</script>

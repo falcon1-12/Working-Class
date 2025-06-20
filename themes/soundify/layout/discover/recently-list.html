@@ -1,0 +1,15 @@
+<div class="track_list" data-id="{{id}}">
+	<div class="track" >
+		<div class="cover_art">
+			<div class="no_link_art" style="background-image: url({{thumbnail}});">
+				<div class="valign play_btn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="pointer" onclick="playSong('{{audio_id}}')"><path fill="currentColor" d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"></path></svg>
+				</div>
+			</div>
+		</div>
+		<div class="track_info">
+			<a href="{{url}}" data-load="track/{{audio_id}}"><span class="title">{{title}}</span></a>
+			<a href="{{USER url}}" data-load="{{USER username}}"><span class="artist">{{USER name_v}}</span></a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="valign sfy_pg_title">
+			<h4 class="valign ptitle">
+				<div class="valign"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24"><path fill="currentColor" d="M20.083 10.5l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm0 4.7l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zM12.514 1.309l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0z"></path></svg></div> {{LANG Genres}}
+			</h4>
+		</div>
+		<div class="genre_lst">
+			<?php foreach ($music->categories as $key => $category) {?>
+				<div class="img_cnt">
+					<a href="{{LINK explore-genres/<?php echo $key?>}}" data-load="explore-genres/<?php echo $key?>" class="gnr_list_item gnr_list_item<?php echo $key?>">
+						<img src="<?php echo getMedia(getCategoryInfo($key)->background_thumb);?>" alt="category" />
+						<div class="valign">
+							<div class="name"><?php echo $category?></div>
+							<div class="song_count"><?php echo $db->where('category_id', $key)->getOne(T_SONGS, array('count(*) as cnt'))->cnt;?> {{LANG songs}}</div>
+						</div>
+						<style>.genre_lst .gnr_list_item<?php echo $key?>:after {background: <?php echo getCategoryInfo($key)->color?>;}</style>
+					</a>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="container sfy_no_mobi_padd">
+			<div class="row sett_page">
+				<div class="col-md-4">
+					<?php echo loadPage("settings/sidebar"); ?>
+				</div>
+				<div class="col-md-8">
+					<div class="content st_content">
+						<h2 class="user_sttng_panel_hd">{{LANG Delete Account}}</h2>
+						<p>{{LANG Are you sure you want to delete your account? All content including published songs, will be permanetly removed!}}</p>
+						<form method="post" action="" id="general-form">
+							<div class="alert alert-danger alert-empty" id="output-general-errors"></div>
+							<div class="sfy_mat_input">
+								<input type="password" name="c_pass" id="c_pass" autocomplete="off" placeholder="{{LANG Current Password}}" autofocus="">
+								<label for="c_pass">{{LANG Current Password}}</label>
+							</div>
+							<div class="sfy_sett_footer">
+								<button type="submit" class="btn btn-primary btn-mat" id="btn-general-submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z"></path></svg> {{LANG Delete}}</button>
+							</div>
+							<input type="hidden" id="user-id" name="user_id" value="{{USER id}}">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() { 
+    var options = { 
+    	url: "{{CONFIG ajax_url}}/user/delete?hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#output-general-errors').removeClass("alert-success").addClass('alert-danger');
+        	$('#output-general-errors').empty();
+        	$("#btn-general-submit").text("{{LANG Please wait..}}");
+        }, 
+        success: function (data) {
+        	$("#btn-general-submit").text("{{LANG Delete}}");
+        	if (data.status == 200) {
+        		$('#output-general-errors').removeClass("alert-danger").addClass('alert-success');
+        		$('#output-general-errors').html(data.message);
+        		setTimeout(function () {
+        			location.href = "{{CONFIG site_url}}";
+        		}, 2000);
+        	} else if (data.status == 400) {
+        		var errros = data.errors.join("<br>");
+        		$('#output-general-errors').html(errros);
+        	} 
+        }
+    }; 
+    $('#general-form').ajaxForm(options); 
+}); 
+</script>

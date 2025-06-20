@@ -1,0 +1,131 @@
+<style>
+header .opts_head_acc > .btn, header .head_user .opts_account > .btn, header .head_user .notis > .btn, header .chaticon > .btn {background-color: #080808;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
+.album_bg_cover:before {background-image: url({{thumbnail}});}
+</style>
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<button class="btn btn-mat btn-go-back" onclick="window.history.back();"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></button>
+		<!-- Album Blurred Cover -->
+			<div class="album_bg_cover">
+				<div class="pro_white"></div>
+			</div>
+		<!-- End Album Blurred Cover -->
+
+		<!-- Album Songs -->
+			<div class="row mb-60">
+				<div class="col-md-4">
+					<div class="album_songs">
+						<div class="album_poster_info">
+							<div class="al_art">
+								<div class="al_art_img" style="background-image: url({{thumbnail}});"></div>
+							</div>
+							<div class="valign">
+								<p>{{count}} {{LANG songs}}<?php if( $music->config->artist_sell == 'on' ) { ?><br>{{purchases_count}} {{LANG purchases}}<?php } ?></p>
+								<button class="btn btn-mat" onclick="playPlayListSongs({{id}}, 'album')" title="{{LANG Play}}"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/></svg></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="short_list_cont col-md-8">
+					<h2 class="sfy_al_name">{{title}}</h2>
+					<p class="sfy_al_artist"><a href="{{USER url}}" data-load="{{USER username}}">{{USER name_v}}</a></p>
+					
+					<?php if (IS_LOGGED) { ?>
+						<div class="sfy_al_btns"><?php if ($music->getAlbum->user_id == $music->user->id) { ?>
+								<a class="btn" href="{{LINK album-statistics/{{album_id}}/today}}" data-load="album-statistics/{{album_id}}/today" title="{{LANG Statistics}}">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M11 3.18v17.64c0 .64-.59 1.12-1.21.98C5.32 20.8 2 16.79 2 12s3.32-8.8 7.79-9.8c.62-.14 1.21.34 1.21.98zm2.03 0v6.81c0 .55.45 1 1 1h6.79c.64 0 1.12-.59.98-1.22-.85-3.76-3.8-6.72-7.55-7.57-.63-.14-1.22.34-1.22.98zm0 10.83v6.81c0 .64.59 1.12 1.22.98 3.76-.85 6.71-3.82 7.56-7.58.14-.62-.35-1.22-.98-1.22h-6.79c-.56.01-1.01.46-1.01 1.01z"/></svg>
+								</a>
+								<a class="btn" href="{{LINK edit-album/{{album_id}}}}" data-load="edit-album/{{album_id}}" title="{{LANG Edit}}">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+								</a>
+								<a class="btn" href="javascript:void(0)" onclick="$('#delete-album').attr('data-id', '{{id}}'); $('#delete-album').modal('show')" title="{{LANG Delete}}">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+								</a><?php }else{ ?><?php if(isUserBuyAlbum($data['id']) === true){?>
+									<p>{{LANG You have bought this album.}}</p>
+								<?php }else if (!empty($music->getAlbum->price)) { ?>
+									<?php if( $music->config->artist_sell == 'on' ){ ?>
+										<button class="btn btn-mat" onclick="purchaseTrack('{{album_id}}', $(this),'buy_album','<?php echo($music->getAlbum->price) ?>')" data_price="<?php echo($music->getAlbum->price) ?>"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 3c0 .55.45 1 1 1h1l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h11c.55 0 1-.45 1-1s-.45-1-1-1H7l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.67-1.43c-.16-.35-.52-.57-.9-.57H2c-.55 0-1 .45-1 1zm16 15c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg> {{LANG Buy}}</button>
+									<?php } ?>
+								<?php } ?><?php } ?></div>
+					<?php } ?>
+
+					<div class="short_list_card wide_page_songs album_play_song_lists">
+						<ul class="s_list_songs">
+							{{SONG_LIST}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		<!-- End Album Songs  -->
+
+		<?php if( $data['RELATED'] !== '' ){ ?>
+			<!-- Related Albums -->
+			<div class="sq_music_tracks">
+				<h2 class="home_widget_title">{{LANG You may also like}}</h2>
+				<div class="owl-carousel sq_track_slider owl-theme rm_slider">
+					{{RELATED}}
+				</div>
+			</div>
+			<!-- End Related Albums -->
+		<?php } ?>
+	</div>
+</div>
+<?php echo loadPage('modals/delete-album'); ?>
+
+<script>
+$(document).ready(function(){
+    <?php if (IS_LOGGED && !isMobile()) { ?>
+        <?php if ($music->getAlbum->user_id == $music->user->id) { ?>
+            $( ".s_list_songs" ).sortable({
+                revert: 100,
+                axis: 'y',
+                update: function( event, ui ) {
+                    var data = $( ".s_list_songs" ).sortable('serialize');
+                    $.ajax({
+                        data: data,
+                        type: 'POST',
+                        url: "{{CONFIG ajax_url}}/album/update_album_song_sorting?album_id={{id}}&hash_id=" + getHashID(),
+                        success:function(result) {
+                            setTimeout(function () {
+                                goToAjaxLink('album/{{album_id}}');
+								//location.reload();
+                            }, 500);
+                        }
+                    });
+                }
+            });
+            $( ".s_list_songs" ).disableSelection();
+        <?php }?>
+    <?php }?>
+
+	$(".rm_slider").owlCarousel({
+		<?php if ($music->language_type == 'rtl'){?>rtl:true,<?php }?>
+		margin:20,
+		nav: true,
+		navText: ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" d="M28.8989 24L19.1161 14.2172L20.8839 12.4494L32.4344 24L20.8839 35.5505L19.1161 33.7827L28.8989 24Z" clip-rule="evenodd"></path></svg>','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" d="M28.8989 24L19.1161 14.2172L20.8839 12.4494L32.4344 24L20.8839 35.5505L19.1161 33.7827L28.8989 24Z" clip-rule="evenodd"></path></svg>'],
+		dots: false,
+		slideBy: 2,
+		items:7,
+		responsive:{
+			0:{
+				items:1
+			},
+			260:{
+				items:2
+			},
+			380:{
+				items:3
+			},
+			768:{
+				items:5
+			},
+			992:{
+				items:6
+			},
+			1300:{
+				items:7
+			}
+		}
+	});
+});
+</script>

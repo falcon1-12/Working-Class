@@ -1,0 +1,48 @@
+<div class="feed_post <?php if (!empty($music->songData) && !empty($music->songData->activity) && !empty($music->songData->activity->event_id)) { ?>event<?php } ?><?php if (!empty($music->songData) && !empty($music->songData->activity) && !empty($music->songData->activity->product_id)) { ?>event<?php } ?>" data-id="{{s_id}}" data-a-id="{{a_id}}" id="feed_{{s_id}}">
+	<div class="sfy_song_post">
+		<div class="valign fp_head">
+			<div class="user_info">
+				<span class="time ajax-time" title="{{activity_time}}">{{activity_time_formatted}}</span>
+				<span><a href="{{USER url}}" data-load="{{USER username}}">{{USER name_v}}</a> {{activity_text}} {{album_text}}</span>
+			</div>
+			<?php if (!empty($music->songData->audio_id)) { ?>
+				<div class="opts_feed dropdown">
+					<button type="button" class="btn" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<?php if ( IsAdmin() ) { ?>
+							<li><a href="{{LINK edit-track/{{s_audio_id}}}}" data-load="edit-track/{{s_audio_id}}">{{LANG Edit Info}}</a></li>
+						<?php } ?>
+						<?php if ($data['a_owner'] === true) { ?>
+							<li><a href="javascript:void(0)" onclick="$('#delete-post').attr('data-id', '{{a_id}}')" data-toggle="modal" data-target="#delete-post">{{LANG Delete Post}}</a></li>
+						<?php } else { ?>
+							<?php echo getTrackReportButton(['user_id' => $music->songData->publisher->id,'track_id' => $music->songData->id],'report-track-link'); ?>
+						<?php } ?>
+						<?php if( $data['a_type'] === 'shared_track' && $data['a_owner'] === true ) {?>
+							<li><a href="javascript:void(0)" onclick="$('#delete-post').attr('data-id', '{{a_id}}')" data-toggle="modal" data-target="#delete-post">{{LANG Delete Post}}</a></li>
+						<?php }?>
+						<li><a href="javascript:void(0)" onclick="getPlayLists({{s_id}})">{{LANG Add to playlist}}</a></li>
+					</ul>
+				</div>
+			<?php } elseif(IS_LOGGED && (IsAdmin() || $music->songData->user_id == $music->user->id)) { ?>
+				<div class="opts_feed dropdown">
+					<button type="button" class="btn" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<?php if (IS_LOGGED && (IsAdmin() || $music->songData->user_id == $music->user->id)) { ?>
+							<li><a href="<?php echo($music->songData->edit_url) ?>" data-load="<?php echo($music->songData->edit_data_load) ?>">{{LANG Edit Info}}</a></li>
+							<li><a href="javascript:void(0)" onclick="$('#delete-post').attr('data-id', '{{a_id}}')" data-toggle="modal" data-target="#delete-post">{{LANG Delete Post}}</a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			<?php } ?>
+		</div>
+		<?php echo loadPage('post/post-body'); ?>
+		<hr>
+		<div class="valign">
+			<?php 
+				if (!empty($music->songData->audio_id)) {
+					echo loadPage('post/post-actions');
+				}
+			?>
+		</div>
+	</div>
+</div>

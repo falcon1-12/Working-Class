@@ -1,0 +1,519 @@
+/*Basic*/
+body, .music_app {color: #555;background-color: #f9f9f9;}
+header, .ma_sidebar {background: #fff;}
+.reset-page h4, .become_author .bauthor_form > h3, .mf_list .fav_name a, .artist_list .track_info .artist, .feed_post .fp_head .user_info a, .feed_song .second .art_details h4, .store_songs .song_upper .song_meta_info h3, header .head_user .notis .ma_notifs .n_detail p b, .messages-sidebar ul li .list-innr .user-name, .pt_msg_header h3 a, .mat_box .modal-content .modal-title, .ssong_comments .write_comment .comment_input .emojionearea-editor, .artist_s_list .wide_page_songs .s_lsongs_child .second h4 a, .artist_s_list .wide_page_songs .s_lsongs_child .a_name a, .follower_list .artist, .following_list .artist, .store_pric_range p input, .ssong_comments .comment_list .comment_item .comment_content .comment_username a, .ssong_comments .comm_count, .single_song .ss_related .store_songs .song_upper .song_meta_info h3, .user_info_cont .personal_info .name h2 a, .artist_user_info .info_container h4 a, .mp_middle_part .pl_name, .pub_playlists .track .upr_head .user_info .user_name a, .short_list_cont .purchased_songs .s_lsongs_child .art_details h4 a, .ssong_comments .write_comment .blog_comment_input .emojionearea-editor, .top_playlist_list h3 a {color: #444;}
+.content, .reset-page, .become_author .bauthor_form, .upload_music .upload_form, .store_filters .store_widget, .single_song .ss_related, .sidebar_widget, .single_song .ss_related .store_songs .song_list, .feed_sidebar_song .song_list, .mat_box .modal-content, .no-track-found.bg_light, .search_tabs ul li a, .search_songs, .follower_list, .following_list, .store_pric_range p input, .upload_music .upload, .user_info_cont, .pub_playlists .track_list .track, .sfy_song_post, .sfy_blog_comms {background: #ffffff;}
+.pub_playlists .track .upr_head .user_info .user_name a:hover {color: #000;}
+.pro_white {background: linear-gradient(to bottom,rgba(249, 249, 249, 0.5) 0,#f9f9f9 100%);}
+.album_poster_info .al_name a, .album_poster_info .al_artist a:hover {color: #181818;}
+.short_list_cont .s_lsongs_child, .artist_songs .short_list_cont .s_lsongs_child {border-color: rgba(0, 0, 0, 0.08);}
+.short_list_cont .s_lsongs_child:hover, header .head_user .notis .ma_notifs a:hover, .artist_songs .short_list_cont .s_lsongs_child:hover {background: rgba(0, 0, 0, 0.05);}
+.short_list_cont .s_lsongs_child .third, .artist_s_list .wide_page_songs .s_lsongs_child .third {color: #6f6f6f;}
+.become_author .bauthor_form, .upload_music .upload_form {border: 0;}
+.img_container_1 {background: #f3f3f3;}
+.img_container_1 div svg path {fill: #191919;}
+.img_container_text {color: #191919;}
+form .modal-footer, .messages-sidebar .search-box, .pt_msg_header, .mat_box .modal-content .modal-footer, .artist_songs .head_title, .sptlight_head, .store_songs .song_upper, .ssong_comments .comm_count, .single_song .ssong_footer, .pub_playlists .track_list .track, .copy_embed > input, .copy_embed .colorpickerf input, .copy_embed, header .head_user .notis .ma_notifs a::after, .is-pro-badge, .top_playlist_list, .track_process_bg {border-color: #e9ecef;}
+.mat_box .modal-content .modal-body {color: #525252;}
+.mat_box .modal-content .modal-footer .btn-default {background: rgba(0, 0, 0, 0.05);color: #000000;}
+.short_track_stats .stat_item {color: #585858;border-color: #eeeeee;}
+.short_track_stats .stat_item:hover {background-color: rgba(46, 50, 53, 0.08);color: #000;}
+.uploaded_albm_slist:first-child {border-color: #dedede;}
+.uploaded_albm_slist .no-padding-form.submitted > span .btn {background-color: #ffedec;}
+.upload_music .upload_form .song_thumb .upload-image-content {border-color: #cdcdcd;}
+.upload_music .upload_form ul.tagit li.tagit-choice {color: #464646;}
+body ul.tagit li.tagit-choice-editable {background: #ffffff;border-color: #cbcbcb;color: #626262;}
+.mf_list .fav_name a:hover {color: #000;}
+.feed_post {border-color: #e0e0e0;}
+.store_filters .store_widget, .single_song .ss_related, .sidebar_widget, .no-track-found.bg_light, .search_tabs ul li a, .user_header, .sfy_blog_comms {/*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);*/box-shadow: 0 1px 0 0 #e3e4e8, 0 0 0 1px #f1f1f1;}
+.single_song .ss_related .store_songs .song_list, .feed_sidebar_song .song_list {box-shadow: none;}
+.ssong_comments .write_comment .comment_input, .ssong_comments .write_comment .blog_comment_input {color: #2f2f2f;background-color: #f8f8f8;border-color: #dcdcdc;box-shadow: none;}
+body .emojionearea .emojionearea-button>div.emojionearea-button-open {background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3e%3cpath fill='%23333' d='M12,17.5C14.33,17.5 16.3,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5M8.5,11A1.5,1.5 0 0,0 10,9.5A1.5,1.5 0 0,0 8.5,8A1.5,1.5 0 0,0 7,9.5A1.5,1.5 0 0,0 8.5,11M15.5,11A1.5,1.5 0 0,0 17,9.5A1.5,1.5 0 0,0 15.5,8A1.5,1.5 0 0,0 14,9.5A1.5,1.5 0 0,0 15.5,11M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z' /%3e%3c/svg%3e") !important;}
+body .emojionearea .emojionearea-button>div.emojionearea-button-close {background-position: center;background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3e%3cpath fill='%23333' d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /%3e%3c/svg%3e") !important;}
+.check_box input+label:before {border-color: rgba(0, 0, 0, 0.3);}
+.search_tabs ul {padding: 6px 0;}
+.artist_songs .head_title li {color: #505050;}
+.follower_list, .following_list {box-shadow: 0 0 0 1px #eeeeee;}
+.ma_tabs ul:after, .nav-tabs:after {background-color: #e6e6e6;}
+.ma_tabs ul li a, .nav-tabs .nav-item .nav-link {border-color: #e6e6e6;color: #777777;}
+.store_pric_range .ui-widget-content {background: #dedede;}
+.store_pric_range .ui-slider .ui-slider-range {background: #b28e51;}
+.single_song .ssong_header {background: #f1f1f1;}
+.single_song .ssong_header .ss_sub_body .ss_track_info_innr h2 a, .user_side_info_list li a {color: #333333 !important;}
+.single_song .ssong_header .ss_sub_body .ss_track_info_innr a:hover {color: #000 !important;}
+.single_song .ssong_header .ss_sub_head .ss_publisher_info .ss_short_info {border-color: #d5d5d5;}
+.single_song .ssong_header .ss_sub_body .ss_image {box-shadow: 0px 3px 30px 0px rgba(0, 0, 0, 0.2);}
+.comment-on-wave-data > div {background: #ffffff;color: #797979;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);}
+.comment-on-wave-data > div:before {background: #ffffff;}
+.artist_user_info .ap_options .btn.btn_edt_prof, .user_info_cont .opts_btn .btn.btn_edt_prof, .artist_user_info .ap_options .btn.btn_blc_unblck, .user_info_cont .opts_btn .btn.btn_blc_unblck {background-color: rgba(0, 0, 0, 0.37);}
+.artist_profile, .track_process_bg {background-color: #f9f9f9;}
+.artist_header .artist_cover .profileBox_gradient {background: linear-gradient(to top, #f9f9f9 0px, rgba(249, 249, 249, 0.35));}
+.artist_profile .nav-tabs:after {background-color: #e8e8e8;}
+.artist_tabs .nav-tabs .nav-item .nav-link {color: #505050;}
+.create_playlist_innr .play_avatar {background-color: rgba(0, 0, 0, 0.06);}
+.toggle-mode .switch:hover {background-color: rgba(0, 0, 0, 0.05);color: #000;}
+.toggle-mode .slider {border-color: rgba(0, 0, 0, 0.3);}
+.small-waves .write_comment .comment_input {border-radius: 2em;}
+.small-waves .write_comment .comment_input .emojionearea-button {top: 7px;}
+.artist_user_info .info_container p.auth_fol_info a {color: #646464;}
+.single_song .ssong_header .ss_sub_body .song_border {background: #c5c5c5;}
+.add-select-playlists li {background: #eaeaea;}
+.artist_user_info .ap_options .btn.btn-success {background-color: #b28e51;color: #ffffff;}
+.prof_fol_cont {background-color: white;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);}
+.sq_music_tracks .track .cover_art a {box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);}
+.ma_interest_innr .ma_interest_list li label {color: #292929;}
+.ma_interest_innr .ma_interest_list li input[type="checkbox"]:checked + label {border-color: #606060;color: #fff;background: #606060;}
+.content, .sfy_song_post, .search_songs, .search_artists, .search_albums, .search_playlists, .upload_music .upload_block_album {box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);}
+header .opts_head_acc > .btn, header .head_user .opts_account > .btn, header .head_user .notis > .btn, header .chaticon > .btn {background-color: #ffffff !important;color: #414141;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;}
+header .opts_head_acc > .btn {background-color: #4a5d66 !important;color: white;}
+.sfy_home_tabs li a {color: rgba(0, 0, 0, 0.7);}
+.sfy_home_tabs li:not(.active) a:hover {color: #000;}
+.ma_tabs ul:after, .nav-tabs:after, .sfy_home_tabs:after {background-color: #e4e4e4;}
+.dropdown-menu {background-color: #ffffff;}
+.dropdown-menu li a, .toggle-mode .switch {color: rgba(0, 0, 0, 0.8);}
+.dropdown-menu li a:hover, .toggle-mode .switch:hover {background-color: rgba(0, 0, 0, 0.05);color: #000;}
+header .head_user .notis .ma_notifs a {color: #565656;}
+header .opts_head_acc .dropdown-menu li a {box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);}
+header .opts_head_acc .dropdown-menu li a.upload-button svg .imp-page, header .opts_head_acc .dropdown-menu li a.import-button svg .imp-page {fill: #e4e4e4;}
+header .opts_head_acc .dropdown-menu li a.upload-button svg .imp-page-fold, header .opts_head_acc .dropdown-menu li a.import-button svg .imp-page-fold {fill: #c7c7c7;}
+
+/*Messages*/
+.user-messages .messages .message .user-message {background-color: #f0f0f0;}
+.user-messages .messages .message.incming_msg .user-message {background-color: #e0e0e0;color: #3f3f3f;}
+.user-send-message textarea {color: #000;background-color: white;}
+
+/*Footer*/
+.full_footer {border-color: rgba(0, 0, 0, 0.09);}
+.full_footer .lang_select button {color: #545454;background-color: #e8e8e8;}
+.full_footer .imp_links li a {color: #737373;}
+
+/*Header*/
+header, .ma_sidebar {box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);}
+header .head_search .head_search_cont input {background: #eaeaea;color: #393939;}
+header .head_search .search_dropdown {background: #ffffff;}
+header .head_search .search_dropdown .trend_head {color: #6b6b6b;}
+header .head_search .search_dropdown .serach_trend a {color: #2f2f2f;}
+header .head_search .search_dropdown .serach_trend a:hover {background: rgba(0, 0, 0, 0.05);color: #000;}
+header .head_user .btn.login, .chaticon a, header .head_user .notis > svg, header .head_menu, header .loggd_hd_logo a, header .head_user .head_search_mobi, header .opts_head_acc, header .head_search .head_search_cont .head_search_mobi_close {color: #6d6d6d;}
+
+/*Dropdown*/
+.mat-dropdown {background-color: #ffffff;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);}
+.mat-dropdown ul li a, .mat-dropdown ul li a:not([href]):not([tabindex]) {color: #555;}
+.mat-dropdown ul li a:hover {background-color: rgba(0, 0, 0, 0.05);color: #000;}
+.mat-dropdown ul li a:not([href]):not([tabindex]):hover {color: #000;}
+.dropdown-menu .divider {background-color: #e8e8e8;}
+header .head_user .opts_account > .dropdown-menu:before, header .head_user .notis > .dropdown-menu:before {background: #ffffff;}
+
+/*Input*/
+.mat_input input, .mat_input select, .mat_input textarea, .upload_music .upload_form ul.tagit, .music_share_box .thmb_url, .copy_embed > input, .copy_embed .colorpickerf input {background: #f3f3f3;color: #191919;}
+.mat_input input:focus, .mat_input select:focus, .mat_input textarea:focus {background: #fff;color: #191919;}
+
+/*Sidebar*/
+.sidebar .sidebar_innr .sections h3 {color: #7b7b7b;}
+.sidebar .sidebar_innr .sections li a {color: #6d6d6d;}
+.ma_footer {color: #5c5c5c;border-color: #e7eaec;}
+.ma_footer .ma_footer_cright .dropup .dropdown-toggle, .ma_footer .ma_footer_links a, .ma_footer .ma_footer_links .dropup .dropdown-toggle {color: #5c5c5c;}
+.ma_footer .ma_footer_links a:hover, .full_footer .imp_links li a:hover {color: #222;}
+.sidebar .sidebar_innr .sections li.active a {background-color: rgba(0, 0, 0, 0.1);}
+
+/*Home*/
+.ma_home_head:after {background-color: #f9f9f9;}
+.ma_home_features {background: #f9f9f9;}
+.ma_home_jumbo_w {background: #f9f9f9;}
+
+/*Song Playing*/
+.playlist-list-song.playing {background: rgba(0, 0, 0, 0.12);color: #000 !important;}
+.playlist-list-song.playing .art_details h4 {color: #000 !important;}
+.playlist-list-song.playing .third {color: #000 !important;}
+
+
+.announcement-renderer .alert {background-color: #607D8B;}
+.switch span.txt {color: #555;}
+.upload_music .upload_form ul.tagit input[type="text"] {color: #646464;}
+.album_songs .al_add_info {color: rgba(0, 0, 0, 0.6);}
+.no_notification {color: #4c4c4c;}
+.create_playlist_innr .custom-control {color: #6b6b6b;}
+.sq_music_tracks .track.empty .cover_art a, .sq_music_tracks .track.empty .cover_art .no_link_art {
+background-color: #ffffff;}
+.pay_method {border-color: #e6e6e6;}
+.pay_method .btn {border-color: #e6e6e6;color: #3d3d3d;}
+.pay_method .btn:hover {background: rgba(0, 0, 0, 0.03);}
+
+.blog_list_info > h4 a {color: #252525;}
+.blog_list_info > div, .blog_list_info > div a, .ds_read_blog_hdr, .ds_read_blog_hdr a {color: #585858;}
+.ds_read_blog_tags li a {border-bottom: 1px solid #000;color: #000;}
+.form-control {color: #495057;background-color: #ffffff;border: 1px solid #ced4da;}
+.custom-select {background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;background-size: 8px 10px;}
+.page-item.disabled .page-link {background-color: #fff;border-color: #dee2e6;}
+.table thead th {border-bottom: 1px solid #dee2e6;}
+.table td, .table th {border-top: 1px solid #dee2e6;}
+.ds_media_file .btn-file span {background-color: #f3f3f3;}
+.bootstrap-select * {background: #f3f3f3 !important;color: #393939 !important;}
+.rating-stars ul > li.star > svg {color: #c7c7c7;}
+.ds_track_reviews_list .info h3 a {color: black;}
+.sett_page .st_content .toggle-off {background-color: #d8d8d8 !important;}
+.ds_radio_stat_list .track {background-color: #ffffff !important;}
+.ds_usr_profile_stat_btn .btn {color: #000;background: #e2e2e4;}
+
+.ds_ads_action a {color: #8e8e8e;}
+.ds_toggle_switch .toggle.btn .toggle-off {background-color: #dadada !important;}
+.swal2-modal {background: #ffffff !important;}
+.swal2-modal .swal2-content, .swal2-modal .swal2-title {color: #373737 !important;}
+.ds_prof_admn_btns .btn {background-color: rgba(0, 0, 0, 0.15);color: black;}
+
+.ds_side_adss {color: #444;}
+.ds_side_adss:hover {color: #000;}
+
+#light-wave{border-right: 1px solid rgb(191, 191, 191) !important;}
+
+.link_active {color: #000000;}
+
+.highcharts-background{fill: #fff !important}
+.highcharts-subtitle,.highcharts-title{fill: #333333 !important;}
+.highcharts-legend-item text{fill: #333333 !important;}
+.stat_song_head h2 a {color: #212121;}
+.stat_song_filtrs {border: 2px solid #dedede;}
+.stat_song_filtrs a {color: #666666;}
+.stat_song_filtrs a.link_active {background: #dedede;color: #000;}
+.stat_song_filtrs a:hover {background-color: #eeeeee;}
+.song_lyrics a.hash {background-color: #dedede;color: #5a5a5a !important;}
+
+.sidebar .sfy_search .search_cont input {background: #ececec;color: #212121;}
+.sidebar .sidebar_innr .sections li:not(.active) a:hover {background-color: rgba(0, 0, 0, 0.04);color: #000;}
+.sfy_links_header ul li a {background-color: rgba(0, 0, 0, 0.1);box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);color: #000;}
+.sfy_links_header {border-bottom: 1px solid #dcdcdc;}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination > li.page-item > a.page-link {color: #2d2d2d;}
+.mat_box .modal-content .modal-title, .sfy_modal_title, .sfy_adstat_head h2, .sfy_ads_add .add-amount h5 input, .sfy_adstat_head select, .sfy_stat_single b, .sfy_al_name, .sfy_al_artist a:hover, .sfy_al_btns .btn, .short_list_cont .s_lsongs_child .art_details h4, .sq_music_tracks .track .track_info .title, .sq_track_slider .owl-nav > button.owl-prev svg, .sq_track_slider .owl-nav > button.owl-next svg, .sfy_pg_title .ptitle, .auth_box .modal-content > .btn, .auth_box .modal-content > h2, .auth_box .modal-content .signup_ a, .sfy_auth_btns a:hover, .user_sttng_panel_hd, .home_widget_title, .short_list_cont .s_lsongs_child .art_details h4 a, .upload_music .upload_innr h4, ul.tagit input[type="text"], .feed_song .art_details h4 a, .store_filters .store_widget .s_widget_head, .single_song .ss_related .s_widget_head, .dash_stat_title, .sidebar_widget .s_widget_head, .genre_bg_cover .f_name, .pricing_p_price, .sfy_home_ftrs h2, .sfy_confrm_code .inputs input, .ma_interest_innr .ma_interest_hding, .messages-sidebar .search-box input, .upload_bank_receipts > div, .purchased_songs .s_lsongs_child .third .btn, .sfy_srch_title, .search_tabs li a:hover, .sett_page .st_sidebar li a:hover, .sett_page .st_sidebar li.active a, .sfy_station_list .station .track_info .title a, .sfy_usr_stats a span, .artist_user_info .info_container h4, .user_info_cont .personal_info .name h2, .sfy_plist_info .al_name, .sfy_blog_comms .s_widget_head {color: #000000;}
+.sfy_station_list .station .track_info .artist a {color: rgba(0, 0, 0, 0.6);}
+.sfy_stat_single {background: #ffffff;}
+.sfy_stat_single p {color: rgba(0, 0, 0, 0.6);}
+.btn-go-back {color: black;background-color: white;}
+.sfy_al_artist a {color: rgba(0, 0, 0, 0.5);}
+.album_poster_info {background-color: rgba(0, 0, 0, 0.07);}
+.album_poster_info > .valign .btn, .short_list_cont .s_lsongs_child .numbers .btn {color: #000;box-shadow: inset 0 0 0 1.5px black;}
+.sfy_al_btns {background-color: rgba(0, 0, 0, 0.18);}
+.sfy_al_btns .btn:hover {background-color: rgba(0, 0, 0, 0.1);}
+.dropdown-menu li a:not([href]):not([tabindex]) {color: rgba(0, 0, 0, 0.8);}
+.dropdown-menu li a:not([href]):not([tabindex]):hover {color: #000;}
+.sq_music_tracks:not(.no-slider) .track .track_info {background: linear-gradient(transparent, #f9f9f9);}
+.sq_music_tracks .track .track_info .artist {color: rgba(0, 0, 0, 0.5);}
+.sq_music_tracks .track .track_info .artist:hover {color: rgba(0, 0, 0, 0.8);}
+.sq_track_slider .owl-nav > button.owl-prev {background: linear-gradient(to left,rgba(23, 23, 25, 0),rgba(249, 249, 249, 0.7) 50%,#f9f9f9 100%);}
+.sq_track_slider .owl-nav > button.owl-next {background: linear-gradient(to right,rgba(23, 23, 25, 0),rgba(249, 249, 249, 0.7) 50%,#f9f9f9 100%);}
+.sq_track_slider .owl-nav > button.owl-prev:hover {background: linear-gradient(to left,rgba(23, 23, 25, 0),rgba(249, 249, 249, 0.85) 50%,#f9f9f9 100%);}
+.sq_track_slider .owl-nav > button.owl-next:hover {background: linear-gradient(to right,rgba(23, 23, 25, 0),rgba(249, 249, 249, 0.85) 50%,#f9f9f9 100%);}
+.cover_art.sfy_albm_art+.track_info span.price_info {background-color: #f9f9f9;box-shadow: -10px 0px 10px 0px #f9f9f9;}
+.see_all a span {background-color: #ffffff;}
+.add-select-albums li {background-color: rgba(0, 0, 0, 0.09);}
+.auth_box .modal-content {background: #ffffff;}
+.auth_box .modal-content > p {color: rgba(0, 0, 0, 0.8);}
+.u_divider:before, .u_divider:after {background: rgba(0, 0, 0, 0.1);}
+.sfy_auth_btns a {color: rgba(0, 0, 0, 0.7);}
+.sfy_mat_input > input, .sfy_mat_input > textarea, .sfy_fak_img, .sfy_mat_input > select, .sfy_mat_input > ul.tagit, .sfy_mat_input > input.form-control[readonly] {background: #f5f5f5;color: #333;}
+.sfy_mat_input > input:hover, .sfy_mat_input > textarea:hover, .sfy_mat_input > select:hover, .sfy_fak_img:hover, .sfy_mat_input > input.form-control[readonly]:hover {background: #efefef;}
+.sfy_mat_input > input:focus, .sfy_mat_input > textarea:focus, .sfy_mat_input > select:focus {background: #fff;}
+.sfy_mat_input > input:placeholder-shown:not(:focus) + label, .sfy_mat_input > textarea:placeholder-shown:not(:focus) + label {color: rgba(0,0,0,0.38);}
+.blog_cats_box .check_box a {background-color: rgba(0, 0, 0, 0.1);color: #333333;}
+.sfy_media_file .btn-file {color: #4a4a4a;}
+.owl-theme .owl-dots .owl-dot span {background: rgba(0, 0, 0, 0.25);}
+.sq_music_tracks .track .cover_art a, .sq_music_tracks .track .cover_art .no_link_art {box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);}
+.sq_music_tracks .track .cover_art .no_link_art {background-color: rgba(0, 0, 0, 0.07);}
+.sfy_genre_list .name, .ma_interest_innr .ma_interest_list li label {background: rgba(0, 0, 0, 0.15);color: #000;}
+.sfy_genre_list .name:hover, .ma_interest_innr .ma_interest_list li label:hover {background: rgba(0, 0, 0, 0.25);}
+.sfy_art_details, .sfy_art_details a {color: rgba(0, 0, 0, 0.7);}
+.uploaded_albm_slist .no-padding-form.submitted {background: rgba(0, 0, 0, 0.07);}
+.upload_music .upload_innr p {color: rgba(0, 0, 0, 0.6);}
+.feed_post .fp_head .user_info span {color: #696969;}
+.feed_post .fp_head .opts_feed .btn {color: #555;}
+.feed_post .fp_head .opts_feed .dropdown-menu {background-color: #ffffff;}
+hr {border-color: rgba(0, 0, 0, 0.1);}
+.post-actions .ss_action_item {background: rgba(0, 0, 0, 0.1);color: rgba(0, 0, 0, 0.8);}
+.post-actions .ss_action_item:hover {background: rgba(0, 0, 0, 0.15);color: #000;}
+.small-waves .comment_list .comment_item .comment_content .comment_body p {color: rgba(0, 0, 0, 0.7);}
+.ssong_comments .comment_list .comment_item .comment_meta .comment_controls .btn {color: #3d3d3d;background-color: rgba(0, 0, 0, 0.2);}
+.feed_sidebar_artist .artist_list_innr {background-color: rgba(0, 0, 0, 0.07);}
+.store_songs .song_upper .song_meta_info p, .single_song .ss_related .store_songs .song_upper .song_meta_info p {color: rgba(0, 0, 0, 0.7);}
+.genre_bg_cover .pro_white {background: linear-gradient(to bottom,rgba(255, 255, 255, 0.3),#f9f9f9 100%);}
+.genre_bg_cover .song_count {color: rgba(0, 0, 0, 0.7);}
+.pricing_p_price b {background-image: linear-gradient(to top, #f2dea1 35%, rgba(0, 0, 0, 0) 35.1%);}
+.button_go_pro button.btn-default {background: #e0e0e0;color: #000;}
+.sfy_home_ftrs p {color: rgba(0, 0, 0, 0.5);}
+.ma_home_jumbo_artist {background: linear-gradient(90deg, #f9f9f9 0%, #e6e6e6 30%, #e6e6e6 70%, #f9f9f9 100%);}
+.ma_home_creator {box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);}
+.sfy_confrm_code:before, .sfy_confrm_code .inputs input {border-bottom: 2px solid #d8d8d8;}
+.messages-sidebar ul li {background-color: #ffffff;}
+.user-messages .messages .message.pull-right:before {box-shadow: inset 0px 8px 0 4px #f9f9f9, inset 9px 0px 0 0px var(--main), 0 0 0 0px #f9f9f9;}
+.user-messages .messages .message.pull-left:before {box-shadow: inset 0px 8px 0 4px #f9f9f9, inset -9px 0px 0 0px #e0e0e0, 0 0 0 0px #f9f9f9;}
+.search_tabs li a {color: rgba(0, 0, 0, 0.7);}
+.search_filters .store_widget {box-shadow: none;border-top: 1px solid rgba(0, 0, 0, 0.15);}
+.search_tabs li.active a {color: #fff;}
+.search_songs, .search_artists, .search_albums, .search_playlists {background-color: #ffffff;}
+.search_albums.sq_music_tracks:not(.no-slider) .track .track_info {background: linear-gradient(transparent, #ffffff);}
+.search_artists .artist_list_innr {background-color: rgba(0, 0, 0, 0.07);}
+.sett_page .st_sidebar li a {color: rgba(0, 0, 0, 0.8);}
+.sett_my_blnc_ .my_blnc_widthdrw a {color: #2b2b2b;border-bottom: 1px dashed #414141;}
+.ssong_comments .comment_list .comment_item .comment_content .comment_body p {color: #565656;}
+.sfy_song_recntPlay .artist_list .cover_art a {box-shadow: 0 0 0 3px #ffffff;}
+.upload_music .upload_innr .btn.btn-primary-reverse, .store_songs .song_list .fp_body > .btn-primary-reverse {background: rgba(0, 0, 0, 0.05);}
+.upload_music .upload:not(.drag_active) {border-color: #fff;}
+.upload-image-content {background-color: rgba(0, 0, 0, 0.06);}
+.progress {background-color: #e9ecef;}
+.sfy_usr_stats a {color: rgba(0, 0, 0, 0.7);}
+.artist_header .artist_cover .edit_cover span {background-color: rgba(0, 0, 0, 0.3);}
+.artist_user_info .avatar_container {background-color: rgba(0, 0, 0, 0.15);}
+.artist_user_info .avatar_container .edit_cover span, .user_info_cont .user_avatar .edit_avatar span {box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);}
+.artist_user_info .sfy_artst_artst {color: rgba(0, 0, 0, 0.8);}
+.sfy_plylist_hdr {background: #f9f9f9;}
+.sfy_plist_info > p {color: #5a5a5a;}
+.sfy_plist_info .al_artist a {color: rgba(0, 0, 0, 0.9);}
+.sfy_plist_info > span {color: rgba(0, 0, 0, 0.6);}
+.sfy_song_hdr .al_name {color: white;}
+.sfy_song_hdr .sfy_plist_info > span {color: rgba(255, 255, 255, 0.6);}
+.sfy_song_hdr .sfy_plist_info .al_artist a {color: rgba(255, 255, 255, 0.9);}
+.playlist-list-song.playing .s_lsongs_child:before {background: #ddd;box-shadow: none;}
+.music_share_box .thmb_title {color: black;}
+
+
+.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left], .swal2-icon.swal2-success .swal2-success-fix, .swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right] {background: #fff !important;}
+.ds_aff_usr_head > div h1 {color: black;}
+.ds_aff_usr_head > div h4 {color: rgba(0, 0, 0, 0.7);}
+.ds_aff_usr_body {background-color: rgba(0, 0, 0, 0.07);}
+.ds_aff_usr_body input {border: 1px solid rgba(0, 0, 0, 0.2);color: black;}
+.ds_aff_divider:before, .ds_aff_divider:after {background: rgba(0, 0, 0, 0.1);}
+.ds_aff_usr_social .social-btn {border: 1px solid rgba(0, 0, 0, 0.2);}
+.ds_aff_usr_social .social-btn a {color: #484848;}
+
+header .head_user .notis .no_notification {color: #4c4c4c;}
+
+.group_chat_mbr_list {background: #fff;}
+.group_chat_mbr_part {border-bottom-color: #eaeaea;}
+.ds_hall_art .track_info a {color: #1e1e1e;}
+
+.select_radio_btn .sr_btn_lab_innr {background-color: rgb(0 0 0 / 6%);box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);}
+.select_radio_btn.small_rbtn .sr_btn_img {background-color: rgb(0 0 0 / 15%);}
+
+.ds_song_tagged a {background: rgb(0 0 0 / 12%);}
+
+
+.events-list-cover {
+    background: #fff;
+}
+.store_products-name a {
+	color: #333;
+}
+hr {
+	border-color: rgb(0 0 0 / 10%);
+}
+.events-list-name a {
+    color: black;
+}
+.event_profile .artist_user_info .info_container h4 {
+    color: #222;
+}
+.event_profile .event-time b {
+    color: #333;
+}
+.event_cdown li span {
+    color: #222;
+}
+.header-create-menu a {
+    color: #222;
+    box-shadow: 0 0 0 1px #eee;
+}
+.header-create-menu a:hover {
+	background-color: rgb(0 0 0 / 5%);
+}
+.dropdown-menu {
+    color: #212529;
+}
+
+.ds_create_edit_prods .mat_input input, .ds_create_edit_prods .mat_input select {
+	background: #fff;
+}
+.ds_create_edit_prods .mat_input input, .ds_create_edit_prods .mat_input select, .ds_create_edit_prods .mat_input textarea, .ds_create_edit_prods ul.tagit {
+    border-color: #d8d8d8;
+}
+.product-related-song .serach_trend a {
+    color: #222;
+    background-color: rgb(0 0 0 / 4%);
+}
+
+.ds_order_list b {
+    color: #222;
+}
+.ds_order_list p {
+    color: #222;
+}
+
+.ds_order_items .song_list {
+    border-bottom: 1px solid #dcdcdc;
+}
+.se_box {
+    background-color: white;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 13%);
+}
+.address_box {
+    border: 1px solid #e5e5e5;
+}
+.address_box .addrs_name {
+    color: #222;
+}
+.address_box .addrs_street, .address_box .addrs_count {
+    color: #606060;
+}
+
+.sidebar .sidebar_innr .sections .mystore_menu {
+	    border-left: 1px solid #e3e3e3;
+}
+.sidebar .sidebar_innr .sections .mystore_menu li a:before {
+    background: rgb(0 0 0 / 50%);
+}
+
+.buy_event_ticket .modal-content {
+	background: transparent !important;text-align: initial;box-shadow: none;filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+}
+.buy_event_ticket_top {
+	background-color: #fff;
+}
+.buy_event_ticket_top p {
+    color: #222;
+}
+.buy_event_ticket_mid {
+    box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;background-color: #fff;
+}
+.buy_event_ticket_mid:before, .buy_event_ticket_mid:after {
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    border-right-color: #fff;
+}
+.buy_event_ticket_bottom {
+    background-color: #fff;
+}
+
+.my_purchased .title {
+    color: #222;
+}
+.my_purchased .duration {
+    background: rgb(0 0 0 / 10%);
+}
+.product_v_title {
+    color: #222;
+}
+.stars .star path {
+    fill: #e9e9e9;
+}
+.stars[data-stars="0"] .star path {fill: #e9e9e9;}
+.stars[data-stars="1"] .star:nth-child(1) ~ .star path {fill: #e9e9e9;}
+.stars[data-stars="2"] .star:nth-child(2) ~ .star path {fill: #e9e9e9;}
+.stars[data-stars="3"] .star:nth-child(3) ~ .star path {fill: #e9e9e9;}
+.stars[data-stars="4"] .star:nth-child(4) ~ .star path {fill: #e9e9e9;}
+.stars[data-stars="5"] .star:nth-child(5) ~ .star path {fill: #e9e9e9;}
+.product_v_btns select {
+    background-color: rgb(0 0 0 / 7%);color: #222;
+}
+.prod_img_zoom-gallery {
+    box-shadow: 0 0 0 1px #ececec;
+}
+.xactive {box-shadow: 0 0 0 2px #b28e51;}
+.ds_checkout_items .song_list .song_upper .song_meta_info p select {
+    background-color: rgb(0 0 0 / 10%);color: #222;
+}
+
+.related_prods h6 {
+	    color: #222;
+}
+.related_to_song b {
+    color: #222;
+}
+
+.banner_header.wallet {
+	background-color: antiquewhite;background-blend-mode: exclusion;
+}
+.banner_header.wallet h3 {
+    color: #444;
+}
+.address_book_innr {
+	box-shadow: 0 0 0 1px #eee;
+}
+
+.tube_faq .accordion {
+    border-color: rgb(0 0 0 / 10%);
+}
+.messages-sidebar > .btn {
+    background-color: rgb(0 0 0 / 8%);
+}
+
+.ds_dev_apps {
+    border-color: #e4e4e4;
+}
+.ds_dev_apps .info .ap_name a {
+    color: #131313;
+}
+.ds_dev_apps .info p {
+    background: rgb(0 0 0 / 10%);
+}
+
+.mat_input input[readonly] {
+    background: #e9ecef;
+    color: #292929;
+}
+
+.modal-footer {
+    border-color: #ebebeb;
+}
+.ds_app_permission .foot .btn {
+    border-color: #d4d4d4;
+}
+
+.lang_select_modal .language_select a {
+    border-color: #ddd;color: #393939;
+}
+.lang_select_modal .language_select:hover {background-color: rgb(0 0 0 / 3%) !important;}
+
+code pre {color: red;}
+
+
+
+body .flatpickr-calendar {
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 10%) 0px 4px 6px -4px;
+}
+body .flatpickr-calendar.arrowBottom:before, body .flatpickr-calendar.arrowBottom:after {
+    border-top-color: #ffffff;
+}
+body .flatpickr-calendar.arrowTop:before, body .flatpickr-calendar.arrowTop:after {
+    border-bottom-color: #e6e6e6;
+}
+body .flatpickr-months .flatpickr-prev-month, body .flatpickr-months .flatpickr-next-month, body .flatpickr-months .flatpickr-month {
+    color: rgb(0 0 0 / 90%);
+    fill: rgb(0 0 0 / 90%);
+}
+body span.flatpickr-weekday {
+    color: rgb(0 0 0 / 54%);
+}
+body .flatpickr-day, body .flatpickr-time input, body .flatpickr-time .flatpickr-time-separator, body .flatpickr-time .flatpickr-am-pm {
+    color: #393939;
+}
+body .flatpickr-day.flatpickr-disabled, body .flatpickr-day.flatpickr-disabled:hover, body .flatpickr-day.prevMonthDay, body .flatpickr-day.nextMonthDay, body .flatpickr-day.notAllowed, body .flatpickr-day.notAllowed.prevMonthDay, body .flatpickr-day.notAllowed.nextMonthDay {
+    color: rgb(0 0 0 / 30%);
+}
+body .flatpickr-day.flatpickr-disabled, body .flatpickr-day.flatpickr-disabled:hover {
+    color: rgb(0 0 0 / 10%);
+}
+body .flatpickr-day.inRange, body .flatpickr-day.prevMonthDay.inRange, body .flatpickr-day.nextMonthDay.inRange, body .flatpickr-day.today.inRange, body .flatpickr-day.prevMonthDay.today.inRange, body .flatpickr-day.nextMonthDay.today.inRange, body .flatpickr-day:hover, body .flatpickr-day.prevMonthDay:hover, body .flatpickr-day.nextMonthDay:hover, body .flatpickr-day:focus, body .flatpickr-day.prevMonthDay:focus, body .flatpickr-day.nextMonthDay:focus, body .flatpickr-time input:hover, body .flatpickr-time .flatpickr-am-pm:hover, body .flatpickr-time input:focus, body .flatpickr-time .flatpickr-am-pm:focus {
+    background: #f4f4f4;
+    border-color: #f4f4f4;
+}
+body .flatpickr-calendar.hasTime .flatpickr-time {
+    border-color: #e6e6e6;
+}
+
+.top_playlist_list:hover {
+	background: rgb(0 0 0 / 7%);
+}
+
+
+
+@media (max-width: 485px){
+header .head_menu, header .head_logo a, header .head_user.not_loggd_hdrr .dropdown > svg {background-color: #ffffff;color: #414141;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);}
+}

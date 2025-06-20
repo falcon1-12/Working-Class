@@ -1,0 +1,230 @@
+<header class="valign sfy_hdr_trans">
+	<div class="head_menu" onclick="$('body').addClass('sidebar_open');">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+	</div>
+	<div class="head_logo loggd_hd_logo">
+		<a href="{{LINK }}" <?php if( IS_LOGGED === true ) {?>data-load="feed"<?php }?>>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" /></svg>
+			<?php if( $music->mode_link == 'day' ){?>
+			<img src="{{CONFIG theme_url}}/img/logo.png?cache={{CONFIG logo_cache}}" alt="">
+			<?php }else{ ?>
+			<img src="{{CONFIG theme_url}}/img/logo-white.png?cache={{CONFIG logo_cache}}" alt="">
+			<?php } ?>
+		</a>
+	</div>
+	<div class="valign head_user">
+		<span class="opts_head_acc dropdown">
+			<button class="btn btn-mat" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9V12H14V14H17V17H19V14H22V12H19V9H17M9 3V13.55C8.41 13.21 7.73 13 7 13C4.79 13 3 14.79 3 17S4.79 21 7 21 11 19.21 11 17V7H15V3H9Z"></path></svg> {{LANG Upload}}
+			</button>
+			<ul class="dropdown-menu dropdown-menu-right valign">
+				<div class="row mx-n2">
+					<?php if ($music->user->upload_import == 1) { ?>
+						<?php if ($music->config->can_use_upload) { ?>
+							<div class="col-6 px-2">
+								<li>
+									<a href="{{LINK upload-single}}" data-load="upload-single" class="upload-button">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.019 512.019" xml:space="preserve"> <path class="imp-page" d="M373.352,0.012H138.686c-2.831-0.005-5.548,1.115-7.552,3.115l-128,128 c-1.999,2.004-3.12,4.721-3.115,7.552v320c0,5.891,4.776,10.667,10.667,10.667h362.667c5.891,0,10.667-4.776,10.667-10.667v-448 C384.019,4.788,379.243,0.012,373.352,0.012z"/> <path class="imp-page-fold" d="M142.76,0.823c-3.985-1.654-8.574-0.745-11.627,2.304l-128,128 c-4.171,4.16-4.179,10.914-0.019,15.085c2.006,2.011,4.731,3.139,7.571,3.134h128c5.891,0,10.667-4.776,10.667-10.667v-128 C149.352,6.362,146.75,2.471,142.76,0.823z"/> <circle style="fill:#37b24d;" cx="394.686" cy="394.679" r="117.333"/> <path style="fill:#2196F3;" d="M245.352,149.345h-42.667c-5.891,0-10.667,4.776-10.667,10.667v100.267 c-6.749-2.851-14.007-4.302-21.333-4.267c-23.936,0-42.667,14.059-42.667,32c0,17.941,18.731,32,42.667,32s42.667-14.059,42.667-32 V170.679h32c5.891,0,10.667-4.776,10.667-10.667C256.019,154.121,251.243,149.345,245.352,149.345z"/> <g> <path style="fill:#FAFAFA;" d="M394.686,469.345c-5.891,0-10.667-4.776-10.667-10.667v-128c0-5.891,4.776-10.667,10.667-10.667 c5.891,0,10.667,4.776,10.667,10.667v128C405.352,464.57,400.577,469.345,394.686,469.345z"/> <path style="fill:#FAFAFA;" d="M437.352,384.012c-2.831,0.005-5.548-1.115-7.552-3.115l-35.115-35.136l-35.115,35.115 c-4.237,4.093-10.99,3.976-15.083-0.261c-3.993-4.134-3.993-10.688,0-14.821l42.667-42.667c4.165-4.164,10.917-4.164,15.083,0 l42.667,42.667c4.171,4.16,4.179,10.914,0.019,15.085C442.918,382.889,440.193,384.017,437.352,384.012z"/> </g></svg> {{LANG Upload}}
+									</a>
+								</li>
+							</div>
+						<?php } ?>
+						<?php if( $music->config->soundcloud_import == 'on' || $music->config->itunes_import == 'on' || $music->config->deezer_import == 'on' || $music->config->youtube_import == 'on' || $music->config->kkbox_import == 'on'  ) {?>
+							<div class="col-6 px-2">
+								<li>
+									<a href="{{LINK import}}" data-load="import" class="import-button">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.019 512.019" ml:space="preserve"> <path class="imp-page" d="M373.352,0.012H138.686c-2.831-0.005-5.548,1.115-7.552,3.115l-128,128 c-1.999,2.004-3.12,4.721-3.115,7.552v320c0,5.891,4.776,10.667,10.667,10.667h362.667c5.891,0,10.667-4.776,10.667-10.667v-448 C384.019,4.788,379.243,0.012,373.352,0.012z"/> <path class="imp-page-fold" d="M142.76,0.823c-3.985-1.654-8.574-0.745-11.627,2.304l-128,128 c-4.171,4.16-4.179,10.914-0.019,15.085c2.006,2.011,4.731,3.139,7.571,3.134h128c5.891,0,10.667-4.776,10.667-10.667v-128 C149.352,6.362,146.75,2.471,142.76,0.823z"/> <circle style="fill:#2196f3;" cx="394.686" cy="394.679" r="117.333"/> <path style="fill:#2196F3;" d="M245.352,149.345h-42.667c-5.891,0-10.667,4.776-10.667,10.667v100.267 c-6.749-2.851-14.007-4.302-21.333-4.267c-23.936,0-42.667,14.059-42.667,32c0,17.941,18.731,32,42.667,32s42.667-14.059,42.667-32 V170.679h32c5.891,0,10.667-4.776,10.667-10.667C256.019,154.121,251.243,149.345,245.352,149.345z"/> <g> <path style="fill:#FAFAFA;" d="M394.686,469.345c-5.891,0-10.667-4.776-10.667-10.667v-128c0-5.891,4.776-10.667,10.667-10.667 c5.891,0,10.667,4.776,10.667,10.667v128C405.352,464.57,400.577,469.345,394.686,469.345z"/> <path style="fill:#FAFAFA;" d="M394.686,469.345c-2.831,0.005-5.548-1.115-7.552-3.115l-42.667-42.667 c-4.093-4.237-3.976-10.99,0.261-15.083c4.134-3.993,10.688-3.993,14.821,0l35.136,35.115l35.115-35.115 c4.237-4.093,10.99-3.976,15.083,0.261c3.993,4.134,3.993,10.688,0,14.821l-42.667,42.667 C400.217,468.225,397.509,469.345,394.686,469.345z"/> </g></svg> {{LANG Import}}
+									</a>
+								</li>
+							</div>
+						<?php } ?>
+						{{HOOK LOAD_LOGGEDIN_HEADER_BUTTONS}}
+					<?php } ?>
+					<?php if ($music->config->event_system == 1 && $music->config->can_use_event_system) { ?>
+						<div class="col-6 px-2">
+							<li>
+								<a href="{{LINK create-event}}" data-load="create-event"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.7502 3.56V2C16.7502 1.59 16.4102 1.25 16.0002 1.25C15.5902 1.25 15.2502 1.59 15.2502 2V3.5H8.75024V2C8.75024 1.59 8.41024 1.25 8.00024 1.25C7.59024 1.25 7.25024 1.59 7.25024 2V3.56C4.55024 3.81 3.24023 5.42 3.04023 7.81C3.02023 8.1 3.26023 8.34 3.54023 8.34H20.4602C20.7502 8.34 20.9902 8.09 20.9602 7.81C20.7602 5.42 19.4502 3.81 16.7502 3.56Z" fill="#E91E63"/><path opacity="0.4" d="M21 10.8381V12.5781C21 13.1881 20.46 13.6581 19.86 13.5581C19.58 13.5181 19.29 13.4881 19 13.4881C15.97 13.4881 13.5 15.9581 13.5 18.9881C13.5 19.4481 13.68 20.0882 13.87 20.6682C14.09 21.3182 13.61 21.9881 12.92 21.9881H8C4.5 21.9881 3 19.9881 3 16.9881V10.8281C3 10.2781 3.45 9.82812 4 9.82812H20C20.55 9.83812 21 10.2881 21 10.8381Z" fill="#E91E63"/><path d="M8.5 15.0009C8.24 15.0009 7.98 14.8909 7.79 14.7109C7.61 14.5209 7.5 14.2609 7.5 14.0009C7.5 13.7409 7.61 13.4809 7.79 13.2909C8.02 13.0609 8.37 12.9509 8.7 13.0209C8.76 13.0309 8.82 13.0509 8.88 13.0809C8.94 13.1009 9 13.1309 9.06 13.1709C9.11 13.2109 9.16 13.2509 9.21 13.2909C9.39 13.4809 9.5 13.7409 9.5 14.0009C9.5 14.2609 9.39 14.5209 9.21 14.7109C9.16 14.7509 9.11 14.7909 9.06 14.8309C9 14.8709 8.94 14.9009 8.88 14.9209C8.82 14.9509 8.76 14.9709 8.7 14.9809C8.63 14.9909 8.56 15.0009 8.5 15.0009Z" fill="#E91E63"/><path d="M12 14.9992C11.74 14.9992 11.48 14.8892 11.29 14.7092C11.11 14.5192 11 14.2592 11 13.9992C11 13.7392 11.11 13.4792 11.29 13.2892C11.67 12.9192 12.34 12.9192 12.71 13.2892C12.89 13.4792 13 13.7392 13 13.9992C13 14.2592 12.89 14.5192 12.71 14.7092C12.52 14.8892 12.26 14.9992 12 14.9992Z" fill="#E91E63"/><path d="M8.5 18.4989C8.24 18.4989 7.98 18.3889 7.79 18.2089C7.61 18.0189 7.5 17.7589 7.5 17.4989C7.5 17.2389 7.61 16.9789 7.79 16.7889C7.89 16.6989 7.99 16.6289 8.12 16.5789C8.49 16.4189 8.93 16.5089 9.21 16.7889C9.39 16.9789 9.5 17.2389 9.5 17.4989C9.5 17.7589 9.39 18.0189 9.21 18.2089C9.02 18.3889 8.76 18.4989 8.5 18.4989Z" fill="#E91E63"/><path d="M21.83 16.17C20.27 14.61 17.73 14.61 16.17 16.17C14.61 17.73 14.61 20.27 16.17 21.83C17.73 23.39 20.27 23.39 21.83 21.83C23.39 20.27 23.39 17.73 21.83 16.17ZM21.07 19.56C20.94 19.7 20.75 19.78 20.54 19.78H19.8V20.56C19.8 20.77 19.72 20.95 19.58 21.09C19.44 21.23 19.26 21.31 19.05 21.31C18.64 21.31 18.3 20.97 18.3 20.56V19.78H17.55C17.14 19.78 16.8 19.45 16.8 19.03C16.8 18.62 17.14 18.28 17.55 18.28H18.3V17.57C18.3 17.16 18.63 16.82 19.05 16.82C19.46 16.82 19.8 17.16 19.8 17.57V18.28H20.54C20.96 18.28 21.29 18.62 21.29 19.03C21.29 19.24 21.21 19.43 21.07 19.56Z" fill="#E91E63"/></svg>{{LANG Create Event}}</a>
+							</li>
+						</div>
+					<?php } ?>
+					<?php if ($music->config->store_system == 'on' && $music->config->can_use_store_system) { ?>
+						<div class="col-6 px-2">
+							<li>
+								<a href="{{LINK create-product}}" data-load="create-product"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.4" d="M21.0505 11.7097V17.6997C21.0505 20.4597 18.8105 22.6997 16.0505 22.6997H7.31055C7.08055 22.6997 6.85055 22.6797 6.63055 22.6497C7.00055 22.4897 7.33055 22.2697 7.63055 21.9997C7.67055 21.9697 7.70053 21.9397 7.73053 21.8997C8.00053 21.6697 8.23053 21.3797 8.42053 21.0597C8.79053 20.4597 9.00055 19.7497 9.00055 18.9997C9.00055 17.9497 8.59054 16.9997 7.93054 16.2797C7.83054 16.1697 7.72052 16.0597 7.60052 15.9697C6.90052 15.3597 6.00055 14.9997 5.00055 14.9997C4.29055 14.9997 3.62053 15.1897 3.04053 15.5197C2.85053 15.6197 2.67055 15.7397 2.50055 15.8797C2.43055 15.9297 2.37055 15.9897 2.31055 16.0497V11.7797C3.07055 12.5997 4.15056 13.0697 5.32056 13.0697C6.58056 13.0697 7.79054 12.4397 8.55054 11.4297C9.23054 12.4397 10.3905 13.0697 11.6805 13.0697C12.9605 13.0697 14.1005 12.4697 14.7905 11.4697C15.5605 12.4597 16.7505 13.0697 17.9905 13.0697C19.2005 13.0697 20.3005 12.5797 21.0505 11.7097Z" fill="#009688"/><path d="M14.669 1.57031H8.66904L7.92905 8.9303C7.86905 9.6103 7.96903 10.2503 8.21903 10.8303C8.79903 12.1903 10.1591 13.0703 11.6791 13.0703C13.2191 13.0703 14.5491 12.2103 15.1491 10.8403C15.3291 10.4103 15.4391 9.91033 15.4491 9.40033V9.21033L14.669 1.57031Z" fill="#009688"/><path opacity="0.6" d="M22.0392 8.58862L21.7592 5.80859C21.3392 2.78859 19.9692 1.55859 17.0392 1.55859H13.1992L13.9392 9.05859C13.9492 9.15859 13.9592 9.26862 13.9592 9.45862C14.0192 9.97862 14.1792 10.4586 14.4192 10.8886C15.1392 12.2086 16.5392 13.0586 17.9992 13.0586C19.3292 13.0586 20.5292 12.4686 21.2792 11.4286C21.8692 10.6386 22.1392 9.62862 22.0392 8.58862Z" fill="#009688"/><path opacity="0.6" d="M6.26934 1.57031C3.32934 1.57031 1.9693 2.80028 1.5393 5.85028L1.26934 8.60028C1.16934 9.67028 1.45934 10.7103 2.08934 11.5203C2.84934 12.5103 4.01933 13.0703 5.31932 13.0703C6.77933 13.0703 8.17933 12.2203 8.88933 10.9203C9.14933 10.4703 9.31931 9.95028 9.36931 9.41028L10.1493 1.58032H6.26934V1.57031Z" fill="#009688"/><path d="M7.92999 16.28C7.82999 16.17 7.71998 16.06 7.59998 15.97C6.89998 15.36 6 15 5 15C4.29 15 3.61998 15.19 3.03998 15.52C2.84998 15.62 2.67 15.74 2.5 15.88C1.58 16.61 1 17.74 1 19C1 19.75 1.21002 20.46 1.58002 21.06C1.67002 21.22 1.78002 21.37 1.90002 21.51C1.92002 21.54 1.94997 21.56 1.96997 21.59C2.68997 22.45 3.78 23 5 23C6.01 23 6.93 22.63 7.63 22C7.67 21.97 7.69998 21.94 7.72998 21.9C7.99998 21.67 8.22998 21.38 8.41998 21.06C8.78998 20.46 9 19.75 9 19C9 17.95 8.58999 17 7.92999 16.28ZM6.5 19.73H5.75V20.51C5.75 20.92 5.41 21.26 5 21.26C4.59 21.26 4.25 20.92 4.25 20.51V19.73H3.5C3.09 19.73 2.75 19.39 2.75 18.98C2.75 18.57 3.09 18.23 3.5 18.23H4.25V17.52C4.25 17.11 4.59 16.77 5 16.77C5.41 16.77 5.75 17.11 5.75 17.52V18.23H6.5C6.91 18.23 7.25 18.57 7.25 18.98C7.25 19.39 6.91 19.73 6.5 19.73Z" fill="#009688"/></svg>{{LANG Create Product}}</a>
+							</li>
+						</div>
+					<?php } ?>
+				</div>
+			</ul>
+		</span>
+
+		<span class="chaticon">
+			<span class="msgunread_count" id="new-messages"></span>
+			<a href="{{LINK messages}}" data-load="messages" class="btn btn-mat">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20,20H7A2,2 0 0,1 5,18V8.94L2.23,5.64C2.09,5.47 2,5.24 2,5A1,1 0 0,1 3,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M8.5,7A0.5,0.5 0 0,0 8,7.5V8.5A0.5,0.5 0 0,0 8.5,9H18.5A0.5,0.5 0 0,0 19,8.5V7.5A0.5,0.5 0 0,0 18.5,7H8.5M8.5,11A0.5,0.5 0 0,0 8,11.5V12.5A0.5,0.5 0 0,0 8.5,13H18.5A0.5,0.5 0 0,0 19,12.5V11.5A0.5,0.5 0 0,0 18.5,11H8.5M8.5,15A0.5,0.5 0 0,0 8,15.5V16.5A0.5,0.5 0 0,0 8.5,17H13.5A0.5,0.5 0 0,0 14,16.5V15.5A0.5,0.5 0 0,0 13.5,15H8.5Z" /></svg>
+			</a>
+		</span>
+		
+		<?php if ($music->config->store_system == 'on') { ?>
+			<span class="notis dropdown cart_items">
+				<span class="unread_cart_count">
+				<?php 
+				$count = $db->where('user_id',$music->user->id)->getValue(T_CARD,'COUNT(*)');
+				if ($count > 0) {
+					echo $count;
+				}
+				?>
+				</span>
+				<button class="btn btn-mat" data-display="static" data-toggle="dropdown" aria-haspopup="true" onclick="GetCart()">
+					<svg  xmlns="http://www.w3.org/2000/svg" data-display="static" data-toggle="dropdown" aria-haspopup="true" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18,6h-2c0-2.21-1.79-4-4-4S8,3.79,8,6H6C4.9,6,4,6.9,4,8v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8C20,6.9,19.1,6,18,6z M10,10c0,0.55-0.45,1-1,1s-1-0.45-1-1V8h2V10z M12,4c1.1,0,2,0.9,2,2h-4C10,4.9,10.9,4,12,4z M16,10c0,0.55-0.45,1-1,1 s-1-0.45-1-1V8h2V10z" /></svg>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right mat-dropdown">
+					<ul class="list-unstyled mb-0" id="cart-list">
+						<li class="noti_load">
+							<svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg>
+						</li>
+					</ul>
+					<div class="text-center checkout_btn">
+						<a href="{{LINK checkout}}" class="btn btn-primary btn-mat" data-load="checkout">{{LANG Checkout}}</a>
+					</div>
+				</div>
+			</span>
+		<?php } ?>
+		
+		<span class="notis dropdown">
+			<span class="unread_count"><?php $count = getNotifications('count', false); if ($count > 0) { echo $count; } ?></span>
+			<button class="btn btn-mat" data-display="static" data-toggle="dropdown" aria-haspopup="true" onclick="getNotifications()">
+				<svg  xmlns="http://www.w3.org/2000/svg" data-display="static" data-toggle="dropdown" aria-haspopup="true" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,22A2,2 0 0,0 14,20H10A2,2 0 0,0 12,22M18,16V11C18,7.93 16.36,5.36 13.5,4.68V4A1.5,1.5 0 0,0 12,2.5A1.5,1.5 0 0,0 10.5,4V4.68C7.63,5.36 6,7.92 6,11V16L4,18V19H20V18L18,16Z" /></svg>
+			</button>
+			<ul class="dropdown-menu dropdown-menu-right" id="notification-list">
+				<li class="noti_load">
+					<svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg>
+				</li>
+			</ul>
+		</span>
+		<?php if ($music->config->tag_artist_system == 1) { ?>
+			<span class="notis dropdown">
+				<span class="unread_R_count"><?php 
+				$R_Count = $db->where('artist_id',$music->user->id)->where('seen',0)->getValue(T_ARTISTS_TAGS,'COUNT(*)');
+				if ($R_Count > 0) {
+					echo $R_Count;
+				}
+				?></span>
+				<button class="btn btn-mat" data-display="static" data-toggle="dropdown" aria-haspopup="true" onclick="GetRRequests()">
+					<svg  xmlns="http://www.w3.org/2000/svg" data-display="static" data-toggle="dropdown" aria-haspopup="true" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V8c0-.55-.45-1-1-1s-1 .45-1 1v2H2c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1s1-.45 1-1v-2h2c.55 0 1-.45 1-1s-.45-1-1-1H6zm9 4c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" /></svg>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right" id="request-list">
+					<li class="noti_load">
+						<svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg>
+					</li>
+				</ul>
+			</span>
+		<?php } ?>
+		{{HOOK LOAD_LOGGEDIN_ICONS}}
+		<span class="opts_account dropdown">
+			<button class="btn btn-mat" data-display="static" data-toggle="dropdown" aria-haspopup="true">
+				<img src="{{ME avatar}}" alt="{{ME name}}"> <span>{{ME name}}</span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"/></svg>
+			</button>
+			<ul class="dropdown-menu dropdown-menu-right">
+				<li><a href="{{ME url}}" data-load="{{ME username}}">{{ME name}}</a></li>
+				<li class="divider"></li>
+				<?php if ($music->user->is_pro == 0 && $music->config->go_pro == 'on') { ?>
+					<li><a href="{{LINK go-pro}}" data-load="go-pro"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3.5l-1.323 2.68-2.957.43 2.14 2.085-.505 2.946L12 17.25l2.645 1.39-.505-2.945 2.14-2.086-2.957-.43L12 10.5zm1-8.501L18 2v3l-1.363 1.138A9.935 9.935 0 0 0 13 5.049L13 2zm-2 0v3.05a9.935 9.935 0 0 0-3.636 1.088L6 5V2l5-.001z"></path></svg> {{LANG Upgrade To PRO}}</a></li>
+				<?php } ?> 
+				<?php if ($music->user->artist == 0) { ?>
+					<li><a href="{{LINK become}}" data-load="become"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13,2.03C17.73,2.5 21.5,6.25 21.95,11C22.5,16.5 18.5,21.38 13,21.93V19.93C16.64,19.5 19.5,16.61 19.96,12.97C20.5,8.58 17.39,4.59 13,4.05V2.05L13,2.03M11,2.06V4.06C9.57,4.26 8.22,4.84 7.1,5.74L5.67,4.26C7.19,3 9.05,2.25 11,2.06M4.26,5.67L5.69,7.1C4.8,8.23 4.24,9.58 4.05,11H2.05C2.25,9.04 3,7.19 4.26,5.67M2.06,13H4.06C4.24,14.42 4.81,15.77 5.69,16.9L4.27,18.33C3.03,16.81 2.26,14.96 2.06,13M7.1,18.37C8.23,19.25 9.58,19.82 11,20V22C9.04,21.79 7.18,21 5.67,19.74L7.1,18.37M12,7.5L7.5,12H11V16H13V12H16.5L12,7.5Z"></path></svg> {{LANG Become an artist}}</a></li>
+					<li class="divider"></li>
+				<?php } ?> 
+				<li><a href="{{LINK dashboard}}" data-load="dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,3L2,12H5V20H19V12H22M9,18H7V12H9M13,18H11V10H13M17,18H15V14H17"></path></svg> {{LANG Dashboard}}</a></li>
+				<li><a href="{{ME url}}/songs" data-load="{{ME username}}/songs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11,14C12,14 13.05,14.16 14.2,14.44C13.39,15.31 13,16.33 13,17.5C13,18.39 13.25,19.23 13.78,20H3V18C3,16.81 3.91,15.85 5.74,15.12C7.57,14.38 9.33,14 11,14M11,12C9.92,12 9,11.61 8.18,10.83C7.38,10.05 7,9.11 7,8C7,6.92 7.38,6 8.18,5.18C9,4.38 9.92,4 11,4C12.11,4 13.05,4.38 13.83,5.18C14.61,6 15,6.92 15,8C15,9.11 14.61,10.05 13.83,10.83C13.05,11.61 12.11,12 11,12M18.5,10H20L22,10V12H20V17.5A2.5,2.5 0 0,1 17.5,20A2.5,2.5 0 0,1 15,17.5A2.5,2.5 0 0,1 17.5,15C17.86,15 18.19,15.07 18.5,15.21V10Z"></path></svg> {{LANG My Songs}}</a></li>
+				<li><a href="{{ME url}}/albums" data-load="{{ME username}}/albums"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,11A1,1 0 0,0 11,12A1,1 0 0,0 12,13A1,1 0 0,0 13,12A1,1 0 0,0 12,11M12,16.5C9.5,16.5 7.5,14.5 7.5,12C7.5,9.5 9.5,7.5 12,7.5C14.5,7.5 16.5,9.5 16.5,12C16.5,14.5 14.5,16.5 12,16.5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path></svg> {{LANG My Albums}}</a></li>
+				<li><a href="{{LINK settings/{{ME username}}/general}}" data-load="settings/{{ME username}}/general"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"></path></svg> {{LANG Settings}}</a></li>
+				<?php if ($music->config->user_ads == 'on' && $music->config->can_use_user_ads) { ?>
+					<li><a href="{{LINK ads}}" data-load="ads"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z"></path></svg> {{LANG Advertising}}</a></li>
+				<?php } ?>
+				<?php if (IsAdmin() || $music->user->admin != 0) { ?>
+					<li class="divider"></li>
+					<li><a href="{{LINK admin-cp/}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,3H11V7.34L16.66,1.69L22.31,7.34L16.66,13H21V21H13V13H16.66L11,7.34V11H3V3M3,13H11V21H3V13Z"></path></svg> {{LANG Admin Panel}}</a></li>
+				<?php } ?>
+				{{HOOK LOAD_LOGGEDIN_HEADER_DROPDOWN}}
+				<li class="divider"></li>
+				<li><a href="{{LINK logout}}" data-logout="true">{{LANG Logout}}</a></li>
+				<li class="divider"></li>
+				<li class="toggle-mode top-header">
+					<label class="valign switch">
+						<span class="txt"><?php echo $music->mode_text; ?></span>
+						<input type="checkbox" id="night_mode_toggle" data-mode='<?php echo $music->mode_link; ?>'>
+						<span class="slider round"></span>
+					</label>
+				</li>
+			</ul>
+		</span>
+	</div>
+</header>
+
+<script>
+$(document).on('click', 'a[data-logout]', function(event) {
+	event.preventDefault();
+	$.get('{{CONFIG ajax_url}}/logout', function(data) {
+		if (data.status == 200) {
+			$('#main-header').html(data.header);
+			if (Amplitude.getActiveSongMetadata().price > 0) {
+				location.href = window.location.href;
+			} else {
+				//ajaxRedirect();
+                location.href = window.location.href;
+			}
+		}
+	});
+});
+function getNotifications() {
+	$('.unread_count').text("");
+	$("#notification-list").html('<li class="noti_load"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></li>');
+	$.get('{{CONFIG ajax_url}}/notifications/get', function(data) {
+		if (data.status == 200) {
+			$("#notification-list").html(data.html);
+		} else {
+			$("#notification-list").html("<li class='no-track-found no_notification'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-11c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68c-.24.06-.47.15-.69.23L18 13.1V11zM5.41 3.35L4 4.76l2.81 2.81C6.29 8.57 6 9.73 6 11v5l-1.29 1.29c-.63.63-.19 1.71.7 1.71h12.83l1.74 1.74 1.41-1.41L5.41 3.35z'></path></svg> {{LANG No notifications found}}</li>");
+		}
+	});
+}
+
+function GetRRequests() {
+	$('.unread_R_count').text("");
+	$("#request-list").html('<li class="noti_load"><svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke="#676d76" fill="none" stroke-width="6" stroke-linecap="round"><animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502"></animate><animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate></circle></svg></li>');
+	$.get('{{CONFIG ajax_url}}/notifications/get_request', function(data) {
+		if (data.status == 200) {
+			$("#request-list").html(data.html);
+		} else {
+			$("#request-list").html("<li class='no-track-found no_notification'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='M14.48 11.95c.17.02.34.05.52.05 2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4c0 .18.03.35.05.52l3.43 3.43zm2.21 2.21l5.74 5.74c.33-.17.57-.5.57-.9v-1c0-2.14-3.56-3.5-6.31-3.84zM2.12 2.42c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L4 7.12V10H2c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1s1-.45 1-1v-2h2.88l2.51 2.51C9.19 15.11 7 16.3 7 18v1c0 .55.45 1 1 1h8.88l3.29 3.29c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L2.12 2.42zM6 10v-.88l.88.88H6z'></path></svg> {{LANG No request found}}</li>");
+		}
+	});
+}
+
+jQuery(document).ready(function($) {
+	setTimeout(updateNotifications, 5000);
+});
+
+function updateNotifications() {
+	$.get('{{CONFIG ajax_url}}/notifications/count_unseen', function(data) {
+		if (data.status == 200) {
+			if (data.count > 0) {
+				$(".unread_count").html(data.count);
+			} else {
+				$(".unread_count").html("");
+			}
+            if (data.msgs > 0) {
+                $("#new-messages").html(data.msgs);
+            } else {
+                $("#new-messages").html("");
+            }
+			if (data.request > 0) {
+                $(".unread_R_count").html(data.request);
+            } else {
+                $(".unread_R_count").html("");
+            }
+		} 
+		setTimeout(updateNotifications, 5000);
+	});
+}
+</script>

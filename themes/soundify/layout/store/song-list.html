@@ -1,0 +1,41 @@
+<div class="feed_post song_list" data-id="{{t_id}}">
+	<div class="sfy_song_post">
+		<div class="valign fp_head">
+			<div class="user_info">
+				<span class="time ajax-time">{{t_posted}}</span>
+				<span><a href="{{t_artist_url}}" data-load="{{t_uartist}}">{{t_artist}}</a></span>
+			</div>
+			<div class="opts_feed dropdown">
+				<button type="button" class="btn" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="javascript:void(0)" onclick="getPlayLists({{t_id}})">{{LANG Add to Playlist}}</a></li>
+					<li><a onclick="getShareModal('{{t_id}}', $(this));">{{LANG Share}}</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="fp_body">
+			<div class="cover">
+				<img src="{{t_thumbnail}}">
+			</div>
+			<div class="btn main play_btn" onclick="playSong('{{t_audio_id}}')">
+				<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 13.5v-7c0-.41.47-.65.8-.4l4.67 3.5c.27.2.27.6 0 .8l-4.67 3.5c-.33.25-.8.01-.8-.4z"></path></svg>
+			</div>
+			<div class="feed_song">
+				<div class="art_details">
+					<h4><a href="{{t_url}}" data-load="track/{{t_audio_id}}">{{t_title}}</a></h4>
+					<div class="art-info"><?php echo getFavButton($music->songData->id, 'fav-icon');?></div>
+					<div class="art-info">{{t_duration}}</div>
+				</div>
+			</div>
+			<?php if (IS_LOGGED) { ?>
+				<?php if($music->config->artist_sell == 'on'){ ?>
+					<?php if( isTrackPurchased($data['t_id'], $music->user->id) === true ){ ?>
+						<a class="btn btn-primary-reverse btn-mat" href="{{LINK purchased}}" data-load="purchased" title="{{LANG You have bought this track.}}">{{LANG download}}</a>
+					<?php } else { ?>
+						<button class="btn btn-primary btn-mat" onclick="purchaseTrack('{{t_audio_id}}', $(this),'buy_song','{{t_price}}')"  data-title="{{t_title}}" data-price="{{t_price}}" title="{{LANG Purchase}}">{{CONFIG currency_symbol}}{{t_price}}</button>
+					<?php } ?>
+				<?php } ?>
+			<?php } ?>
+		</div>
+	</div>
+</div>

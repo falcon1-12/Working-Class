@@ -1,0 +1,165 @@
+<div class="modal fade mat_box" id="verify_code" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="two_factor_title">
+                    <?php
+						if ($music->config->two_factor_type == 'both') {
+                    echo lang('A confirmation message and email were sent.');
+                    }
+                    elseif ($music->config->two_factor_type == 'email') {
+                    echo lang('A confirmation email has been sent.');
+                    }
+                    elseif ($music->config->two_factor_type == 'phone') {
+                    echo lang('A confirmation message was sent.');
+                    }
+                    ?>
+                </h5>
+            </div>
+            <form id="confirmation_code_form" class="confirmation_code_form" method="POST">
+                <div class="modal-body">
+                    <div id="confirmation_code_form_alert"></div>
+                    <p id="two_factor_desc">
+                        <?php
+							if ($music->config->two_factor_type == 'both') {
+                        echo lang('We have sent a message and an email that contain the confirmation code to enable two-factor authentication');
+                        }
+                        elseif ($music->config->two_factor_type == 'email') {
+                        echo lang('We have sent an email that contains the confirmation code to enable Two-factor authentication.');
+                        }
+                        elseif ($music->config->two_factor_type == 'phone') {
+                        echo lang('We have sent a message that contains the confirmation code to enable Two-factor authentication.');
+                        }
+                        ?>
+                    </p>
+                    <div class="form-group">
+                        <input type="text" class="sfy_confrm_code_input" name="code" placeholder="{{LANG Confirmation code}}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-mat btn-default">{{LANG Cancel}}</button>
+                    <button id="confirmation_code_form_btn" type="submit" class="btn btn-primary btn-mat">{{LANG Save}}</button>
+                </div>
+                <input type="hidden" id="confirmation_code_form_user_id" name="user_id" value="">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade mat_box" id="verify_email_phone" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="verify_email_phone_title">
+                    <?php
+						if ($music->config->sms_or_email == 'mail') {
+                    echo lang('A confirmation message and email were sent.');
+                    }
+                    elseif ($music->config->sms_or_email == 'sms') {
+                    echo lang('A confirmation message was sent.');
+                    }
+                    ?>
+                </h5>
+            </div>
+            <form id="verify_email_phone_form" class="verify_email_phone_form" method="POST">
+                <div class="modal-body">
+                    <div id="verify_email_phone_form_alert"></div>
+                    <p id="verify_email_phone_desc">
+                        <?php
+							if ($music->config->sms_or_email == 'mail') {
+                        echo lang('We have sent an email that contains the confirmation code to enable Two-factor authentication.');
+                        }
+                        elseif ($music->config->sms_or_email == 'sms') {
+                        echo lang('We have sent a message that contains the confirmation code to enable Two-factor authentication.');
+                        }
+                        ?>
+                    </p>
+                    <div class="form-group">
+                        <input type="text" class="sfy_confrm_code_input" name="code" placeholder="{{LANG Confirmation code}}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-mat btn-default">{{LANG Cancel}}</button>
+                    <button id="verify_email_phone_form_btn" type="submit" class="btn btn-primary btn-mat">{{LANG Save}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.sfy_confrm_code_input').codeInput({
+        number: 6
+    });
+});
+
+jQuery.fn.codeInput = function(options) {
+    var defaults = {
+        number: 4,
+        length: 1
+    };
+
+    var settings = $.extend({}, defaults, options);
+
+    return this.each(function() {
+        var self = $(this);
+        var placeholder = self.attr('placeholder');
+        var div = $('<div />').addClass('sfy_confrm_code');
+        div.append($('<span />').text(placeholder));
+        self.replaceWith(div);
+        div.append(self);
+        var inputDiv = $('<div />').addClass('inputs');
+        for(var i = 1; i <= settings.number; i++) {
+            inputDiv.append($('<input />').attr({
+                maxlength: settings.length
+            }));
+        }
+
+        div.prepend(inputDiv);
+
+        div.on('click touchstart', function(e) {
+            if(!div.hasClass('active')) {
+                div.addClass('active');
+                setTimeout(function() {
+                    div.find('.inputs input:first-child').focus();
+                }, 100);
+            }
+        });
+
+        div.find('.inputs').on('keyup input', 'input', function(e) {
+            if($(this).val().toString().length >= settings.length || e.keyCode == 39) {
+                $(this).next().focus();
+            }
+            if(e.keyCode == 8 || e.keyCode == 37) {
+                $(this).prev().focus();
+            }
+            var value = '';
+            div.find('.inputs input').each(function() {
+                value = value + $(this).val().toString();
+            });
+            self.attr({
+                value: value
+            });
+        });
+
+        $(document).on('click touchstart', function(e) {
+            if(!$(e.target).parent().is(div) && !$(e.target).parent().parent().is(div)) {
+                var hide = true;
+                div.find('.inputs input').each(function() {
+                    if($(this).val().toString().length) {
+                        hide = false;
+                    }
+                });
+                if(hide) {
+                    div.removeClass('active');
+                    div.find('.inputs input').blur();
+                } else {
+                    div.addClass('active');
+                }
+            }
+        });
+
+    });
+}
+</script>

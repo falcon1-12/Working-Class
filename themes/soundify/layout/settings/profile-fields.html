@@ -1,0 +1,32 @@
+<div class="sfy_mat_input">
+	<?php
+		$fid = '';
+		if (!empty($music->setting_fields[$data['fid']])) {
+			$fid = $music->setting_fields[$data['fid']];
+		}
+		if( isset( $_GET[ $data['fid'] ] ) && !empty( $_GET[ $data['fid'] ] ) ){
+			$fid = Secure( $_GET[ $data['fid'] ] );
+		}
+
+		if ($data['select_type'] == 'yes') {
+			$options = @explode(',', $data['type']);
+	?>
+		<select name="<?php echo $data['fid'];?>" class="sfy_select_has_label">
+			<?php if( isset( $data['issearch'] ) ){ ?> <option value=""><?php echo lang('all');?></option> <?php } ?>
+			<?php
+				foreach ($options as $key => $value) {
+					$selected = (($key + 1) == $fid) ? 'selected' : '';
+			?>
+				<option value="<?php echo $key + 1;?>" <?php echo $selected;?>><?php echo $value;?></option>
+			<?php } ?>
+		</select>
+	<?php } else { if ($data['type'] == 'textbox') { ?>
+		<input id="<?php echo $data['fid'];?>" name="<?php echo $data['fid'];?>" type="text" placeholder="<?php echo $data['name']; ?>" value="<?php echo $fid?>">
+	<?php } else if ($data['type'] == 'textarea') {?>
+		<textarea id="<?php echo $data['fid'];?>" placeholder="<?php echo $data['name']; ?>" name="<?php echo $data['fid'];?>" rows="3"><?php echo br2nl($fid);?></textarea>
+	<?php } } ?>
+	<label for="<?php echo $data['fid'];?>"><?php echo $data['name']; ?></label>
+	<?php if( !isset( $data['issearch'] ) ){ ?>
+		<small class="form-text"><?php echo $data['description'];?></small>
+	<?php } ?>
+</div>

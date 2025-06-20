@@ -1,0 +1,19 @@
+<div class="blog_list" data-id="<?php echo $data['id'];?>">
+	<div class="blog_list_innr">
+		<div class="avatar">
+			<img src="<?php echo $data['thumbnail'];?>" alt="<?php echo $data['title'];?>">
+			<div class="sfy_main_blogs_info">
+				<div class="valign sfy_blog_mini_hdr">
+					<a class="sfy_blog_mini_cat" href="{{LINK }}blogs/<?php echo $data['category'] . '_' . url_slug(html_entity_decode($data['category_text']));?>" data-load="/blogs/<?php echo $data['category'] . '_' . url_slug(html_entity_decode($data['category_text']));?>"><?php echo $data['category_text'];?></a>
+					<time><?php echo $data['created_at'];?></time>
+				</div>
+				<h2 class="art-title">
+					<a href="{{LINK }}article/<?php echo $data['id'] . '_' . url_slug(html_entity_decode($data['title']));?>" data-load="/article/<?php echo $data['id'] . '_' . url_slug(html_entity_decode($data['title']));?>"><?php echo $data['title'];?></a>
+				</h2>
+				<div class="sfy_blog_mini_foot">
+					<a href="{{LINK }}article/<?php echo $data['id'] . '_' . url_slug(html_entity_decode($data['title']));?>" data-load="/article/<?php echo $data['id'] . '_' . url_slug(html_entity_decode($data['title']));?>" class="btn btn-flat btn_primary waves-effect waves-light">{{LANG READ MORE}} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" fill="currentColor"></path></svg></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

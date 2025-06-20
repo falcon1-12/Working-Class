@@ -1,0 +1,132 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="page_padding">
+			<?php $loadPage = loadPage('thirdparty/paypal-demo'); echo (!empty($loadPage)) ? $loadPage : '';?>
+			<h3 class="light text-center mb-5"> {{LANG Discover more features with our Premium package!}}</h3>
+			<div class="row">
+				<div class="col price_plans_col">
+					<div class="content d-flex flex-column price_plans">
+						<h5>{{LANG Free Plan}}</h5>
+						<div class="pricing_p_price"><sup>$</sup><b>0.00</b></div>
+						<hr>
+						<div class="plan_body">
+							<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg> {{LANG Upload songs up to}} {{CONFIG max_upload_tx}}</p>
+							<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg> {{LANG Pro badge}}</p>
+							<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg> {{LANG Spotlight your songs (featured)}}</p>
+							<?php if ($music->config->can_use_download) {?>
+								<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg> {{LANG Download songs}}</p>
+							<?php } else { ?>
+								<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg> {{LANG Download songs}}</p>
+							<?php } ?>
+							<!-- <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg> {{LANG Turn off comments/download}}</p> -->
+						</div>
+						<div class="button_go_pro mt-auto">
+							<button class="btn btn-default btn-mat" onclick="location.href='{{LINK }}';">{{LANG Current Plan}}</button>
+						</div>
+					</div>
+				</div>
+				<?php foreach ($music->pro_packages as $key => $value) { ?>
+				<?php if ($value['status'] == 1) { ?>
+					<div class="col price_plans_col">
+						<div class="content d-flex flex-column price_plans">
+							<h5><?php echo $value['name']; ?></h5>
+							<div class="pricing_p_price"><sup>{{CONFIG currency_symbol}}</sup><b><?php echo $value['price'];?></b><sub>/<?php echo (!empty($value['time_count']) ? $value['time_count'] : '').' '.lang($value['time']);?></sub></div>
+							<hr>
+							<div class="plan_body">
+								<p>
+									<?php if ($value['featured_member']) { ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
+									<?php }else{ ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+									<?php } ?> {{LANG featured_member}} 
+								</p>
+								<p>
+									<?php if ($value['verified_badge']) { ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
+									<?php }else{ ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+									<?php } ?> {{LANG verified_badge}} 
+								</p>
+								<p>
+									<?php if ($value['artist_member']) { ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
+									<?php }else{ ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+									<?php } ?> {{LANG Become an artist}}
+								</p>
+								
+								<?php foreach ($music->available_pro_features as $key2 => $value2) { ?>
+									<p>
+										<?php if ($value[$value2]) { ?>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#41EAC5" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg>
+										<?php }else{ ?>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+										<?php } ?> <?php echo lang($value2);?>
+									</p>
+								<?php } ?>
+								<p>
+									<?php if (!empty($value['max_upload'])) { ?>
+										<?php   
+											if ($value['max_upload'] == '2000000') {
+												echo "2 MB";
+											} elseif ($value['max_upload'] == '6000000') {
+												echo "6 MB";
+											} elseif ($value['max_upload'] == '12000000') {
+												echo "12 MB";
+											} elseif ($value['max_upload'] == '24000000') {
+												echo "24 MB";
+											} elseif ($value['max_upload'] == '48000000') {
+												echo "48 MB";
+											} elseif ($value['max_upload'] == '96000000') {
+												echo "96 MB";
+											} elseif ($value['max_upload'] == '256000000') {
+												echo "256 MB";
+											} elseif ($value['max_upload'] == '512000000') {
+												echo "512 MB";
+											} elseif ($value['max_upload'] == '1000000000') {
+												echo "1 GB";
+											} elseif ($value['max_upload'] == '5000000000') {
+												echo "5 GB";
+											} elseif ($value['max_upload'] == '10000000000') {
+												echo "10 GB";
+											} elseif ($value['max_upload'] == '1000000000000') {
+												echo lang('unlimited');
+											} else{
+												echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>';
+											}
+										?>
+									<?php }else{ ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+									<?php } ?> {{LANG max_upload}} 
+								</p>
+								<p>
+									<?php if (!empty($value['discount']) && is_numeric($value['discount']) && $value['discount'] > 0) { ?>
+										<?php echo $value['discount']."% ".lang('discount'); ?>
+									<?php }else{ ?>
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fd9e97" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+									<?php } ?> {{LANG discount}} 
+								</p>
+								<?php if (!empty($value['description'])) { ?>
+									<p>
+										<?php echo $value['description']; ?>
+									</p>
+								<?php } ?>
+							</div>
+							
+							<div class="button_go_pro mt-auto">
+								<button class="btn btn-primary btn-mat" onclick="purchaseTrack('<?php echo $value['id'];?>', $(this),'go_pro','<?php echo $value['price'];?>')">{{LANG Upgrade}}</button>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+				<?php } ?>
+			</div>
+			<section class="pro_features">
+				<div class="valign p_feat_innr">
+					<svg enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m494.933 216.448c0 142.845-99.868 265.74-238.933 295.552-139.371-29.867-238.933-153.024-238.933-295.552v-165.259c82.792 0 161.037-15.236 238.933-51.189 123.735 57.099 234.299 50.659 237.003 51.2z" fill="#6994ff"/><path d="m494.933 216.448c0 63.904-20.021 123.915-54.667 173.376-83.35 83.195-216.396 82.365-298.502 1.749-56.366-55.344-90.564-132.223-90.564-215.754v-125.355c70.773-3.595 140.299-20.693 204.8-50.464 74.507 34.382 152.861 51.189 236.949 51.189.1.02-.038-7.85 1.984 165.259z" fill="#80aaff"/><path d="m307.2 238.933c-9.426 0-17.067-7.641-17.067-17.067v-42.666c0-18.821-15.312-34.133-34.133-34.133s-34.133 15.312-34.133 34.133v42.667c0 9.426-7.641 17.067-17.067 17.067s-17.067-7.641-17.067-17.067v-42.667c0-37.642 30.624-68.267 68.267-68.267s68.267 30.624 68.267 68.267v42.667c0 9.425-7.641 17.066-17.067 17.066z" fill="#efd66c"/><path d="m358.4 228.693v122.88c0 11.315-9.165 20.48-20.48 20.48h-163.84c-11.315 0-20.48-9.165-20.48-20.48 0-133.961-.356-124.654.819-128.627 2.483-8.512 10.342-14.733 19.661-14.733h163.84c11.315 0 20.48 9.165 20.48 20.48z" fill="#ffe773"/><path d="m358.4 228.693v112.64h-71.68c-68.544 0-124.979-51.789-132.301-118.387 2.483-8.512 10.342-14.733 19.661-14.733h163.84c11.315 0 20.48 9.165 20.48 20.48z" fill="#ffec8f"/><path d="m256 315.733c-9.426 0-17.067-7.641-17.067-17.067v-17.066c0-9.426 7.641-17.067 17.067-17.067s17.067 7.641 17.067 17.067v17.067c0 9.425-7.641 17.066-17.067 17.066z" fill="#999"/></svg> {{LANG Secured payment transaction}}
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

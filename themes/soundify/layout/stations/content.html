@@ -1,0 +1,27 @@
+<div class="sfy_stations" id="new-music">
+	{{STATIONS}}
+</div>
+<?php if ($music->stations > 500) { ?>
+	<div class="text-center see_all">
+		<a href="javascript:void(0); loadMore('stations');" id="load-more-button"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></span> {{LANG Load More}}</a>
+	</div>
+<?php } ?>
+
+<script>
+    function deleteStation(id){
+        let postForm = new FormData();
+            postForm.append( 'id', id );
+        $.ajax({
+            type: 'POST',
+            url: '{{CONFIG ajax_url}}/delete-song?id='+id+'&hash_id=' + $('.main_session').val(),
+            data: postForm,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                if (data.status == 200) {
+                    $('.track_list[data-id="' + id + '"]').remove();
+                }
+            }
+        });
+    }
+</script>

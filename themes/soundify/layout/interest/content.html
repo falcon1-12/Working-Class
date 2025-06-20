@@ -1,0 +1,111 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="page_padding">
+			<div class="reset_page ma_interest">
+				<div class="ma_interest_innr">
+					<h2 tabindex="-1" class="ma_interest_hding">{{LANG Select your music preference}}</h2>
+					<p tabindex="-1" class="ma_interest_subhding">{{LANG Choose below to start}}</p>
+					<ul class="list-unstyled ma_interest_list">
+						<?php foreach($music->categories as $key => $category){?>
+							<li>
+								<input type="checkbox" class="interest-genre" id="cat_<?php echo $key;?>" value="<?php echo $key;?>">
+								<label for="cat_<?php echo $key;?>"><?php echo $category;?></label>
+							</li>
+						<?php } ?>
+					</ul>
+					<button class="btn btn-primary btn-mat btn-mat-raised btn-save_intrst">{{LANG Next}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="msgbox" tabindex="-1" role="dialog" aria-labelledby="msgbox" aria-hidden="true">
+	<div class="modal-dialog mat_box" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">{{LANG Select your music preference}}</h5>
+			</div>
+			<div class="modal-body">
+			{{LANG You have to choose your favorites genres below}}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">{{LANG Close}}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click','.interest-genre',function(e){
+            //e.preventDefault();
+            // $(this).prop('checked', true);
+            // $(this).attr('checked', true);
+        });
+        $(document).on('click','.btn-save_intrst',function(e){
+            e.preventDefault();
+            let genres = [];
+            let formData = new FormData();
+				$(".interest-genre:checked").each ( function() {
+                    genres.push($(this).val());
+				});
+				if(genres.length > 0) {
+					formData.append('genres', genres);
+				}else{
+				    $('#msgbox').modal('show');
+				    return;
+				}
+			$('.btn-save_intrst').html("{{LANG Please wait...}}");
+            $.ajax({
+                url: '{{CONFIG ajax_url}}/user/interest?hash_id=' + getHashID(),
+                type : 'POST',
+                data : formData,
+                contentType:false,
+                cache: false,
+                processData:false,
+                success : function(data) {
+                    if (data.status == 200) {
+                        $('.btn-save_intrst').html("{{LANG Next}}");
+                        ajaxRedirect('discover');
+                    }
+                }
+            });
+		});
+
+        var options = {
+            url: "{{CONFIG ajax_url}}/auth/signup?hash_id=" + getHashID(),
+            beforeSubmit:  function () {
+                $('#output-singup-errors').removeClass("alert-success").addClass('alert-danger');
+                $('#output-singup-errors').empty();
+                $("#btn-singup-submit").text("{{LANG Please wait..}}");
+            },
+            success: function (data) {
+                $("#btn-singup-submit").text("{{LANG Signup}}");
+                if (data.status == 200) {
+                    if ($('#page').attr('data-page') != 'home' && $('#page').attr('data-page') != 'forgot' && $('#page').attr('data-page') != 'reset') {
+                        $('#main-header').html(data.header);
+                        $('#signup_box').modal('hide');
+
+                        if (Amplitude.getActiveSongMetadata().price > 0) {
+                            location.href = '{{CONFIG site_url}}';
+                        } else {
+                            ajaxRedirect();
+                        }
+                    } else {
+                        location.href = '{{CONFIG site_url}}';
+                    }
+                } else if (data.status == 400) {
+                    var errros = data.errors.join("<br>");
+                    $('#output-singup-errors').html(errros);
+                } else if (data.status == 403) {
+                    $('#output-singup-errors').removeClass("alert-danger").addClass('alert-success');
+                    $('#output-singup-errors').html(data.message);
+                }
+            }
+        };
+
+        $('#signup-form').ajaxForm(options);
+    });
+</script>

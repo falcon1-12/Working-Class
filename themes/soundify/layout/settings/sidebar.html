@@ -1,0 +1,64 @@
+<div class="content st_sidebar">
+	<ul class="list-unstyled mb-0">
+		<li class="general <?php echo ($music->settings_page == 'general') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/general}}" data-load="settings/<?php echo $music->userData->username ?>/general"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1zm0 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="currentColor"></path></svg></span> {{LANG general_settings}}</a>
+		</li>
+		<li class="profile <?php echo ($music->settings_page == 'profile') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/profile}}" data-load="settings/<?php echo $music->userData->username ?>/profile"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M20 22H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v2zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12z" fill="currentColor"></path></svg></span> {{LANG profile_settings}}</a>
+		</li>
+		<?php if( $music->config->affiliate_system == '1' || $music->config->point_system == 'on' || $music->config->donate_system == 1){?>
+		<li class="balance <?php echo ($music->settings_page == 'balance' || $music->settings_page == 'withdrawals') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/balance}}" data-load="settings/<?php echo $music->userData->username ?>/balance"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20,7V5c0-1.103-0.897-2-2-2H5C3.794,3,2,3.799,2,6v11c0,2.201,1.794,3,3,3h15c1.104,0,2-0.896,2-2V9 C22,7.896,21.104,7,20,7z M4,6c0-0.805,0.55-0.988,1-1h13v2H5.012C4.55,6.988,4,6.805,4,6z M19,15h-2v-3h2V15z"></path></svg></span> {{LANG balance}}</a>
+		</li>
+		<?php } ?>
+		<?php if( $music->config->affiliate_system == '1' ){?>
+		<li class="password <?php echo ($music->settings_page == 'affiliates') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/affiliates}}" data-load="settings/<?php echo $music->userData->username ?>/affiliates"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z"></path></svg></span> {{LANG my_affiliates}}</a>
+		</li>
+		<?php } ?>
+		<?php if( $music->config->store_system == 'on' ){?>
+			<li class="emails <?php echo ($music->settings_page == 'addresses') ? 'active' : ''?>" title="{{LANG My Addresses}}">
+				<a href="{{LINK settings/<?php echo $music->userData->username ?>/addresses}}" data-load="settings/<?php echo $music->userData->username ?>/addresses"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></g></svg></span> {{LANG My Addresses}}</a>
+			</li>
+		<?php } ?>
+		<?php if( $music->config->invite_links_system == '1' ){?>
+		<li class="block <?php echo ($music->settings_page == 'invitation_links') ? 'active' : ''?>" title="{{LANG Invitation Links}}">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/invitation_links}}" data-load="settings/<?php echo $music->userData->username ?>/invitation_links"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></span> {{LANG Invitation Links}}</a>
+		</li>
+		<?php } ?>
+		<li class="balance <?php echo ($music->settings_page == 'wallet') ? 'active' : ''?>" title="{{LANG Wallet}}">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/wallet}}" data-load="settings/<?php echo $music->userData->username ?>/wallet"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"  width="24" height="24" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M20 9c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3zm-2 0V6H4v12h14v-3h-2c-1.1 0-2-1.1-2-2v-1.968C14 9.9 14.9 9 16 9h2zm-2 4h2v-2h-2v2z" fill="currentColor" fill-rule="evenodd"/></svg></span> {{LANG Wallet}}</a>
+		</li>
+		<hr>
+		<li class="general <?php echo ($music->settings_page == 'interest') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/interest}}" data-load="settings/<?php echo $music->userData->username ?>/interest"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,5H9V11H3V5M5,7V9H7V7H5M11,7H21V9H11V7M11,15H21V17H11V15M5,20L1.5,16.5L2.91,15.09L5,17.17L9.59,12.59L11,14L5,20Z" /></svg></span> {{LANG Interest}} {{LANG Settings}}</a>
+		</li>
+		<li class="emails <?php echo ($music->settings_page == 'notification') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/notification}}"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12,22A2,2 0 0,0 14,20H10A2,2 0 0,0 12,22M18,16V11C18,7.93 16.36,5.36 13.5,4.68V4A1.5,1.5 0 0,0 12,2.5A1.5,1.5 0 0,0 10.5,4V4.68C7.63,5.36 6,7.92 6,11V16L4,18V19H20V18L18,16Z" fill="currentColor"></path></svg></span> {{LANG notification_settings}}</a>
+		</li>
+		<hr>
+		<li class="password <?php echo ($music->settings_page == 'password') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/password}}" data-load="settings/<?php echo $music->userData->username ?>/password"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M18 8h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2V7a6 6 0 1 1 12 0v1zm-2 0V7a4 4 0 1 0-8 0v1h8zm-5 6v2h2v-2h-2zm-4 0v2h2v-2H7zm8 0v2h2v-2h-2z" fill="currentColor"></path></svg></span> {{LANG change_password}}</a>
+		</li>
+		<li class="emails <?php echo ($music->settings_page == 'manage-sessions') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/manage-sessions}}" data-load="settings/<?php echo $music->userData->username ?>/manage-sessions"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M17 13v1c0 2.77-.664 5.445-1.915 7.846l-.227.42-1.747-.974c1.16-2.08 1.81-4.41 1.882-6.836L15 14v-1h2zm-6-3h2v4l-.005.379a12.941 12.941 0 0 1-2.691 7.549l-.231.29-1.55-1.264a10.944 10.944 0 0 0 2.471-6.588L11 14v-4zm1-4a5 5 0 0 1 5 5h-2a3 3 0 0 0-6 0v3c0 2.235-.82 4.344-2.271 5.977l-.212.23-1.448-1.38a6.969 6.969 0 0 0 1.925-4.524L7 14v-3a5 5 0 0 1 5-5zm0-4a9 9 0 0 1 9 9v3c0 1.698-.202 3.37-.597 4.99l-.139.539-1.93-.526c.392-1.437.613-2.922.658-4.435L19 14v-3A7 7 0 0 0 7.808 5.394L6.383 3.968A8.962 8.962 0 0 1 12 2zM4.968 5.383l1.426 1.425a6.966 6.966 0 0 0-1.39 3.951L5 11 5.004 13c0 1.12-.264 2.203-.762 3.177l-.156.29-1.737-.992c.38-.665.602-1.407.646-2.183L3.004 13v-2a8.94 8.94 0 0 1 1.964-5.617z" fill="currentColor"></path></svg></span> {{LANG manage_sessions}}</a>
+		</li>
+		<?php if( $music->config->two_factor == '1' ){?>
+		<li class="profile <?php echo ($music->settings_page == 'two-factor') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/two-factor}}" data-load="settings/<?php echo $music->userData->username ?>/two-factor"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M2,7V9H6V11H4A2,2 0 0,0 2,13V17H8V15H4V13H6A2,2 0 0,0 8,11V9C8,7.89 7.1,7 6,7H2M9,7V17H11V13H14V11H11V9H15V7H9M18,7A2,2 0 0,0 16,9V17H18V14H20V17H22V9A2,2 0 0,0 20,7H18M18,9H20V12H18V9Z" fill="currentColor"></path></svg></span> {{LANG two-factor_authentication}}</a>
+		</li>
+		<?php } ?>
+		<hr>
+		<li class="general <?php echo ($music->settings_page == 'my_info') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/my_info}}" data-load="settings/<?php echo $music->userData->username ?>/my_info"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"></path></svg></span> {{LANG My Information}}</a>
+		</li>
+		<li class="block <?php echo ($music->settings_page == 'blocked') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/blocked}}" data-load="settings/<?php echo $music->userData->username ?>/blocked"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM8.523 7.109l8.368 8.368a6.04 6.04 0 0 1-1.414 1.414L7.109 8.523A6.04 6.04 0 0 1 8.523 7.11z" fill="currentColor"></path></svg></span> {{LANG blocked_users}}</a>
+		</li>
+		<?php if( $music->config->delete_account == 'on' ){?>
+		<li class="delete <?php echo ($music->settings_page == 'delete') ? 'active' : ''?>">
+			<a href="{{LINK settings/<?php echo $music->userData->username ?>/delete}}" data-load="settings/<?php echo $music->userData->username ?>/delete"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5zm2-2v2h6V4H9z" fill="currentColor"></path></svg></span> {{LANG delete_account}}</a>
+		</li>
+		<?php } ?>
+	</ul>
+</div>

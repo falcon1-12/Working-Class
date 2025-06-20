@@ -1,0 +1,12 @@
+<div class="sidebar_widget">
+    <div class="s_widget_head">{{LANG SPONSOR ADS}}</div>
+    <a href="<?php global $site_url; echo $site_url . '/redirect/'.$data['ADDATA']->id;?>?type={{type}}" target="_blank" class="ds_side_adss">
+		<div>
+			<img src="<?php echo getMedia($data['ADDATA']->media);?>" alt="<?php echo $data['ADDATA']->headline;?>">
+			<span><?php echo url_domain(urldecode($data['ADDATA']->url));?></span>
+		</div>
+		<h3><?php echo $data['ADDATA']->headline;?></h3>
+		<p><?php echo $data['ADDATA']->description;?></p>
+		<!--<span>{{LANG By}} <?php echo $data['USERDATA']->name;?> </span>-->
+    </a>
+</div>

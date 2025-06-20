@@ -1,0 +1,149 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="container sfy_no_mobi_padd">
+			<div class="row sett_page">
+				<div class="col-md-4">
+					<?php echo loadPage("settings/sidebar"); ?>
+				</div>
+				<div class="col-md-8">
+					<div class="content st_content">
+						<h2 class="user_sttng_panel_hd">{{LANG General Settings}}</h2>
+						<form method="post" action="" id="general-form">
+							<div class="alert alert-danger alert-empty" id="output-general-errors"></div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="sfy_mat_input">
+										<input type="text" name="username" id="username" placeholder="{{LANG Username}}" value="{{USER username}}" autofocus="">
+										<label for="username">{{LANG Username}}</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="sfy_mat_input">
+										<input type="email" name="email" id="email" placeholder="{{LANG Email}}" value="{{USER email}}">
+										<label for="email">{{LANG Email}}</label>
+									</div>
+								</div>
+							</div>
+							<div class="sfy_mat_input">
+								<select id="country" class="sfy_select_has_label" name="country">
+									{{COUNTRIES_LAYOUT}}
+								</select>
+								<label for="country">{{LANG Country}}</label>
+							</div>
+							<?php if ($music->config->donate_system == 1 && $music->config->can_use_donate_system) { ?>
+								<div class="sfy_mat_input">
+									<input type="email" name="paypal_email" id="paypal_email" placeholder="{{LANG PayPal E-mail}}" value="{{USER paypal_email}}">
+									<label for="paypal_email">{{LANG PayPal E-mail}}</label>
+								</div>
+							<?php } ?>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="sfy_mat_input">
+										<select id="age" name="age" class="sfy_select_has_label">
+											<option value="0">Not selected</option>
+											<?php for ($i=1; $i < 100; $i++) { ?>
+												<option value="<?php echo $i;?>" <?php echo ($music->userData->age == $i) ? 'selected': '';?>><?php echo $i;?></option>
+											<?php } ?>
+										</select>
+										<label for="age">{{LANG Age}}</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="sfy_mat_input">
+										<select id="gender" class="sfy_select_has_label" name="gender">
+											<option value="male" <?php echo ($music->userData->gender == 'male') ? 'selected': '';?>>{{LANG Male}}</option>
+											<option value="female" <?php echo ($music->userData->gender == 'female') ? 'selected': '';?>>{{LANG Female}}</option>
+										</select>
+										<label for="gender">{{LANG Gender}}</label>
+									</div>
+								</div>
+							</div>
+							<?php if (isAdmin()) {?>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="sfy_mat_input">
+											<select id="ispro" class="sfy_select_has_label" name="ispro">
+												<option value="no" <?php echo ($music->userData->is_pro == 0) ? 'selected': '';?>>{{LANG No}}</option>
+												<?php foreach ($music->pro_packages as $key => $value) { ?>
+													<option value="<?php echo $key; ?>" <?php echo ($music->userData->pro_type == $key && $music->userData->is_pro != 0) ? 'selected': '';?>><?php echo $value['name']; ?></option>
+												<?php } ?>
+											</select>
+											<label for="ispro">{{LANG Pro user}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="sfy_mat_input">
+											<select id="verified" class="sfy_select_has_label" name="verified">
+												<option value="yes" <?php echo ($music->userData->verified == 1) ? 'selected': '';?>>{{LANG Yes}}</option>
+												<option value="no" <?php echo ($music->userData->verified == 0) ? 'selected': '';?>>{{LANG No}}</option>
+											</select>
+											<label for="verified">{{LANG Verified}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="sfy_mat_input">
+											<select id="user_type" class="sfy_select_has_label" name="user_type">
+												<option value="yes" <?php echo ($music->userData->artist == 1) ? 'selected': '';?>>{{LANG Artist}}</option>
+												<option value="no" <?php echo ($music->userData->artist == 0) ? 'selected': '';?>>{{LANG Normal User}}</option>
+											</select>
+											<label for="user_type">{{LANG User Type}}</label>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="sfy_mat_input">
+											<input type="text" name="wallet" id="wallet" placeholder="{{LANG Wallet}}" value="{{USER wallet}}">
+											<label for="wallet">{{LANG Wallet}}</label>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+							<?php
+								$fields = GetProfileFields('general');
+								if (count($fields) > 0) {
+									foreach ($fields as $key => $wo['field']) {
+										echo LoadPage('settings/profile-fields',$wo['field']);
+									}
+									echo '<input name="custom_fields" type="hidden" value="1">';
+								}
+							?>
+							<div class="sfy_sett_footer">
+								<button type="submit" class="btn btn-primary btn-mat" id="btn-general-submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z"></path></svg> {{LANG Save}}</button>
+							</div>
+							<input type="hidden" id="user-id" name="user_id" value="{{USER id}}">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() { 
+    var options = { 
+    	url: "{{CONFIG ajax_url}}/user/general?hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#output-general-errors').removeClass("alert-success").addClass('alert-danger');
+        	$('#output-general-errors').empty();
+        	$("#btn-general-submit").text("{{LANG Please wait..}}");
+        }, 
+        success: function (data) {
+        	$("#btn-general-submit").text("{{LANG Save}}");
+        	if (data.status == 200) {
+        		$('#output-general-errors').removeClass("alert-danger").addClass('alert-success');
+        		$('#output-general-errors').html(data.message);
+        		setTimeout(function () {
+        			$('#output-general-errors').html("");
+        		}, 2000);
+        	} else if (data.status == 400) {
+        		var errros = data.errors.join("<br>");
+        		$('#output-general-errors').html(errros);
+        	} 
+        }
+    }; 
+    $('#general-form').ajaxForm(options); 
+}); 
+</script>

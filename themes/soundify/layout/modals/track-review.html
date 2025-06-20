@@ -1,0 +1,130 @@
+<div class="modal fade" id="track_unreported" tabindex="-1" role="dialog" aria-labelledby="track_unreported" aria-hidden="true" data-id="0">
+    <div class="modal-dialog mat_box" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+				<div class="no-track-found" style="padding: 30px 0px;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path></svg> {{LANG The track report was successfully deleted.}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="review_track" tabindex="-1" role="dialog" aria-labelledby="report_track" aria-hidden="true">
+    <div class="modal-dialog mat_box" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{LANG Review track.}}</h5>
+            </div>
+            <form method="post" action="" id="track-review-form">
+                <div class="modal-body">
+					<div class="alert alert-danger alert-empty" id="output-review-track-errors"></div>
+					<div class='rating-stars'>
+						<ul class="list-unstyled" id='stars'>
+							<li class='star' title='Poor' data-value='1'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z" /></svg></li>
+							<li class='star' title='Fair' data-value='2'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z" /></svg></li>
+							<li class='star' title='Good' data-value='3'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z" /></svg></li>
+							<li class='star' title='Excellent' data-value='4'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z" /></svg></li>
+							<li class='star' title='WOW!!!' data-value='5'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z" /></svg></li>
+						</ul>
+					</div>
+					<div class="sfy_mat_input">
+						<textarea name="track_review_description" id="track_review_description" placeholder="{{LANG Please enter your review.}}" rows="4"></textarea>
+						<label for="track_review_description">{{LANG Please enter your review.}}</label>
+					</div>
+                </div>
+                <input type="hidden" id="review_track_id" name="id">
+                <input type="hidden" id="review_track_oid">
+                <input type="hidden" id="track_stars" name="track_stars" value="0">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-mat btn-default" data-dismiss="modal">{{LANG Cancel}}</button>
+                    <button type="submit" class="btn btn-primary btn-mat" disabled="disabled" id="btn-review-track-submit">{{LANG Submit}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        /* 1. Visualizing things on Hover - See next part for action on click */
+        $('#stars li').on('mouseover', function(){
+            var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+            // Now highlight all the stars that's not after the current hovered star
+            $(this).parent().children('li.star').each(function(e){
+                if (e < onStar) {
+                    $(this).addClass('hover');
+                }
+                else {
+                    $(this).removeClass('hover');
+                }
+            });
+
+        }).on('mouseout', function(){
+            $(this).parent().children('li.star').each(function(e){
+                $(this).removeClass('hover');
+            });
+        });
+
+        $('#track_review_description').bind('input propertychange', function() {
+            if(this.value.length){
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                if (ratingValue > 1) {
+                    $('#btn-review-track-submit').removeAttr('disabled');
+                }
+            }
+        });
+
+        /* 2. Action to perform on click */
+        $('#stars li').on('click', function(){
+            var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+            var stars = $(this).parent().children('li.star');
+            for (i = 0; i < stars.length; i++) {
+                $(stars[i]).removeClass('selected');
+            }
+            for (i = 0; i < onStar; i++) {
+                $(stars[i]).addClass('selected');
+            }
+            // JUST RESPONSE (Not needed)
+            var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+            var msg = "";
+            if (ratingValue > 1) {
+                $('#track_stars').val(ratingValue);
+                if( $('#track_review_description').val() !== '' ) {
+                    $('#btn-review-track-submit').removeAttr('disabled');
+                }
+                msg = "Thanks! You rated this " + ratingValue + " stars.";
+            }
+            else {
+                msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        var options = {
+            url: "{{CONFIG ajax_url}}/review-track?hash_id=" + getHashID(),
+            beforeSubmit:  function () {
+                $('#output-review-track-errors').removeClass('alert-success').addClass('alert-danger');
+                $('#output-review-track-errors').empty();
+                $("#btn-review-track-submit").text("{{LANG Please wait..}}");
+            },
+            success: function (data) {
+                $("#btn-review-track-submit").text("{{LANG Submit}}");
+                if (data.status == 200) {
+                    $('#output-review-track-errors').addClass('alert-success').removeClass('alert-danger');
+                    $('#output-review-track-errors').text("{{LANG Thanks for your submission.}}");
+                    setTimeout(function () {
+                        $('#track-review-form')[0].reset();
+                        $('#review_track').modal('hide');
+                        closeModal();
+                        goToAjaxLink('track/'+$('#review_track_oid').val());
+                        $('#output-review-track-errors').empty();
+                    }, 3000);
+                } else if (data.status == 400) {
+                    var errros = data.errors.join("<br>");
+                    $('#output-review-track-errors').html(errros);
+                }
+            }
+        };
+
+        $('#track-review-form').ajaxForm(options);
+    });
+</script>

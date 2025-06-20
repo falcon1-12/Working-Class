@@ -1,0 +1,223 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="content" id="main-form">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<form action="" method="POST" id="upload-audio" class="v-hidden">
+						<input type="file" name="audio" accept="audio/*" class="upload-audio-file hidden">
+					</form>
+					<h2 class="user_sttng_panel_hd">{{LANG Edit}} {{t_title}}</h2>
+					<form action="" class="form-horizontal upload_form" method="POST" id="song-form">
+						<div class="user-output-alert"></div>
+						<div class="alert alert-danger alert-empty" id="output-song-errors"></div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="upload-song-image" onclick="document.getElementById('thumbnail').click(); return false">
+									<div class="valign upload-image-content">
+										<img src="{{t_thumbnail}}" alt="">
+									</div>
+								</div>
+								<div class="progress hidden" id="img_upload_progress">
+									<div id="img_upload_progress_bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<div class="sfy_mat_input">
+									<input type="text" name="title" id="title" placeholder="{{LANG Title}}" required value="{{t_title}}">
+									<label for="title">{{LANG Title}}</label>
+									<small class="form-text">{{LANG Your song title, 2 - 55 characters}}</small>
+								</div>
+								<div class="sfy_mat_input">
+									<textarea name="description" id="description" placeholder="{{LANG Description}}" rows="4">{{t_edit_description}}</textarea>
+									<label for="description">{{LANG Description}}</label>
+								</div>
+								<div class="sfy_mat_input">
+									<textarea name="lyrics" id="lyrics" placeholder="{{LANG Lyrics}}" rows="3">{{t_edit_lyrics}}</textarea>
+									<label for="lyrics">{{LANG Lyrics}}</label>
+								</div>
+								<div class="sfy_mat_input">
+									<input name="tags" id="tags" type="text" placeholder="{{LANG Tags}}" value="{{t_tags}}">
+									<label for="tags">{{LANG Tags}}</label>  
+									<small class="form-text">{{LANG Add tags to describe more about your track}}</small>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="sfy_mat_input">
+											<select name="category_id" id="category_id" class="sfy_select_has_label">
+												<?php foreach($music->categories as $key => $category) {?>
+													<option value="<?php echo $key?>" <?php echo ($key == $music->songData->category_id) ? 'selected' : '';?>><?php echo $category?></option>
+												<?php } ?>
+											</select>
+											<label for="category_id">{{LANG Genre}}</label>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="sfy_mat_input">
+											<select name="privacy" id="privacy" class="sfy_select_has_label">
+												<option value="0" <?php echo ($music->songData->availability == 0) ? 'selected' : '';?>>{{LANG Public}}</option>
+												<option value="1" <?php echo ($music->songData->availability == 1) ? 'selected' : '';?>>{{LANG Private}}</option>
+											</select>
+											<label for="privacy">{{LANG Availability}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="sfy_mat_input">
+											<select name="allow_downloads" id="allow_downloads" class="sfy_select_has_label">
+												<option value="1" <?php echo ($music->songData->allow_downloads == 1) ? 'selected' : '';?>>{{LANG Yes}}</option>
+												<option value="0" <?php echo ($music->songData->allow_downloads == 0) ? 'selected' : '';?>>{{LANG No}}</option>
+											</select>
+											<label for="allow_downloads">{{LANG Allow downloads}}</label>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="sfy_mat_input">
+											<select name="display_embed" id="display_embed" class="sfy_select_has_label">
+												<option value="1" <?php echo ($music->songData->display_embed == 1) ? 'selected' : '';?>>{{LANG Yes}}</option>
+												<option value="0" <?php echo ($music->songData->display_embed == 0) ? 'selected' : '';?>>{{LANG No}}</option>
+											</select>
+											<label for="display_embed">{{LANG Display embed code}}</label>
+										</div>
+									</div>
+								</div>
+								<div class="sfy_mat_input">
+									<select name="age_restriction" id="age_restriction" class="sfy_select_has_label">
+										<option value="0" <?php echo ($music->songData->age_restriction == 0) ? 'selected' : '';?>>{{LANG All ages can listen this song}}</option>
+										<option value="1" <?php echo ($music->songData->age_restriction == 1) ? 'selected' : '';?>>{{LANG Only +18}}</option>
+									</select>
+									<label for="age_restriction">{{LANG Age Restriction}}</label>
+								</div>
+								<?php if (isAdmin()) {?>
+									<div class="sfy_mat_input">
+										<select id="spotlight" class="sfy_select_has_label" name="spotlight">
+											<option value="yes" <?php echo ($music->songData->spotlight == 1) ? 'selected': '';?>>{{LANG Yes}}</option>
+											<option value="no" <?php echo ($music->songData->spotlight == 0) ? 'selected': '';?>>{{LANG No}}</option>
+										</select>
+										<label for="spotlight">{{LANG Featured}}</label>
+									</div>
+								<?php }?>
+								<?php if ($music->config->itunes_import == 'on' && $music->config->can_use_itunes_affiliate && strpos($music->songData->src, 'TUNES')) { ?>
+									<div class="sfy_mat_input">
+										<input type="text" name="itunes_token" id="itunes_token" placeholder="{{LANG Itunes Partner Token}}" value="{{ITUNES_TOKEN}}">
+										<label for="itunes_token">{{LANG Itunes Partner Token}}</label>
+									</div>
+								<?php } ?>
+								<?php if ($music->config->can_use_sell && $music->config->artist_sell == 'on') {?>
+									<div class="sfy_mat_radio">
+										<p class="verify_text_1">{{LANG Price}}</p>
+										<div class="row">
+											<?php foreach($music->song_prices as $key => $value){?>
+												<div class="col-md-6">
+													<div class="sfy_custm_rdo">
+														<input type="radio" id="<?php echo $key;?>" name="song-price" value="<?php echo $value;?>" <?php if( $value == $music->songData->price ) { echo 'checked'; }?>>
+														<label for="<?php echo $key;?>">{{CONFIG currency_symbol}}<?php echo $value;?></label>
+													</div>
+												</div>
+											<?php }?>
+										</div>
+									</div>
+								<?php }?>
+							</div>
+						</div>
+						<div class="sfy_forms_sbm_btn text-center">
+							<button type="submit" class="btn btn-primary btn-mat btn-mat-raised" id="btn-song-submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg> {{LANG Save Track}}</button>
+						</div>
+						<input type="hidden" name="song-id" id="song-id" value="{{t_audio_id}}">
+						<input type="hidden" name="song-thumbnail" id="song-thumbnail" value="">
+					</form>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<form action="" id="thumbnail-form" method="POST">
+   <input id="thumbnail" name="thumbnail" type="file" style="visibility: hidden;" accept="image/*">
+</form>
+
+<script>
+// Upload Music Page
+$(function () {
+    $('[type=radio]').uncheckableRadio();
+	$("#tags").tagit({
+		allowSpaces: true
+	});
+    var options = { 
+    	url: "{{CONFIG ajax_url}}/edit-song?hash_id=" + getHashID(),
+        beforeSubmit:  function () {
+        	$('#output-song-errors').removeClass("alert-success").addClass('alert-danger');
+        	$('#output-song-errors').empty();
+        	$("#btn-song-submit").text("{{LANG Please wait..}}");
+        	$("#btn-song-submit").attr("disabled", "true");
+        	
+        }, 
+        success: function (data) {
+        	if (data.status == 200) {
+        		$('#output-song-errors').removeClass("alert-danger").addClass('alert-success');
+        		$('#output-song-errors').html("{{LANG The new track details are updated, please wait..}}");
+        		setTimeout(function () {
+        			goToAjaxLink('track/' + $('#song-id').val());
+        		}, 1000);
+        	} else if (data.status == 400) {
+        		$("#btn-song-submit").removeAttr("disabled");
+        		$("#btn-song-submit").text("{{LANG Save Track}}");
+        		$('#output-song-errors').html(data.message);
+        	}
+        	$('html, body').animate({scrollTop:0},500);
+        }
+    }; 
+
+    $('#song-form').ajaxForm(options); 
+
+	$('#thumbnail').change(function(event) {
+		if (!validate_fileupload($('#thumbnail').val(), ["jpg","png","jpeg","webp"])) {
+			showResponseAlert('.user-output-alert','danger',"{{LANG Invalid file format, only jpg, jpeg, png are allowed}}",2000);
+			return false;
+		}
+        let bar = $('#img_upload_progress');
+        let percent = $('#img_upload_progress_bar');
+        bar.removeClass('hidden');
+	   $.ajax({
+           xhr: function() {
+               let xhr = new window.XMLHttpRequest();
+               xhr.upload.addEventListener("progress", function(evt){
+                   if (evt.lengthComputable) {
+                       let percentComplete = evt.loaded / evt.total;
+                       percentComplete = parseInt(percentComplete * 100);
+                       //status.html( percentComplete + "%");
+                       percent.width(percentComplete + '%');
+                       percent.html(percentComplete + '%');
+                       if (percentComplete === 100) {
+                           // bar.addClass('hidden');
+                           // percent.width('0%');
+                           // percent.html('0%');
+                       }
+                   }
+               }, false);
+               return xhr;
+           },
+	        type: 'POST',
+	        url: '{{CONFIG ajax_url}}/upload-thumbnail?hash_id=' + $('.main_session').val(),
+	        data: new FormData($("#thumbnail-form")[0]),
+	        processData: false, 
+	        contentType: false, 
+	        success: function(data) {
+                bar.addClass('hidden');
+                percent.width('0%');
+                percent.html('0%');
+	        	if (data.status == 200) {
+	        		$('.upload-image-content').html('<img src="' + data.full_thumbnail + '" style="width: 100%">');
+	        		$('#song-thumbnail').val(data.thumbnail);
+	        	} else if (data.status == 400) {
+	        		showResponseAlert('.user-output-alert','danger',data.message,2000);
+	        	} else {
+	        		showResponseAlert('.user-output-alert','danger',"{{LANG Error found while uploading your image, please try again later.}}",2000);
+	        	}
+	        }
+	    });
+	});
+});
+</script>

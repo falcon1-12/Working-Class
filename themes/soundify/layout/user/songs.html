@@ -1,0 +1,13 @@
+<div class="feed_post_block" id="user-feed-data">
+	{{HTML}}
+</div>
+<?php 
+$third = 'all';
+if(!empty($music->third_url)) {
+	$third = secure($music->third_url);
+}
+if ($music->record_count > 0) { ?>
+<div class="text-center see_all">
+	<a href="javascript:void(0); loadMore('songs', '<?php echo $third?>');" id="load-more-button"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></span> {{LANG Load More}}</a>
+</div>
+<?php } ?>

@@ -1,0 +1,22 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="valign sfy_pg_title">
+			<h4 class="valign ptitle">
+				<div class="valign"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24"><path fill="currentColor" d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM1 5h2v4H1V5zm20 0h2v4h-2V5z"></path></svg></div> {{LANG Hall of fame}}
+			</h4>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="fame_page">
+				<div class="row ds_hall_art_prnt" id="fame_page_result">
+					{{DATA}}
+				</div>
+				<?php if ($music->fame) { ?>
+					<div class="text-center see_all">
+					    <a href="javascript:void(0); loadMore('fame_page', '');" id="load-more-button"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></span> {{LANG Load More}}</a>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</div>

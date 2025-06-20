@@ -1,0 +1,35 @@
+<style>
+header .opts_head_acc > .btn, header .head_user .opts_account > .btn, header .head_user .notis > .btn, header .chaticon > .btn {background-color: #080808;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
+</style>
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<button class="btn btn-mat btn-go-back" onclick="window.history.back();"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></button>
+		<div class="album_bg_cover genre_bg_cover">
+			<?php foreach ($music->categories as $key => $category) {?>
+				<div class="filters <?php echo ($music->category_id == $key) ? 'active' : ''?>">
+					<div class="filters_innr" style="background: linear-gradient(to bottom,<?php echo getCategoryInfo($key)->color?>,#<?php if ($_COOKIE['mode'] !== 'night') { ?>f9f9f9<?php } else { ?>171719<?php } ?> 100%);"></div>
+					<div class="f_name text-center"><?php echo $category?></div>
+					<div class="song_count text-center"><?php echo $db->where('category_id', $key)->getOne(T_SONGS, array('count(*) as cnt'))->cnt;?> {{LANG songs}}</div>
+				</div>
+			<?php } ?>
+			<div class="pro_white"></div>
+		</div>
+		<div class="sq_music_tracks exp_gnr_page">
+			<div class="short_list_cont top_dic_son_listz">
+				<div class="short_list_card">
+					<ul class="s_list_songs">
+						{{TOP_SONGS}}
+					</ul>
+					<?php if ($music->songs == 0) { ?>
+						<div class="no-track-found bg_light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19,9H2V11H19V9M19,5H2V7H19V5M2,15H15V13H2V15M17,13V19L22,16L17,13Z"></path></svg> {{LANG no_tracks_found}}</div>
+					<?php } ?>
+					<?php if ($music->songs > 29) { ?>
+						<div class="text-center see_all">
+							<a href="javascript:void(0); loadMore('categories', '{{category_id}}');" id="load-more-button"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></span> {{LANG Load More}}</a>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

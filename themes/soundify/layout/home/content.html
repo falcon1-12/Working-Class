@@ -1,0 +1,81 @@
+<div class="ma_home_nav">
+	<nav class="navbar">
+		<div class="container">
+			<a class="navbar-brand" href="">
+				<img src="{{CONFIG theme_url}}/img/logo.png?cache={{CONFIG logo_cache}}" alt="">
+			</a>
+			<div class="navbar-right">
+				<a href="#" data-toggle="modal" data-target="#login_box" class="btn btn-light btn-mat">{{LANG Login}}</a>
+				<?php if($music->config->user_registration == 'on'){?>
+					<a href="#" data-toggle="modal" data-target="#signup_box" class="btn btn-primary btn-mat btn-mat-raised">{{LANG Register}}</a>
+				<?php }?>
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="ma_home_head">
+	<div class="container">
+		<h1 class="heading">{{LANG Listen to Songs}}</h1>
+		<p class="sub_heading">{{LANG Discover, stream, and share a constantly expanding mix of music from emerging and major artists around the world.}}</p>
+		<div class="link_holder">
+			<a class="btn btn-mat btn-mat-raised btn-light" href="{{LINK discover}}">{{LANG Explore}} <svg viewBox="0 0 19 14" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="currentColor" d="M18.6 6.9v-.5l-6-6c-.3-.3-.9-.3-1.2 0-.3.3-.3.9 0 1.2l5 5H1c-.5 0-.9.4-.9.9s.4.8.9.8h14.4l-4 4.1c-.3.3-.3.9 0 1.2.2.2.4.2.6.2.2 0 .4-.1.6-.2l5.2-5.2h.2c.5 0 .8-.4.8-.8 0-.3 0-.5-.2-.7z"></path></svg></a>
+		</div>
+	</div>
+</div>
+<?php if( $music->thisWeekCount > 0 ){?>
+	<div class="container">
+		<div class="sfy_home_grid">
+			{{MOST_THIS_WEEK}}
+		</div>
+	</div>
+<?php } ?>
+<div class="jumbotron ma_home_features">
+	<div class="container">
+		<div class="valign row">
+			<div class="col-md-6">
+				<img src="{{CONFIG theme_url}}/img/music.svg" alt="{{LANG Listen Music Everywhere, Anytime}}" class="sfy_home_ftrs_img">
+			</div>
+			<div class="col-md-6">
+				<div class="sfy_home_ftrs">
+					<p>{{LANG Listen Music Everywhere, Anytime}}</p>
+					<h2>{{LANG Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.}}</h2>
+				</div>
+			</div>
+		</div>
+		<div class="valign row sfy_home_ftr_row">
+			<div class="col-md-6">
+				<img src="{{CONFIG theme_url}}/img/playlist.svg" alt="{{LANG Create Playlists with any song, On-The-Go}}" class="sfy_home_ftrs_img">
+			</div>
+			<div class="col-md-6">
+				<div class="sfy_home_ftrs">
+					<p>{{LANG Create Playlists with any song, On-The-Go}}</p>
+					<h2>{{LANG Second Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, 2}}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="jumbotron ma_home_jumbo_artist">
+	<div class="container ma_home_artist">
+		<h2 class="light main text-center">{{LANG Top Trending Artists}}</h2>
+		<div class="artist_section">
+			<?php echo $music->artists_html;?>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="ma_home_creator">
+		<div class="creator_content">
+			<h2>{{LANG Calling all creators}}</h2>
+			<p>{{LANG Ready to rock your world.}} <?php echo str_replace('{0}',$music->config->name, lang('Get on {0} to connect with fans, share your sounds, and grow your audience.'));?></p>
+			<div class="final_step">
+			<a href="#" data-toggle="modal" data-target="#login_box" class="btn btn-outline-white btn-mat">{{LANG Login}}</a>
+			<?php if($music->config->user_registration == 'on'){?>
+				<span>{{LANG or}}</span>
+				<a href="#" data-toggle="modal" data-target="#signup_box" class="btn btn-primary btn-mat btn-mat-raised">{{LANG Register}}</a>
+			<?php }?>
+		</div>
+		</div>
+	</div>
+</div>
+<?php echo loadPage('home/footer'); ?>

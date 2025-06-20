@@ -1,0 +1,196 @@
+<div class="ma_sidebar">
+	<div class="sidebar">
+		<div class="logo_container">
+			<a href="{{CONFIG site_url}}" <?php if( IS_LOGGED === true ) {?>data-load="feed"<?php }?>>
+				<?php if( $music->mode_link == 'day' ){?>
+				<img src="{{CONFIG theme_url}}/img/logo.png?cache={{CONFIG logo_cache}}" alt="">
+				<?php }else{ ?>
+				<img src="{{CONFIG theme_url}}/img/logo-white.png?cache={{CONFIG logo_cache}}" alt="">
+				<?php } ?>
+			</a>
+		</div>
+		<div class="dropdown sfy_search">
+			<form class="search_cont" data-toggle="dropdown" data-display="static" role="button" onSubmit="event.preventDefault();window.location = window.search_url + $('#search_keyword').val();">
+				<!--action="{{LINK search/songs}}" method="POST" >-->
+				<input name="search_keyword" id="search_keyword" value="<?php echo (isset($music->path['options'][2])) ? Secure($music->path['options'][2]) : '';?>" type="search" class="form-control" placeholder="{{LANG search_for_artists__tracks}}" autocomplete="off"/>
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+			</form>
+		</div>
+		<div class="sidebar_innr" data-simplebar>
+			<ul class="sections sfy_side_mobi_links">
+				<li class="<?php if( $music->site_pagename == 'discover' ) { echo 'active'; }?>">
+					<a href="{{LINK discover}}" data-load="discover"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19,5V7H15V5H19M9,5V11H5V5H9M19,13V19H15V13H19M9,17V19H5V17H9M21,3H13V9H21V3M11,3H3V13H11V3M21,11H13V21H21V11M11,15H3V21H11V15Z"></path><path class="active_path" fill="currentColor" d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"></path></svg> {{LANG Discover}}</a>
+				</li>
+				<?php if( IS_LOGGED === true ) {?>
+					<li class="<?php if( $music->site_pagename == 'feed' ) { echo 'active'; }?>">
+						<a href="{{LINK feed}}" data-load="feed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zm-2 3V4H4v15a1 1 0 0 0 1 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"></path><path class="active_path" fill="currentColor" d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zM6 7v2h8V7H6zm0 4v2h8v-2H6zm0 4v2h5v-2H6z"></path></svg> {{LANG browse}} {{LANG feed}}</a>
+					</li>
+				<?php }?>
+				<li class="<?php if( $music->site_pagename == 'top_music' ) { echo 'active'; }?>">
+					<a href="{{LINK top_music}}" data-load="top_music"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4.406 14.523l3.402-3.402 2.828 2.829 3.157-3.157L12 9h5v5l-1.793-1.793-4.571 4.571-2.828-2.828-2.475 2.474a8 8 0 1 0-.927-1.9zm-1.538 1.558l-.01-.01.004-.004A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10c-4.07 0-7.57-2.43-9.132-5.919z"></path><path class="active_path" fill="currentColor" d="M3.897 17.86l3.91-3.91 2.829 2.828 4.571-4.57L17 14V9h-5l1.793 1.793-3.157 3.157-2.828-2.829-4.946 4.946A9.965 9.965 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.987 9.987 0 0 1-8.103-4.14z"></path></svg> {{LANG Top Music}}</a>
+				</li>
+			</ul>
+			<ul class="sections">
+				<h3 class="sfy_side_mobi_links">{{LANG explore}}</h3>
+				<li class="<?php if( $music->site_pagename == 'new_music' ) { echo 'active'; }?>" id="new_music_nav">
+					<a href="{{LINK new_music}}" data-load="new_music" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 3v14a4 4 0 1 1-2-3.465V5H9v12a4 4 0 1 1-2-3.465V3h13zM5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M20 3v14a4 4 0 1 1-2-3.465V6H9v11a4 4 0 1 1-2-3.465V3h13z" class="active_path" fill="currentColor"></path></svg> {{LANG New Music}}</a>
+				</li>
+				<li class="<?php if( $music->site_pagename == 'albums' ) { echo 'active'; }?>" id="albums_nav">
+					<a href="{{LINK albums}}" data-load="albums" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15 4.582V12a3 3 0 1 1-2-2.83V2.05c5.053.501 9 4.765 9 9.95 0 5.523-4.477 10-10 10S2 17.523 2 12c0-5.185 3.947-9.449 9-9.95v2.012A8.001 8.001 0 0 0 12 20a8 8 0 0 0 3-15.418z"/><path d="M13 9.17A3 3 0 1 0 15 12V2.458c4.057 1.274 7 5.064 7 9.542 0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2c.337 0 .671.017 1 .05v7.12z" class="active_path" fill="currentColor"></path></svg> {{LANG Albums}}</a>
+				</li>
+				<li class="<?php if( $music->site_pagename == 'spotlight' ) { echo 'active'; }?>" id="spotlight_nav">
+					<a href="{{LINK spotlight}}" data-load="spotlight" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12.506 3.623l-1.023 1.772c-2.91-.879-5.514-.45-6.411 1.105-1.178 2.04.79 5.652 4.678 7.897s8 2.142 9.178.103c.898-1.555-.033-4.024-2.249-6.105l1.023-1.772c3.082 2.709 4.463 6.27 2.958 8.877-1.86 3.222-7.189 3.355-11.91.63C4.029 13.402 1.48 8.721 3.34 5.5c1.505-2.607 5.28-3.192 9.166-1.877zm3.378-1.85l1.732 1-5 8.66-1.732-1 5-8.66zM6.732 20H17v2H5.017a.995.995 0 0 1-.883-.5 1.005 1.005 0 0 1 0-1l2.25-3.897 1.732 1L6.732 20z"/><path d="M14.368 4.398l-3.484 6.035 1.732 1L16.1 5.398c4.17 2.772 6.306 7.08 4.56 10.102-1.86 3.222-7.189 3.355-11.91.63C4.029 13.402 1.48 8.721 3.34 5.5c1.745-3.023 6.543-3.327 11.028-1.102zm1.516-2.625l1.732 1-1.5 2.598-1.732-1 1.5-2.598zM6.732 20H17v2H5.017a.995.995 0 0 1-.883-.5 1.005 1.005 0 0 1 0-1l2.25-3.897 1.732 1L6.732 20z" class="active_path" fill="currentColor"></path></svg> {{LANG Spotlight}}</a>
+				</li>
+				<li class="<?php if( $music->site_pagename == 'genres' ) { echo 'active'; }?>" id="genres_nav">
+					<a href="{{LINK genres}}" data-load="genres" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z"/><path d="M20.083 10.5l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm0 4.7l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zM12.514 1.309l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0z" class="active_path" fill="currentColor"></path></svg> {{LANG Genres}}</a>
+				</li>
+				<li class="<?php if( $music->site_pagename == 'playlists' ) { echo 'active'; }?>" id="playlists_nav">
+					<a href="{{LINK playlists}}" data-load="playlists" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83zM18 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83z" class="active_path" fill="currentColor"></path></svg> {{LANG Playlists}}</a>
+				</li>
+				<?php if ($music->config->fame_system == 1) { ?>
+					<li class="<?php if( $music->site_pagename == 'fame' ) { echo 'active'; }?>" id="fame_nav">
+						<a href="{{LINK fame}}" data-load="fame" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM6 5v4a6 6 0 1 0 12 0V5H6zM1 5h2v4H1V5zm20 0h2v4h-2V5z"/><path d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM1 5h2v4H1V5zm20 0h2v4h-2V5z" class="active_path" fill="currentColor"></path></svg> {{LANG Hall of fame}}</a>
+					</li>
+				<?php } ?>
+				<?php if($music->config->radio_station_import == 'on'){?>
+					<li class="<?php if( $music->site_pagename == 'stations' ) { echo 'active'; }?>" id="stations_nav">
+						<a href="{{LINK stations}}" data-load="stations" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17 10V8h-2v2H5V6h14v4h-2zM6 3V1h2v2h13.008c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3H6zM4 5v14h16V5H4zm4 13a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M17 10h3V6H4v4h11V8h2v2zM6 3V1h2v2h13.008c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993A1 1 0 0 1 2.992 3H6zm1 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" class="active_path" fill="currentColor"></path></svg> {{LANG Stations}}</a>
+					</li>
+				<?php } ?>
+				<?php if($music->config->point_system == 'on' && $music->config->can_use_point_system){?>
+					<li class="<?php if( $music->site_pagename == 'payment_system' ) { echo 'active'; }?>" id="points_nav">
+						<a href="{{LINK point-system}}" data-load="point-system" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-12.95L16.95 12 12 16.95 7.05 12 12 7.05zm0 2.829L9.879 12 12 14.121 14.121 12 12 9.879z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z" class="active_path" fill="currentColor"></path></svg> {{LANG Earn Points}}</a>
+					</li>
+				<?php } ?>
+				{{HOOK LOAD_SIDEBAR_LINK}}
+			</ul>
+			<ul class="sections">
+				<?php if( $music->config->artist_sell == 'on' ) { ?>
+					<h3>{{LANG Store}}</h3>
+					<li class="<?php if( $music->site_pagename == 'store' ) { echo 'active'; }?>" id="store_nav">
+						<a href="{{LINK store/songs}}" data-load="store/songs" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M21 13v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7H2v-2l1-5h18l1 5v2h-1zM5 13v6h14v-6H5zm-.96-2h15.92l-.6-3H4.64l-.6 3zM6 14h8v3H6v-3zM3 3h18v2H3V3z"/><path d="M21 13v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7H2v-2l1-5h18l1 5v2h-1zM5 13v6h14v-6H5zm1 1h8v3H6v-3zM3 3h18v2H3V3z" class="active_path" fill="currentColor"></path></svg> {{LANG Browse}}</a>
+					</li>
+					<li class="<?php if( $music->site_pagename == 'purchased' ) { echo 'active'; }?>" id="purchased_nav">
+						<a href="{{LINK purchased}}" data-load="purchased" class="valign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2a6 6 0 0 1 6 6v1h4v2h-1.167l-.757 9.083a1 1 0 0 1-.996.917H4.92a1 1 0 0 1-.996-.917L3.166 11H2V9h4V8a6 6 0 0 1 6-6zm6.826 9H5.173l.667 8h12.319l.667-8zM13 13v4h-2v-4h2zm-4 0v4H7v-4h2zm8 0v4h-2v-4h2zm-5-9a4 4 0 0 0-3.995 3.8L8 8v1h8V8a4 4 0 0 0-3.8-3.995L12 4z"/><path d="M12 2a6 6 0 0 1 6 6v1h4v2h-1.167l-.757 9.083a1 1 0 0 1-.996.917H4.92a1 1 0 0 1-.996-.917L3.166 11H2V9h4V8a6 6 0 0 1 6-6zm1 11h-2v4h2v-4zm-4 0H7v4h2v-4zm8 0h-2v4h2v-4zm-5-9a4 4 0 0 0-3.995 3.8L8 8v1h8V8a4 4 0 0 0-3.8-3.995L12 4z" class="active_path" fill="currentColor"></path></svg> {{LANG Purchased}}</a>
+					</li>
+				<?php } ?>
+				<?php if( $music->config->store_system == 'on' && IS_LOGGED && $music->config->can_use_store_system) {
+					$have_product = $db->where('user_id',$music->user->id)->getValue(T_PRODUCTS,'COUNT(*)');
+					if ($have_product > 0) {
+				?>
+
+					<li onclick="OpenStoreMenu(this)">
+						<a href="javascript:void(0)" class="mystore_menu_parent d-flex align-items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M21 11.646V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.354A3.985 3.985 0 0 1 2 9V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v6c0 1.014-.378 1.94-1 2.646zm-2 1.228a4.007 4.007 0 0 1-4-1.228A3.99 3.99 0 0 1 12 13a3.99 3.99 0 0 1-3-1.354 3.99 3.99 0 0 1-4 1.228V20h14v-7.126zM14 9a1 1 0 0 1 2 0 2 2 0 1 0 4 0V4H4v5a2 2 0 1 0 4 0 1 1 0 1 1 2 0 2 2 0 1 0 4 0z"/><path d="M21 11.646V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.354A3.985 3.985 0 0 1 2 9V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v6c0 1.014-.378 1.94-1 2.646zM14 9a1 1 0 0 1 2 0 2 2 0 1 0 4 0V4H4v5a2 2 0 1 0 4 0 1 1 0 1 1 2 0 2 2 0 1 0 4 0z" class="active_path" fill="currentColor"></path></svg>&nbsp;{{LANG My Store}}<span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+						</a>
+					</li>
+					<div class="mystore_menu" style="display: none;">
+						<li class="<?php if( $music->site_pagename == 'orders' ) { echo 'active'; }?>">
+							<a href="{{LINK orders}}" data-load="orders">{{LANG Store Orders}}</a>
+						</li>
+						<li class="<?php if( $music->site_pagename == 'manage-products' ) { echo 'active'; }?>">
+							<a href="{{LINK manage_products}}" data-load="manage_products">{{LANG Manage Products}}</a>
+						</li>
+						<li class="<?php if( $music->site_pagename == 'store_analytics' ) { echo 'active'; }?>">
+							<a href="{{LINK store_analytics}}" data-load="store_analytics">{{LANG Store Analytics}}</a>
+						</li>
+					</div>
+				<?php } } ?>
+			</ul>
+			
+			<?php if ($music->config->event_system == 1) { ?>
+				<ul class="sections">
+					<h3>{{LANG Events}}</h3>
+					<li  class="<?php if( $music->site_pagename == 'events' ) { echo 'active'; }?>">
+						<a href="{{LINK events}}" data-load="events">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm3 6V5h-3v2h-2V5H9v2H7V5H4v4h16zm0 2H4v8h16v-8zM6 13h5v4H6v-4z"/><path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zM4 9v10h16V9H4zm2 4h5v4H6v-4z" class="active_path" fill="currentColor"></path></svg>
+							{{LANG Events}}
+						</a>
+					</li>
+				</ul>
+			<?php } ?>
+			
+			<ul class="sections">
+				<h3>{{LANG Your Music}}</h3>
+				<li class="<?php if( $music->site_pagename == 'recently_played' ) { echo 'active'; }?>" id="recently_played_nav"><a href="{{LINK recently_played}}" data-load="recently_played">{{LANG Recently Played}}</a></li>
+				<li class="<?php if( $music->site_pagename == 'my_playlists' ) { echo 'active'; }?>" id="my_playlists_nav"><a href="{{LINK my_playlists}}" data-load="my_playlists">{{LANG My Playlists}}</a></li>
+				<li class="<?php if( $music->site_pagename == 'favourites' ) { echo 'active'; }?>" id="favourites_nav"><a href="{{LINK favourites}}" data-load="favourites">{{LANG Favourites}}</a></li>
+			</ul>
+			<div class="ma_footer">
+				<?php echo GetAd('footer');?>
+				<div class="ma_footer_cright">
+					<?php
+						$lang_copy = lang("© |DATE| |NAME|");
+						$lang_copy = str_replace('|NAME|', $music->config->name, $lang_copy);
+						echo $lang_copy = str_replace('|DATE|', date('Y'), $lang_copy);
+					?>
+					<div class="lang_select dropup">
+						<button type="button" class="btn dropdown-toggle" data-toggle="modal" data-target="#select-language"><?php echo ucfirst($_SESSION['lang']); ?></button>
+					</div>
+				</div>
+				<div class="ma_footer_links">
+					<?php if (!empty($music->config->facebook_url)) { ?>
+						<a href="<?php echo($music->config->facebook_url); ?>" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"></path></svg>
+						</a> • 
+					<?php } ?>
+					<?php if (!empty($music->config->twitter_url)) { ?>
+						<a href="<?php echo($music->config->twitter_url); ?>" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></svg>
+						</a> • 
+					<?php } ?>
+					<?php if (!empty($music->config->google_url)) { ?>
+						<a href="<?php echo($music->config->google_url); ?>" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path></svg>
+						</a> • 
+					<?php } ?>
+					<?php if ($music->dmca_terms_page == 1) { ?>
+						<a href="{{LINK terms/dmca}}" data-load="terms/dmca">{{LANG DMCA}}</a> • 
+                    <?php } ?>
+						<a href="{{LINK blogs}}" data-load="blogs">{{LANG Blogs}}</a> • 
+                    <?php if ($music->about_page == 1) { ?>
+						<a href="{{LINK terms/about}}" data-load="terms/about">{{LANG About Us}}</a> • 
+                    <?php } ?>
+                    <?php if ($music->terms_of_use_page == 1) { ?>
+						<a href="{{LINK terms/terms}}" data-load="terms/terms">{{LANG Terms}}</a> • 
+                    <?php } ?>
+						<a href="{{LINK contact}}" data-load="contact">{{LANG Contact}}</a> • 
+                    <?php if ($music->privacy_policy_page == 1) { ?>
+						<a href="{{LINK terms/privacy}}" data-load="terms/privacy">{{LANG Privacy Policy}}</a> • 
+                    <?php } ?>
+						<a href="{{LINK terms/faqs}}" data-load="terms/faqs">{{LANG faqs}}</a>
+                    <?php if (IS_LOGGED && $music->config->developers_page == 'on') { ?>
+						 • <a href="{{LINK terms/developers}}" data-load="developers">{{LANG developers}}</a>
+					<?php } ?>
+					{{HOOK LOAD_FOOTER_CONTENT}}
+					<?php $pages = GetCustomPages();
+                    if (!empty($pages)) {
+                     ?>
+						 • <span class="dropup">
+							<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{LANG More}}</button>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<?php foreach($pages as $key => $page) { ?>
+									<li><a href="{{LINK site_pages/<?php echo($page['page_name']) ?>}}"><?php echo $page['page_title'];?></a></li>
+								<?php } ?>
+							</ul>
+						</span>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+function OpenStoreMenu(self) {
+	$(self).find('span').find('svg').remove();
+	if ($(".mystore_menu").is(":visible")) {
+		$(".mystore_menu").slideUp();
+		$(self).find('span').append('<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>');
+	}
+	else{
+		$(".mystore_menu").slideDown();
+		$(self).find('span').append('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="15" height="15" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z" fill="currentColor"/></svg>');
+	}
+}
+</script>

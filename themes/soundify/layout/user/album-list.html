@@ -1,0 +1,26 @@
+<div class="track_list playlist-p-list album-p-list" data-id="{{id}}">
+    <div class="track">
+		<style>.sfy_albm_art{{id}}:before, .sfy_albm_art{{id}}:after {background-image: url({{thumbnail}});}</style>
+        <div class="cover_art sfy_albm_art sfy_albm_art{{id}}">
+            <a href="{{url}}" data-load="album/{{album_id}}">
+                <img src="{{thumbnail}}" />
+				<?php if( $music->config->artist_sell == 'on' ) { ?>
+				<?php if($data['price'] > 0){?>
+					<b>{{CONFIG currency_symbol}}{{price}}</b>
+                <?php }?>
+				<?php } ?>
+				<!--onclick="playPlayListSongs({{id}}, 'album')"-->
+				<div class="valign play_btn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="currentColor" d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"></path></svg>
+				</div>
+            </a>
+        </div>
+        <div class="track_info">
+            <a href="{{url}}" data-load="album/{{album_id}}"><span class="title">{{title}}</span></a>
+            <a href="{{USER url}}" data-load="{{USER username}}"><span class="artist">{{USER name_v}}</span></a>
+            <span class="price_info">
+                <small title="{{LANG Songs}}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M12 13.535V3h8v3h-6v11a4 4 0 1 1-2-3.465z"></path></svg> {{songs}}</small>
+            </span>
+        </div>
+    </div>
+</div>

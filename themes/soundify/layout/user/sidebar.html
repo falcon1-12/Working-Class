@@ -1,0 +1,43 @@
+<div class="sidebar_widget sfy_usr_side">
+	<div class="sfy_usr_stats">
+		<a href="{{USER url}}/followers" data-load="{{USER username}}/followers">{{LANG Followers}}<span>{{COUNT_FOLLOWERS}}</span></a>
+		<a href="{{USER url}}/following" data-load="{{USER username}}/following">{{LANG Following}}<span>{{COUNT_FOLLOWING}}</span></a>
+		<a href="{{USER url}}/songs" data-load="{{USER username}}/songs">{{LANG tracks}}<span>{{COUNT_TRACKS}}</span></a>
+	</div>
+	<ul class="list-unstyled user_side_info_list">
+		<?php if (!empty($music->userData->about)) { ?>
+			<li><p class="mb-0">{{USER about}}</p></li>
+		<?php } ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.58,4H14V2H21V9H19V5.41L15.17,9.24C15.69,10.03 16,11 16,12C16,14.42 14.28,16.44 12,16.9V19H14V21H12V23H10V21H8V19H10V16.9C7.72,16.44 6,14.42 6,12A5,5 0 0,1 11,7C12,7 12.96,7.3 13.75,7.83L17.58,4M11,9A3,3 0 0,0 8,12A3,3 0 0,0 11,15A3,3 0 0,0 14,12A3,3 0 0,0 11,9Z" /></svg> {{LANG <?php echo $music->userData->gender?>}}</li>
+		<?php if ($music->userData->age > 0) { ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" /></svg> {{USER age}} {{LANG years old}}</li>
+		<?php } ?>
+		<?php if ($music->userData->country_id > 0) { ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg> {{LANG Located in}} {{USER country_name}}</li>
+		<?php } ?>
+		<?php if (!empty($music->userData->facebook)) { ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M18,5H15.5A3.5,3.5 0 0,0 12,8.5V11H10V14H12V21H15V14H18V11H15V9A1,1 0 0,1 16,8H18V5Z"></path></svg> <a class="text-light" href="https://www.facebook.com/{{USER facebook}}" target="_blank">/{{USER facebook}}</a></li>
+		<?php } ?>
+		<?php if (!empty($music->userData->twitter)) { ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.71,9.33C18.19,8.93 18.75,8.45 19,7.92C18.59,8.13 18.1,8.26 17.56,8.33C18.06,7.97 18.47,7.5 18.68,6.86C18.16,7.14 17.63,7.38 16.97,7.5C15.42,5.63 11.71,7.15 12.37,9.95C9.76,9.79 8.17,8.61 6.85,7.16C6.1,8.38 6.75,10.23 7.64,10.74C7.18,10.71 6.83,10.57 6.5,10.41C6.54,11.95 7.39,12.69 8.58,13.09C8.22,13.16 7.82,13.18 7.44,13.12C7.81,14.19 8.58,14.86 9.9,15C9,15.76 7.34,16.29 6,16.08C7.15,16.81 8.46,17.39 10.28,17.31C14.69,17.11 17.64,13.95 17.71,9.33Z"></path></svg> <a class="text-light" href="https://twitter.com/{{USER twitter}}" target="_blank">/{{USER twitter}}</a></li>
+		<?php } ?>
+		<?php if (!empty($music->userData->website)) { ?>
+			<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M16,6H13V7.9H16C18.26,7.9 20.1,9.73 20.1,12A4.1,4.1 0 0,1 16,16.1H13V18H16A6,6 0 0,0 22,12C22,8.68 19.31,6 16,6M3.9,12C3.9,9.73 5.74,7.9 8,7.9H11V6H8A6,6 0 0,0 2,12A6,6 0 0,0 8,18H11V16.1H8C5.74,16.1 3.9,14.26 3.9,12M8,13H16V11H8V13Z"></path></svg> <a class="text-light" href="{{USER website}}" target="_blank">{{USER website}}</a></li>
+		<?php } ?>
+		<?php
+        	$fields = GetProfileFields('all');
+        	if (count($fields) > 0) { ?>
+			<?php
+            foreach ($fields as $key => $wo['field']) {
+				$name = $wo['field']['fid'];
+				if (!empty($music->userData->fields[$name])) {
+					$dt = $wo['field'];
+					$dt['value'] = $music->userData->fields[$name];
+					echo LoadPage('user/custom-fields',$dt);
+				}
+			}
+			?>
+		<?php } ?>
+	</ul>
+</div>
+<?php echo GetAd('side_bar');?>

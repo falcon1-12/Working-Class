@@ -1,0 +1,25 @@
+<div class="valign post-actions">
+	<?php 
+		$music->small_like_button = true;
+		echo getLikeButton($music->songData->id, 'like-default');
+		echo getDisLikeButton($music->songData->id, 'dislike-default');
+		if (IS_LOGGED) { 
+	?>
+		<button class="ss_action_item" onclick="rePost('{{s_id}}', $(this));"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M4 19h16v-5h2v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6h2v5zm8-9H9a5.992 5.992 0 0 0-4.854 2.473A8.003 8.003 0 0 1 12 6V2l8 6-8 6v-4z" /></svg> {{LANG Re Post}}</button>
+	<?php } ?>
+</div>
+<div class="valign post-actions">
+	<?php if($music->config->artist_sell == 'on'){ ?>
+		<?php
+		$music->songData->owner = false;
+		if (IS_LOGGED) {
+			if($music->user->id == $music->songData->user_id) {
+				$music->songData->owner = true;
+			}
+		}
+		if (!isTrackPurchased($music->songData->id) && $music->songData->owner == false && $music->songData->price > 0 ) { ?>
+			<button class="ss_action_item btn-primary" onclick="purchaseTrack('{{s_audio_id}}', $(this),'buy_song','<?php echo $music->songData->price;?>')" data-title="<?php echo $music->songData->title;?>" data-price="<?php echo $music->songData->price;?>" title="{{LANG Purchase}}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M20,8H4V6H20M20,18H4V12H20M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg> {{CONFIG currency_symbol}}{{s_price}}</button>
+		<?php } ?>
+	<?php } ?>
+	<button class="ss_action_item" onclick="getShareModal('{{s_id}}', $(this));"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3v2H5v14h14v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6zm7.707 4.707L12 13.414 10.586 12l5.707-5.707L13 3h8v8l-3.293-3.293z" /></svg> {{LANG Share}}</button>
+</div>

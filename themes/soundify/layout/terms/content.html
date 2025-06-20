@@ -1,0 +1,22 @@
+<div class="ma_page_content sfy_pc_padd">
+	<div class="ma_pc_inner">
+		<?php echo loadPage('sidebar/top-header')?>
+		<div class="container sfy_no_mobi_padd">
+			{{terms_header}}
+			<div class="content <?php echo ($music->page_to_load == 'faqs') ? 'tube_faq' : '';?>">
+				{{terms_content}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php if ($music->page_to_load == 'faqs') { ?>
+<script>
+$(function() {
+	$(".accordion-item").click(function() {
+		// Toggle the item
+		$(this).toggleClass("is-active").find(".accordion-panel").slideToggle("ease-out");
+	});
+});
+</script>
+<?php } ?>

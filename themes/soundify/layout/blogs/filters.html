@@ -1,0 +1,15 @@
+<div class="store_filters">
+	<div class="store_widget">
+		<div class="s_widget_head">{{LANG Categories}}</div>
+		<div class="store_categories blog_cats_box">
+            <span class="check_box">
+                <a href="{{LINK }}blogs" data-load="/blogs" <?php if( $data['active_category'] == null ) { echo ' class="active" '; } ?>>{{LANG All}}</a>
+            </span>
+			<?php foreach($music->blog_categories as $key => $category){?>
+			    <span class="check_box">
+			        <a <?php if( $data['active_category'] == $key ) { echo ' class="active" '; } ?> href="{{LINK }}blogs/<?php echo $key . '_' . url_slug(html_entity_decode($category));?>" data-load="/blogs/<?php echo $key . '_' . url_slug(html_entity_decode($category));?>"><?php echo $category;?></a>
+				</span>
+			<?php } ?>
+		</div>
+	</div>
+</div>

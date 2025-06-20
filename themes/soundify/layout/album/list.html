@@ -1,0 +1,43 @@
+<li data-id="{{t_id_song}}" class="playlist-list-song" id="album_song_{{t_id_song}}">
+	<ul class="s_lsongs_child">
+		<li class="first">
+			<span class="numbers">{{t_key}} <button class="btn btn-mat" onclick="playSong('{{t_audio_id}}')" title="{{LANG Play}}"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="currentColor" d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/></svg></button></span>
+			<?php if (IS_LOGGED) { ?>
+				<?php 
+				if (!empty($music->getAlbum)) {
+					$user_id = $music->getAlbum->user_id;
+				}
+				else{
+					$user_id = $music->playlist->user_id;
+				}
+				if ($user_id == $music->user->id) { ?>
+                    <span class="fav_song sort-song-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                    </span>
+				<?php }else{?>
+                    <span class="fav_song"><?php echo getFavButton($music->songData->id, 'fav-icon');?></span>
+                <?php }?>
+			<?php }?>
+		</li>
+		<li class="second" onclick="playSong('{{t_audio_id}}')">
+			<div class="art_details">
+				<h4>{{t_title}}</h4>
+			</div>
+		</li>
+		<li class="third">
+			<span class="duration">{{t_duration}}</span>
+			<span class="opts_song dropdown">
+				<svg data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"></path></svg>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<?php if (IS_LOGGED) { ?>
+						<?php if ($user_id == $music->user->id) { ?>
+							<li><a href="javascript:void(0)" onclick="RemoveAlbumSong({{t_id_song}})">{{LANG Remove Song}}</a></li>
+						<?php } ?>
+					<?php } ?>
+					<li><a href="javascript:void(0)" onclick="getPlayLists({{t_id}})">{{LANG Add to Playlist}}</a></li>
+					<li><a onclick="getShareModal('{{t_id}}', $(this));">{{LANG Share}}</a></li>
+				</ul>
+			</span>
+		</li>
+	</ul>
+</li>
