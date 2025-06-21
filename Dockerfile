@@ -33,4 +33,4 @@ COPY . /var/www/html
 
 # Fix permissions
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/ww
+    && chmod -R 755 /var/www
