@@ -1,0 +1,3 @@
+[submodule "assets/libs/waveform/vendor/boyhagemann/wave/BoyHagemann/Wave"]
+	path = assets/libs/waveform/vendor/boyhagemann/wave/BoyHagemann/Wave
+	url = https://github.com/boyhagemann/wave.git
